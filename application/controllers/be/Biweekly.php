@@ -13,6 +13,7 @@ class Biweekly extends CI_Controller {
 			//$data['total_system_users'] = $this->main_model->get_total_system_users();
 			
 			$data['page_title'] = 'Bi-Weekly Reports List | ';
+	        $data['cur'] = 'Biweekly';			
 			$data['main_content'] = 'be/biweekly_list';
 			$this->load->view('be/includes/template',$data);
         } 

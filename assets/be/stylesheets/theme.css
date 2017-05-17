@@ -4,7 +4,7 @@ Written by: 	Okler Themes - (http://www.okler.net)
 Theme Version: 	1.6.0
 */
 @import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700');
-@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
 html,
 body {
 	background: #ecedf0;
@@ -7007,7 +7007,7 @@ html.header-dark .userbox .dropdown-menu a {
 }
 
 .sidebar-widget.widget-tasks ul li a {
-	color: #abb4be;
+	color: #000;
 	display: block;
 	margin: 0 -25px 0 -30px;
 	padding: 10px 0 10px 55px;
@@ -7015,6 +7015,7 @@ html.header-dark .userbox .dropdown-menu a {
 
 .sidebar-widget.widget-tasks ul li a:hover {
 	background: #21262d;
+	color: #fff;
 	text-decoration: none;
 }
 
@@ -13644,7 +13645,7 @@ ul.simple-bullet-list li.orange:before {
 	font-size: 1.6rem;
 	line-height: 2.2rem;
 	color: #333;
-	font-weight:bold;
+	font-weight:700;
 }
 
 .widget-summary .summary .info {
@@ -13953,7 +13954,7 @@ ul.simple-bullet-list li.orange:before {
 }
 
 .widget-summary.widget-summary-sm .summary .title {
-	font-size: 1.6rem;
+	font-size: 1.7rem;
 	line-height: 1.8rem;
 }
 

@@ -5,7 +5,7 @@
 		<!-- Basic -->
 		<meta charset="UTF-8">
 
-		<title>Dashboard | BNFB Online Reporting &amp; Data Repository Tool | CIP</title>
+		<title><?php echo $page_title;?>BNFB Online Reporting &amp; Data Repository Tool | CIP</title>
 		<meta name="keywords" content="" />
 		<meta name="description" content="BNFB Online Reporting &amp; Data Repository Tool | CIP">
 		<meta name="author" content="">

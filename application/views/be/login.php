@@ -40,7 +40,7 @@
 		<!-- start: page -->
 		<section class="body-sign">
 			<div class="center-sign">
-				<a href="#" class="logo pull-left">
+				<a href="<?php echo base_url(); ?>be" class="logo pull-left">
 					<img src="<?php echo base_url(); ?>assets/be/images/cip-logo.jpg" height="65" alt="BFNB" />
 				</a>
 

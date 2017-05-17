@@ -7,7 +7,7 @@
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
 								<li>
-									<a href="">
+									<a href="<?php echo base_url(); ?>be">
 										<i class="fa fa-home"></i>
 									</a>
 								</li>
@@ -35,21 +35,23 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td><b>Troubleshooting May</b></td>
+											<td><a href="">Troubleshooting May</a></td>
 											<td>May 02, 2016 to May 16, 2016</td>
 											<td>Hilda</td>
 											<td class="center">
-												<a href="#" class="on-default edit-row badge btn-success"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row badge btn-danger"><i class="fa fa-trash-o"></i></a>												
+												<a href="#" class="on-default edit-row badge btn-success" data-toggle="tooltip" data-placement="top" title="View Report"><i class="fa fa-eye"></i></a>											
+												<a href="#" class="on-default edit-row badge btn-primary" data-toggle="tooltip" data-placement="top" title="Edit Report"><i class="fa fa-pencil"></i></a>
+												<a href="#" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Report"><i class="fa fa-trash-o"></i></a>												
 											</td>
 										</tr>
 										<tr>
-											<td><b>Debugging Report - Middle Scale</b></td>
+											<td><a href="">Debugging Report - Middle Scale</a></td>
 											<td>October 01, 2016 to October 15, 2016</td>
 											<td>Ken Mbuki</td>
 											<td class="center">
-												<a href="#" class="on-default edit-row badge btn-success"><i class="fa fa-pencil"></i></a>
-												<a href="#" class="on-default remove-row badge btn-danger"><i class="fa fa-trash-o"></i></a>												
+												<a href="#" class="on-default edit-row badge btn-success" data-toggle="tooltip" data-placement="top" title="View Report"><i class="fa fa-eye"></i></a>											
+												<a href="#" class="on-default edit-row badge btn-primary" data-toggle="tooltip" data-placement="top" title="Edit Report"><i class="fa fa-pencil"></i></a>
+												<a href="#" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Report"><i class="fa fa-trash-o"></i></a>												
 												
 											</td>
 										</tr>
