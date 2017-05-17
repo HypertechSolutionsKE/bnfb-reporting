@@ -43,6 +43,7 @@
 		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery-validation/jquery.validate.js"></script>
 		
 		<!-- Theme Base, Components and Settings -->
 		<script src="<?php echo base_url(); ?>assets/be/javascripts/theme.js"></script>
@@ -59,6 +60,7 @@
 		<script src="<?php echo base_url(); ?>assets/be/javascripts/tables/examples.datatables.default.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/javascripts/tables/examples.datatables.row.with.details.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/javascripts/tables/examples.datatables.tabletools.js"></script>		
+		<script src="<?php echo base_url(); ?>assets/be/javascripts/forms/validation.js"></script>
 
 	</body>
 </html>
