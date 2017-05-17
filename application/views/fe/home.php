@@ -48,7 +48,7 @@
 						
 						<p>The <strong>BFNB</strong> is a project funded by the <strong>Bill &amp; Melinda Gates Foundation</strong>. The project seeks to reduce hidden hunger by catalyzing sustainable investment for the utilization of biofortified crops (Vitamin A cassava, Vitamin A maize, Vitamin A sweet potato and iron rich beans) at scale. The project is implemented in Nigeria and Tanzania and is led by CIP in partnership with six core partners - the International Center for Tropical Agriculture (CIAT), the International Maize and Wheat Improvement Center (CIMMYT), the International Potato Center (CIP), the International Institute of Tropical Agriculture (IITA), HarvestPlus and the Forum for Agricultural Research in Africa (FARA).</p>
 						<div class="scroll-to">
-							<a data-scroll href="<?php echo base_url();?>be" class="btn btn-warning" role="button"><b>Portal Login</b></a>
+							<a data-scroll href="<?php echo base_url();?>be" class="btn btn-warning" role="button"><b>User Login</b></a>
 						</div>
 					</div>
 				</div>
