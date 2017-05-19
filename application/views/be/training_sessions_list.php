@@ -2,7 +2,7 @@
 			<div class="inner-wrapper">
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Milestones</h2>
+						<h2>Training Sessions</h2>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
@@ -11,8 +11,7 @@
 										<i class="fa fa-home"></i>
 									</a>
 								</li>
-								<li><span>Settings</span></li>
-								<li><span>Milestones</span></li>
+								<li><span>Training Sessions</span></li>
 							</ol>
 					
 							<a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
@@ -21,13 +20,13 @@
 
 					<!-- start: page -->
 					<div class="row">
-						<div class="col-md-6 col-lg-9 col-xl-6">
+						<div class="col-md-6 col-lg-12 col-xl-6">
 							<section class="panel">
 								<header class="panel-heading">
 									<h2 class="panel-title">
 										<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-list"></i></span>
-										<span class="va-middle">Milestones List</span>
-										<span class="pull-right"><a href="<?php echo base_url(); ?>be/milestones/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New Milestone"><i class="fa fa-plus-circle"></i> Add Milestone</a></span>
+										<span class="va-middle">Training Sessions List</span>
+										<span class="pull-right"><a href="<?php echo base_url(); ?>be/training_sessions/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New Training Session"><i class="fa fa-plus-circle"></i> Add Training Session</a></span>
 									</h2>
 								</header>							
 								<div class="panel-body">
@@ -59,21 +58,28 @@
 									<table class="table table-bordered table-striped mb-none" id="datatable-tabletools" data-swf-path="<?php echo base_url(); ?>assets/be/vendor/jquery-datatables/extras/TableTools/swf/copy_csv_xls_pdf.swf">
 										<thead>
 											<tr>
-												<th>Name</th>
-												<th>Description</th>
-												<th>Date Created</th>
+												<th>Training Period</th>
+												<th>Indicator</th>
+												<th>Country</th>
+												<th>No. of Males Attended</th>
+												<th>No. of Females Attended</th>
+
 												<th class="text-center">Action</th>
 											</tr>
 										</thead>
 										<tbody>
-											<?php foreach($milestones as $row): ?>
+											<?php foreach($training_sessions as $row): ?>
 												<tr>
-													<td><a href="<?php echo base_url(); ?>be/milestones/edit/<?php echo  $row->milestone_id; ?>"><?php echo $row->milestone_name; ?></a></td>
-													<td><?php echo $row->milestone_description; ?></td>
-													<td><?php echo $row->created_on; ?></td>
+													<td><a href="<?php echo base_url(); ?>be/training_sessions/edit/<?php echo  $row->training_session_id; ?>"><?php echo $row->training_session_name; ?></a></td>
+													<td><?php echo $row->training_period_from . ' to ' . $row->training_period_to; ?></td>
+													<td><?php echo $row->indicator_id; ?></td>
+													<td><?php echo $row->country_id; ?></td>
+													<td><?php echo $row->number_males; ?></td>
+													<td><?php echo $row->number_females; ?></td>
+
 													<td class="center">
-														<a href="<?php echo base_url(); ?>be/milestones/edit/<?php echo  $row->milestone_id; ?>" class="on-default edit-row badge btn-primary" data-toggle="tooltip" data-placement="top" title="Edit Milestone"><i class="fa fa-pencil"></i></a>
-														<a onClick="javascript:return confirm('Do you really wish to delete this Milestone?');" href="<?php echo base_url(); ?>be/milestones/delete/<?php echo  $row->milestone_id; ?>" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Milestone"><i class="fa fa-trash-o"></i></a>												
+														<a href="<?php echo base_url(); ?>be/training_sessions/edit/<?php echo  $row->training_session_id; ?>" class="on-default edit-row badge btn-primary" data-toggle="tooltip" data-placement="top" title="Edit Training Session"><i class="fa fa-pencil"></i></a>
+														<a onClick="javascript:return confirm('Do you really wish to delete this Training Session?');" href="<?php echo base_url(); ?>be/training_sessions/delete/<?php echo  $row->training_session_id; ?>" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Training Session"><i class="fa fa-trash-o"></i></a>												
 													</td>
 												</tr>
 											<?php endforeach; ?>
@@ -81,32 +87,6 @@
 									</table>
 								</div>
 							</section>
-						</div>
-						<div class="col-md-6 col-lg-3 col-xl-6">
-							<section class="panel">
-								<header class="panel-heading">
-									<h2 class="panel-title">
-										<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-gear"></i></span>
-										<span class="va-middle">Settings</span>
-									</h2>
-								</header>
-								<div class="panel-body">
-									<div class="sidebar-widget widget-tasks">
-										<ul class="list-unstyled m-none">
-											<li><a href="<?php echo base_url(); ?>be/milestones"><b>Milestones</b></a></li>
-											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
-											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>											
-											<li><a href="<?php echo base_url(); ?>be/implementors">Implementors</a></li>
-											<li><a href="<?php echo base_url(); ?>be/countries">Countries</a></li>
-											<li><a href="<?php echo base_url(); ?>be/user_titles">User Titles</a></li>
-											<li><a href="<?php echo base_url(); ?>be/system_users">System Users</a></li>
-
-										</ul>
-									</div>
-								</div>
-							</section>
-
-
 						</div>
 
 					</div>

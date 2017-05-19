@@ -5,6 +5,8 @@ class Auth extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('be/login_model');
+		$this->load->model('be/countries_model');
+
 	}
 
 	function index(){
@@ -13,7 +15,8 @@ class Auth extends CI_Controller {
         }
 		else{
 			if ($this->login_model->check_admin() == false){
-				$this->load->view('be/register');
+				$data['countries'] = $this->countries_model->get_countries_list();
+				$this->load->view('be/register',$data);
 			}else{
 				$this->load->view('be/login');
 			}
@@ -26,6 +29,8 @@ class Auth extends CI_Controller {
 				'first_name' => $this->input->post('first_name'),
 				'last_name' => $this->input->post('last_name'),
 				'email_address' => $this->input->post('email_address'),
+				'gender' => $this->input->post('gender'),
+				'country_id' => $this->input->post('country_id'),				
 				'user_password' => $user_password,
 				'is_admin' => 1
 			);

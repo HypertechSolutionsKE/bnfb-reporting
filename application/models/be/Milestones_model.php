@@ -29,7 +29,7 @@ class Milestones_model extends CI_Model {
 	function get_milestone($milestone_id){
 		$this->db->from('milestones');
 		$this->db->where( array('milestone_id'=>$milestone_id));
-		return $this->db->get()->result_array();
+		return $this->db->get()->result();
 	}
 	function milestone_update_exists($milestone_id,$milestone_name){
 		$q = $this->db->query("SELECT * FROM milestones WHERE milestone_id != ".$milestone_id." AND milestone_name = '$milestone_name' AND is_deleted = 0");

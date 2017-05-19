@@ -2,7 +2,7 @@
 			<div class="inner-wrapper">
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Milestones</h2>
+						<h2>Implementor Types</h2>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
@@ -12,7 +12,7 @@
 									</a>
 								</li>
 								<li><span>Settings</span></li>
-								<li><span>Milestones</span></li>
+								<li><span>Implementor Types</span></li>
 							</ol>
 					
 							<a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
@@ -26,8 +26,8 @@
 								<header class="panel-heading">
 									<h2 class="panel-title">
 										<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-list"></i></span>
-										<span class="va-middle">Milestones List</span>
-										<span class="pull-right"><a href="<?php echo base_url(); ?>be/milestones/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New Milestone"><i class="fa fa-plus-circle"></i> Add Milestone</a></span>
+										<span class="va-middle">Implementor Types List</span>
+										<span class="pull-right"><a href="<?php echo base_url(); ?>be/implementor_types/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New Implementor Type"><i class="fa fa-plus-circle"></i> Add Implementor Type</a></span>
 									</h2>
 								</header>							
 								<div class="panel-body">
@@ -66,14 +66,14 @@
 											</tr>
 										</thead>
 										<tbody>
-											<?php foreach($milestones as $row): ?>
+											<?php foreach($implementor_types as $row): ?>
 												<tr>
-													<td><a href="<?php echo base_url(); ?>be/milestones/edit/<?php echo  $row->milestone_id; ?>"><?php echo $row->milestone_name; ?></a></td>
-													<td><?php echo $row->milestone_description; ?></td>
+													<td><a href="<?php echo base_url(); ?>be/implementor_types/edit/<?php echo  $row->implementor_type_id; ?>"><?php echo $row->implementor_type_name; ?></a></td>
+													<td><?php echo $row->implementor_type_description; ?></td>
 													<td><?php echo $row->created_on; ?></td>
 													<td class="center">
-														<a href="<?php echo base_url(); ?>be/milestones/edit/<?php echo  $row->milestone_id; ?>" class="on-default edit-row badge btn-primary" data-toggle="tooltip" data-placement="top" title="Edit Milestone"><i class="fa fa-pencil"></i></a>
-														<a onClick="javascript:return confirm('Do you really wish to delete this Milestone?');" href="<?php echo base_url(); ?>be/milestones/delete/<?php echo  $row->milestone_id; ?>" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Milestone"><i class="fa fa-trash-o"></i></a>												
+														<a href="<?php echo base_url(); ?>be/implementor_types/edit/<?php echo  $row->implementor_type_id; ?>" class="on-default edit-row badge btn-primary" data-toggle="tooltip" data-placement="top" title="Edit Implementor Type"><i class="fa fa-pencil"></i></a>
+														<a onClick="javascript:return confirm('Do you really wish to delete this Implementor Type?');" href="<?php echo base_url(); ?>be/implementor_types/delete/<?php echo  $row->implementor_type_id; ?>" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Implementor Type"><i class="fa fa-trash-o"></i></a>												
 													</td>
 												</tr>
 											<?php endforeach; ?>
@@ -93,9 +93,9 @@
 								<div class="panel-body">
 									<div class="sidebar-widget widget-tasks">
 										<ul class="list-unstyled m-none">
-											<li><a href="<?php echo base_url(); ?>be/milestones"><b>Milestones</b></a></li>
+											<li><a href="<?php echo base_url(); ?>be/milestones">Milestones</a></li>
 											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
-											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>											
+											<li><a href="<?php echo base_url(); ?>be/implementor_types"><b>Implementor Types</b></a></li>											
 											<li><a href="<?php echo base_url(); ?>be/implementors">Implementors</a></li>
 											<li><a href="<?php echo base_url(); ?>be/countries">Countries</a></li>
 											<li><a href="<?php echo base_url(); ?>be/user_titles">User Titles</a></li>

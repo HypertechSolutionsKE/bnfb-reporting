@@ -91,8 +91,8 @@
 										<ul class="dropdown-menu">
 											<li><a href="<?php echo base_url(); ?>be/milestones">Milestones</a></li>
 											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
+											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>											
 											<li><a href="<?php echo base_url(); ?>be/implementors">Implementors</a></li>
-											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>
 											<li><a href="<?php echo base_url(); ?>be/countries">Countries</a></li>
 											<li><a href="<?php echo base_url(); ?>be/user_titles">User Titles</a></li>
 											<li><a href="<?php echo base_url(); ?>be/system_users">System Users</a></li>

@@ -2,7 +2,7 @@
 			<div class="inner-wrapper">
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Milestones</h2>
+						<h2>System Users</h2>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
@@ -12,7 +12,7 @@
 									</a>
 								</li>
 								<li><span>Settings</span></li>
-								<li><span>Milestones</span></li>
+								<li><span>System Users</span></li>
 							</ol>
 					
 							<a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
@@ -21,13 +21,13 @@
 
 					<!-- start: page -->
 					<div class="row">
-						<div class="col-md-6 col-lg-9 col-xl-6">
+						<div class="col-md-6 col-lg-12 col-xl-6">
 							<section class="panel">
 								<header class="panel-heading">
 									<h2 class="panel-title">
 										<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-list"></i></span>
-										<span class="va-middle">Milestones List</span>
-										<span class="pull-right"><a href="<?php echo base_url(); ?>be/milestones/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New Milestone"><i class="fa fa-plus-circle"></i> Add Milestone</a></span>
+										<span class="va-middle">System Users List</span>
+										<span class="pull-right"><a href="<?php echo base_url(); ?>be/system_users/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New System User"><i class="fa fa-plus-circle"></i> Add System User</a></span>
 									</h2>
 								</header>							
 								<div class="panel-body">
@@ -60,20 +60,47 @@
 										<thead>
 											<tr>
 												<th>Name</th>
-												<th>Description</th>
-												<th>Date Created</th>
+												<th>Email</th>
+												<th>Gender</th>
+												<th>Country</th>
+												<th>Title</th>
+												<th>Is Admin</th>
+												<th>Is Active</th>
+												<th>Created On</th>
+
 												<th class="text-center">Action</th>
 											</tr>
 										</thead>
 										<tbody>
-											<?php foreach($milestones as $row): ?>
+											<?php foreach($system_users as $row): ?>
 												<tr>
-													<td><a href="<?php echo base_url(); ?>be/milestones/edit/<?php echo  $row->milestone_id; ?>"><?php echo $row->milestone_name; ?></a></td>
-													<td><?php echo $row->milestone_description; ?></td>
-													<td><?php echo $row->created_on; ?></td>
+													<td><a href="<?php echo base_url(); ?>be/system_users/edit/<?php echo  $row->system_user_id; ?>"><?php echo $row->first_name . ' ' . $row->last_name; ?></a></td>
+													<td><?php echo $row->email_address; ?></td>
+													<td><?php echo $row->gender; ?></td>
+													<td><?php echo $row->country_name; ?></td>
+													<td><?php echo $row->user_title_name; ?></td>
+													<td>
+														<?php
+															if ($row->is_admin == 1){
+																echo 'Yes';
+															}else{
+																echo 'No';
+															}
+														?>
+													</td>
+													<td>
+														<?php
+															if ($row->is_active == 1){
+																echo 'Yes';
+															}else{
+																echo 'No';
+															}
+														?>
+													</td>
+													<td><?php echo $row->created_on; ?></td>						
 													<td class="center">
-														<a href="<?php echo base_url(); ?>be/milestones/edit/<?php echo  $row->milestone_id; ?>" class="on-default edit-row badge btn-primary" data-toggle="tooltip" data-placement="top" title="Edit Milestone"><i class="fa fa-pencil"></i></a>
-														<a onClick="javascript:return confirm('Do you really wish to delete this Milestone?');" href="<?php echo base_url(); ?>be/milestones/delete/<?php echo  $row->milestone_id; ?>" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Milestone"><i class="fa fa-trash-o"></i></a>												
+														<a href="<?php echo base_url(); ?>be/system_users/edit/<?php echo  $row->system_user_id; ?>" class="on-default edit-row badge btn-primary" data-toggle="tooltip" data-placement="top" title="Edit System User"><i class="fa fa-pencil"></i></a>
+														<a onClick="javascript:return confirm('Do you really wish to delete this System User?');" href="<?php echo base_url(); ?>be/system_users/delete/<?php echo  $row->system_user_id; ?>" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete System User"><i class="fa fa-trash-o"></i></a>												
 													</td>
 												</tr>
 											<?php endforeach; ?>
@@ -81,32 +108,6 @@
 									</table>
 								</div>
 							</section>
-						</div>
-						<div class="col-md-6 col-lg-3 col-xl-6">
-							<section class="panel">
-								<header class="panel-heading">
-									<h2 class="panel-title">
-										<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-gear"></i></span>
-										<span class="va-middle">Settings</span>
-									</h2>
-								</header>
-								<div class="panel-body">
-									<div class="sidebar-widget widget-tasks">
-										<ul class="list-unstyled m-none">
-											<li><a href="<?php echo base_url(); ?>be/milestones"><b>Milestones</b></a></li>
-											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
-											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>											
-											<li><a href="<?php echo base_url(); ?>be/implementors">Implementors</a></li>
-											<li><a href="<?php echo base_url(); ?>be/countries">Countries</a></li>
-											<li><a href="<?php echo base_url(); ?>be/user_titles">User Titles</a></li>
-											<li><a href="<?php echo base_url(); ?>be/system_users">System Users</a></li>
-
-										</ul>
-									</div>
-								</div>
-							</section>
-
-
 						</div>
 
 					</div>

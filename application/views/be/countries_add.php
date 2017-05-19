@@ -2,7 +2,7 @@
 			<div class="inner-wrapper">
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Milestones</h2>
+						<h2>Countries</h2>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
@@ -12,12 +12,13 @@
 									</a>
 								</li>
 								<li><span>Settings</span></li>
-								<li><span><a href="<?php echo base_url(); ?>be/milestones">Milestones</a></span></li>								
-								<?php if (isset($milestone)): ?>
+								<li><span><a href="<?php echo base_url(); ?>be/countries">Countries</a></span></li>
+								<?php if (isset($country)): ?>
 									<li><span>Edit</span></li>
 								<?php else: ?>
 									<li><span>Add</span></li>
 								<?php endif; ?>
+
 							</ol>
 					
 							<a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
@@ -28,17 +29,17 @@
 					<div class="row">
 						<div class="col-md-6 col-lg-9 col-xl-6">
 							<section class="panel">
-								<?php if (isset($milestone)): ?>
-									<?php foreach($milestone as $row): ?>
+								<?php if (isset($country)): ?>
+									<?php foreach($country as $row): ?>
 										<header class="panel-heading">
 											<h2 class="panel-title">
 												<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-pencil"></i></span>
-												<span class="va-middle">Edit Milestone</span>
-												<span class="pull-right"><a href="<?php echo base_url(); ?>be/milestones" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go back to Milestones List"><i class="fa fa-arrow-circle-left"></i> Milestones List</a></span>
+												<span class="va-middle">Edit Country</span>
+												<span class="pull-right"><a href="<?php echo base_url(); ?>be/countries" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go back to Countries List"><i class="fa fa-arrow-circle-left"></i> Countries List</a></span>
 											</h2>
 										</header>							
 										<div class="panel-body">
-											<form id="frm_milestonesadd" action="<?php echo base_url();?>be/milestones/update/<?php echo $row->milestone_id; ?>" method="post">
+											<form id="frm_countries_add" action="<?php echo base_url();?>be/countries/update/<?php echo $row->country_id; ?>" method="post">
 												<?php if (isset($success)): ?>
 								 					<div class="alert alert-success block-inner">
 								 						<button type="button" class="close" data-dismiss="alert">×</button>
@@ -65,14 +66,15 @@
 								        			</div>               
 								                <?php endif; ?>						         
 
-												<div class="form-group">
+												<div class="form-group col-md-12">
 													<label class="control-label">Name <span class="required">*</span></label>
-													<input type="text" name="milestone_name" id="milestone_name" class="form-control" placeholder="Milestone Name" value="<?php echo $row->milestone_name; ?>" required/>
+													<input type="text" name="country_name" id="country_name" class="form-control" placeholder="Country Name" value="<?php echo $row->country_name; ?>" required/>
 												</div>
-												<div class="form-group">
-													<label class="control-label">Description</label>
-													<textarea name="milestone_description" id="milestone_description" rows="4" class="form-control" placeholder="Milestone Description"><?php echo $row->milestone_description; ?></textarea>
+												<div class="form-group col-md-4">
+													<label class="control-label">Code <span class="required">*</span></label>
+													<input type="text" name="country_code" id="country_code" class="form-control" placeholder="Country Code" value="<?php echo $row->country_code; ?>" required/>
 												</div>
+												<div class="clearfix"></div>
 												<footer class="panel-footer">
 													<div class="row">
 														<div class="pull-right">
@@ -87,12 +89,12 @@
 									<header class="panel-heading">
 										<h2 class="panel-title">
 											<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-plus-circle"></i></span>
-											<span class="va-middle">Add Milestone</span>
-											<span class="pull-right"><a href="<?php echo base_url(); ?>be/milestones" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go back to Milestones List"><i class="fa fa-arrow-circle-left"></i> Milestones List</a></span>
+											<span class="va-middle">Add Country</span>
+											<span class="pull-right"><a href="<?php echo base_url(); ?>be/countries" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go back to Countries List"><i class="fa fa-arrow-circle-left"></i> Countries List</a></span>
 										</h2>
 									</header>							
 									<div class="panel-body">
-										<form id="frm_milestonesadd" action="<?php echo base_url();?>be/milestones/save" method="post">
+										<form id="frm_countries_add" action="<?php echo base_url();?>be/countries/save" method="post">
 											<?php if (isset($success)): ?>
 							 					<div class="alert alert-success block-inner">
 							 						<button type="button" class="close" data-dismiss="alert">×</button>
@@ -119,14 +121,15 @@
 							        			</div>               
 							                <?php endif; ?>						         
 
-											<div class="form-group">
+											<div class="form-group col-md-12">
 												<label class="control-label">Name <span class="required">*</span></label>
-												<input type="text" name="milestone_name" id="milestone_name" class="form-control" placeholder="Milestone Name" required/>
+												<input type="text" name="country_name" id="country_name" class="form-control" placeholder="Country Name" required/>
 											</div>
-											<div class="form-group">
-												<label class="control-label">Description</label>
-												<textarea name="milestone_description" id="milestone_description" rows="4" class="form-control" placeholder="Milestone Description"></textarea>
+											<div class="form-group col-md-4">
+												<label class="control-label">Code <span class="required">*</span></label>
+												<input type="text" name="country_code" id="country_code" class="form-control" placeholder="Country Code" required/>
 											</div>
+											<div class="clearfix"></div>
 											<footer class="panel-footer">
 												<div class="row">
 													<div class="pull-right">
@@ -150,11 +153,11 @@
 								<div class="panel-body">
 									<div class="sidebar-widget widget-tasks">
 										<ul class="list-unstyled m-none">
-											<li><a href="<?php echo base_url(); ?>be/milestones"><b>Milestones</b></a></li>
+											<li><a href="<?php echo base_url(); ?>be/milestones">Milestones</a></li>
 											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
 											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>			
 											<li><a href="<?php echo base_url(); ?>be/implementors">Implementors</a></li>
-											<li><a href="<?php echo base_url(); ?>be/countries">Countries</a></li>
+											<li><a href="<?php echo base_url(); ?>be/countries"><b>Countries</b></a></li>
 											<li><a href="<?php echo base_url(); ?>be/user_titles">User Titles</a></li>
 											<li><a href="<?php echo base_url(); ?>be/system_users">System Users</a></li>
 
