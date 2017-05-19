@@ -2,7 +2,7 @@
 			<div class="inner-wrapper">
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Milestones</h2>
+						<h2>indicators</h2>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
@@ -12,8 +12,8 @@
 									</a>
 								</li>
 								<li><span>Settings</span></li>
-								<li><span><a href="<?php echo base_url(); ?>be/milestones">Milestones</a></span></li>								
-								<?php if (isset($milestone)): ?>
+								<li><span><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></span></li>								
+								<?php if (isset($indicator)): ?>
 									<li><span>Edit</span></li>
 								<?php else: ?>
 									<li><span>Add</span></li>
@@ -28,17 +28,17 @@
 					<div class="row">
 						<div class="col-md-6 col-lg-9 col-xl-6">
 							<section class="panel">
-								<?php if (isset($milestone)): ?>
-									<?php foreach($milestone as $row): ?>
+								<?php if (isset($indicator)): ?>
+									<?php foreach($indicator as $row): ?>
 										<header class="panel-heading">
 											<h2 class="panel-title">
 												<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-pencil"></i></span>
-												<span class="va-middle">Edit Milestone</span>
-												<span class="pull-right"><a href="<?php echo base_url(); ?>be/milestones" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go back to Milestones List"><i class="fa fa-arrow-circle-left"></i> Milestones List</a></span>
+												<span class="va-middle">Edit Indicator</span>
+												<span class="pull-right"><a href="<?php echo base_url(); ?>be/indicators" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go back to indicators List"><i class="fa fa-arrow-circle-left"></i> Indicators List</a></span>
 											</h2>
 										</header>							
 										<div class="panel-body">
-											<form id="frm_milestonesadd" action="<?php echo base_url();?>be/milestones/update/<?php echo $row->milestone_id; ?>" method="post">
+											<form id="frm_indicatorsadd" action="<?php echo base_url();?>be/indicators/update/<?php echo $row->indicator_id; ?>" method="post">
 												<?php if (isset($success)): ?>
 								 					<div class="alert alert-success block-inner">
 								 						<button type="button" class="close" data-dismiss="alert">×</button>
@@ -65,14 +65,24 @@
 								        			</div>               
 								                <?php endif; ?>						         
 
-												<div class="form-group">
-													<label class="control-label">Name <span class="required">*</span></label>
-													<input type="text" name="milestone_name" id="milestone_name" class="form-control" placeholder="Milestone Name" value="<?php echo $row->milestone_name; ?>" required/>
+												<div class="form-group col-md-12">
+													<label class="control-label">Indicator Name <span class="required">*</span></label>
+													<input type="text" name="indicator_name" id="indicator_name" class="form-control" placeholder="Indicator Name" required value="<?php echo $row->indicator_name; ?>" />
 												</div>
-												<div class="form-group">
-													<label class="control-label">Description</label>
-													<textarea name="milestone_description" id="milestone_description" rows="4" class="form-control" placeholder="Milestone Description"><?php echo $row->milestone_description; ?></textarea>
+												<div class="form-group col-md-12">
+													<label class="control-label">Partner <span class="required">*</span></label>
+													<input type="text" name="partner_name" id="partner_name" class="form-control" placeholder="Partner" required value="<?php echo $row->partner_name; ?>"/>
 												</div>
+												<div class="form-group col-md-4">
+													<label class="control-label">Target Number for Males <span class="required">*</span></label>
+													<input type="text" name="target_males" id="target_males" class="form-control" placeholder="Target Number for Males" required value="<?php echo $row->target_males; ?>"/>
+												</div>
+												<div class="form-group col-md-4">
+													<label class="control-label">Target Number for Females <span class="required">*</span></label>
+													<input type="text" name="target_females" id="target_females" class="form-control" placeholder="Target Number for Females" required value="<?php echo $row->target_females; ?>"/>
+												</div>
+												<div class="clearfix"></div>
+
 												<footer class="panel-footer">
 													<div class="row">
 														<div class="pull-right">
@@ -87,12 +97,12 @@
 									<header class="panel-heading">
 										<h2 class="panel-title">
 											<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-plus-circle"></i></span>
-											<span class="va-middle">Add Milestone</span>
-											<span class="pull-right"><a href="<?php echo base_url(); ?>be/milestones" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go back to Milestones List"><i class="fa fa-arrow-circle-left"></i> Milestones List</a></span>
+											<span class="va-middle">Add Indicator</span>
+											<span class="pull-right"><a href="<?php echo base_url(); ?>be/indicators" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go back to indicators List"><i class="fa fa-arrow-circle-left"></i> Indicators List</a></span>
 										</h2>
 									</header>							
 									<div class="panel-body">
-										<form id="frm_milestonesadd" action="<?php echo base_url();?>be/milestones/save" method="post">
+										<form id="frm_indicatorsadd" action="<?php echo base_url();?>be/indicators/save" method="post">
 											<?php if (isset($success)): ?>
 							 					<div class="alert alert-success block-inner">
 							 						<button type="button" class="close" data-dismiss="alert">×</button>
@@ -119,14 +129,24 @@
 							        			</div>               
 							                <?php endif; ?>						         
 
-											<div class="form-group">
-												<label class="control-label">Name <span class="required">*</span></label>
-												<input type="text" name="milestone_name" id="milestone_name" class="form-control" placeholder="Milestone Name" required/>
+											<div class="form-group col-md-12">
+												<label class="control-label">Indicator Name <span class="required">*</span></label>
+												<input type="text" name="indicator_name" id="indicator_name" class="form-control" placeholder="Indicator Name" required/>
 											</div>
-											<div class="form-group">
-												<label class="control-label">Description</label>
-												<textarea name="milestone_description" id="milestone_description" rows="4" class="form-control" placeholder="Milestone Description"></textarea>
+											<div class="form-group col-md-12">
+												<label class="control-label">Partner <span class="required">*</span></label>
+												<input type="text" name="partner_name" id="partner_name" class="form-control" placeholder="Partner" required/>
 											</div>
+											<div class="form-group col-md-4">
+												<label class="control-label">Target Number for Males <span class="required">*</span></label>
+												<input type="text" name="target_males" id="target_males" class="form-control" placeholder="Target Number for Males" required/>
+											</div>
+											<div class="form-group col-md-4">
+												<label class="control-label">Target Number for Females <span class="required">*</span></label>
+												<input type="text" name="target_females" id="target_females" class="form-control" placeholder="Target Number for Females" required/>
+											</div>
+											<div class="clearfix"></div>
+
 											<footer class="panel-footer">
 												<div class="row">
 													<div class="pull-right">
@@ -150,9 +170,9 @@
 								<div class="panel-body">
 									<div class="sidebar-widget widget-tasks">
 										<ul class="list-unstyled m-none">
-											<li><a href="<?php echo base_url(); ?>be/milestones"><b>Milestones</b></a></li>
-											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
-											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>			
+											<li><a href="<?php echo base_url(); ?>be/milestones">Milestones</a></li>
+											<li><a href="<?php echo base_url(); ?>be/indicators"><b>Indicators</b></a></li>
+											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>											
 											<li><a href="<?php echo base_url(); ?>be/implementors">Implementors</a></li>
 											<li><a href="<?php echo base_url(); ?>be/countries">Countries</a></li>
 											<li><a href="<?php echo base_url(); ?>be/user_titles">User Titles</a></li>

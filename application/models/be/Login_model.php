@@ -34,7 +34,7 @@ class Login_model extends CI_model {
 			$data = array (				
 				'last_update' => date("m/d/Y", time())
 			);
-			
+						
 			$this->db->where('email_address', $this->input->post('email_address'));
 			$this->db->update('system_users', $data);
 			

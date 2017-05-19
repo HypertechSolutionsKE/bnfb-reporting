@@ -7442,8 +7442,9 @@ html.ie11 .scroll-to-top {
 }
 
 .panel-footer {
+	clear: both;
 	border-radius: 0 0 5px 5px;
-	margin-top: -5px;
+	margin-top: 10px;
 }
 
 .panel-footer-btn-group {

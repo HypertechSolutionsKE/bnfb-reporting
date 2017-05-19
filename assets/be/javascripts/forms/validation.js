@@ -4,13 +4,6 @@
 
 	// REGISTRATION FORM
 	$("#registration_form").validate({
-		highlight: function( label ) {
-			$(label).closest('.form-group').removeClass('has-success').addClass('has-error');
-		},
-		success: function( label ) {
-			$(label).closest('.form-group').removeClass('has-error');
-			label.remove();
-		},
 		errorPlacement: function( error, element ) {
 			var placement = element.closest('.input-group');
 			if (!placement.get(0)) {
@@ -34,14 +27,7 @@
 	});
 
 	//LOGIN FORM
-	$("#login_form"),$("#frm_milestonesadd").validate({
-		highlight: function( label ) {
-			$(label).closest('.form-group').removeClass('has-success').addClass('has-error');
-		},
-		success: function( label ) {
-			$(label).closest('.form-group').removeClass('has-error');
-			label.remove();
-		},
+	$("#login_form"),$("#frm_milestonesadd"),$("#frm_implementor_types_add"),$("#frm_implementors_add"),$("#frm_countries_add"),$("#frm_user_titles_add").validate({
 		errorPlacement: function( error, element ) {
 			var placement = element.closest('.input-group');
 			if (!placement.get(0)) {
@@ -53,15 +39,8 @@
 		}
 	});
 
-	//ADD MILESTONE FORM
-	/*$("#frm_milestonesadd").validate({
-		highlight: function( label ) {
-			$(label).closest('.form-group').removeClass('has-success').addClass('has-error');
-		},
-		success: function( label ) {
-			$(label).closest('.form-group').removeClass('has-error');
-			label.remove();
-		},
+	// INDICATORS FORM
+	$("#frm_indicatorsadd").validate({
 		errorPlacement: function( error, element ) {
 			var placement = element.closest('.input-group');
 			if (!placement.get(0)) {
@@ -70,8 +49,47 @@
 			if (error.text() !== '') {
 				placement.after(error);
 			}
+		},
+		rules: {
+			target_males: {
+				required: true,
+				number: true
+			},
+			target_females: {
+				required: true,
+				number: true
+			},
+		},
+		messages: {
+			confirm_password: {
+				equalTo: "Please retype the correct password",
+			},
 		}
-	});*/
+	});
+
+	// REGISTRATION FORM
+	$("#frm_system_users_add").validate({
+		errorPlacement: function( error, element ) {
+			var placement = element.closest('.input-group');
+			if (!placement.get(0)) {
+				placement = element;
+			}
+			if (error.text() !== '') {
+				placement.after(error);
+			}
+		},
+		rules: {
+			confirm_password: {
+				required: true,
+				equalTo: "#user_password"
+			},
+		},
+		messages: {
+			confirm_password: {
+				equalTo: "Please retype the correct password",
+			},
+		}
+	});
 
 
 	// validation summary

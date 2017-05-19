@@ -91,6 +91,10 @@
 										<label>Country</label>
 										<select id="country_id" name="country_id" data-plugin-selectTwo class="form-control populate" title="Please select Country">
 											<option value="">Select Country</option>
+                                       		<?php foreach($countries as $row): ?>
+                                            	<option value="<?php echo $row->country_id; ?>" ><?php echo $row->country_name; ?></option>
+                                            <?php endforeach; ?>                       
+
 										</select>
 									</div>
 								</div>

@@ -1,19 +1,19 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Milestones extends CI_Controller {
+class countries extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();		
-		$this->load->model('be/milestones_model');
+		$this->load->model('be/countries_model');
 	}
 
 	function index(){
 		if($this->session->userdata('bnfb_loginstate')) {
-			$data['milestones'] = $this->milestones_model->get_milestones_list();
+			$data['countries'] = $this->countries_model->get_countries_list();
 			
-			$data['page_title'] = 'Milestones List | ';
+			$data['page_title'] = 'Countries List | ';
         	$data['cur'] = 'Settings';
-			$data['main_content'] = 'be/milestones_list';
+			$data['main_content'] = 'be/countries_list';
 			$this->load->view('be/includes/template',$data);
         } 
 		else {
@@ -22,9 +22,9 @@ class Milestones extends CI_Controller {
 	}
 	function add(){
 		if($this->session->userdata('bnfb_loginstate')) {
-			$data['page_title'] = 'Add Milestone | ';
+			$data['page_title'] = 'Add Country | ';
 	        $data['cur'] = 'Settings';
-			$data['main_content'] = 'be/milestones_add';
+			$data['main_content'] = 'be/countries_add';
 			$this->load->view('be/includes/template',$data);
         } 
 		else {
@@ -33,25 +33,25 @@ class Milestones extends CI_Controller {
 	}
 	function save(){
 		$data = array(
-			'milestone_name' => $this->input->post('milestone_name'),
-			'milestone_description' => $this->input->post('milestone_description')
+			'country_name' => $this->input->post('country_name'),
+			'country_code' => $this->input->post('country_code')
 		);	
-		$q = $this->milestones_model->save($data);
+		$q = $this->countries_model->save($data);
 		if ($q['res'] == true){
 			$this->session->set_flashdata('success',$q['dt']);
-			redirect('be/milestones/add');
+			redirect('be/countries/add');
 		}else{
 			$this->session->set_flashdata('error',$q['dt']);
-			redirect('be/milestones/add');
+			redirect('be/countries/add');
 		}
 	}
-	function edit($milestone_id){
+	function edit($country_id){
 		if($this->session->userdata('bnfb_loginstate')) {
-			$data['milestone'] = $this->milestones_model->get_milestone($milestone_id);
+			$data['country'] = $this->countries_model->get_country($country_id);
 
-			$data['page_title'] = 'Edit Milestone | ';
+			$data['page_title'] = 'Edit Country | ';
 	        $data['cur'] = 'Settings';
-			$data['main_content'] = 'be/milestones_add';
+			$data['main_content'] = 'be/countries_add';
 			$this->load->view('be/includes/template',$data);
         } 
 		else {
@@ -59,30 +59,30 @@ class Milestones extends CI_Controller {
 		}
 
 	}
-	function update($milestone_id){
+	function update($country_id){
 		$data = array(
-			'milestone_name' => $this->input->post('milestone_name'),
-			'milestone_description' => $this->input->post('milestone_description')
+			'country_name' => $this->input->post('country_name'),
+			'country_code' => $this->input->post('country_code')
 		);	
-		$q = $this->milestones_model->update($data,$milestone_id);
+		$q = $this->countries_model->update($data,$country_id);
 		if ($q['res'] == true){
 			$this->session->set_flashdata('success',$q['dt']);
-			redirect('be/milestones/edit/'.$milestone_id);
+			redirect('be/countries/edit/'.$country_id);
 		}else{
 			$this->session->set_flashdata('error',$q['dt']);
-			redirect('be/milestones/edit/'.$milestone_id);
+			redirect('be/countries/edit/'.$country_id);
 		}
 
 	}
-	function delete($milestone_id){
+	function delete($country_id){
 		if($this->session->userdata('bnfb_loginstate')){
-			$q = $this->milestones_model->delete($milestone_id);
+			$q = $this->countries_model->delete($country_id);
 			if($q['res'] == TRUE){
 				$this->session->set_flashdata('success',$q['dt']);
-				redirect('be/milestones');
+				redirect('be/countries');
 			}else{					
 				$this->session->set_flashdata('success',$q['dt']);
-				redirect('be/milestones');
+				redirect('be/countries');
 			}
 		}else{
             redirect('be/auth');
