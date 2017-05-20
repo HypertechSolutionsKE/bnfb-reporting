@@ -70,12 +70,11 @@
 										<tbody>
 											<?php foreach($training_sessions as $row): ?>
 												<tr>
-													<td><a href="<?php echo base_url(); ?>be/training_sessions/edit/<?php echo  $row->training_session_id; ?>"><?php echo $row->training_session_name; ?></a></td>
-													<td><?php echo $row->training_period_from . ' to ' . $row->training_period_to; ?></td>
-													<td><?php echo $row->indicator_id; ?></td>
-													<td><?php echo $row->country_id; ?></td>
-													<td><?php echo $row->number_males; ?></td>
-													<td><?php echo $row->number_females; ?></td>
+													<td><a href="<?php echo base_url(); ?>be/training_sessions/edit/<?php echo  $row->training_session_id; ?>"><?php echo $row->training_period_from . ' to ' . $row->training_period_to; ?></a></td>
+													<td><?php echo $row->indicator_name; ?></td>
+													<td><?php echo $row->country_name; ?></td>
+													<td><?php echo $row->males_attended; ?></td>
+													<td><?php echo $row->females_attended; ?></td>
 
 													<td class="center">
 														<a href="<?php echo base_url(); ?>be/training_sessions/edit/<?php echo  $row->training_session_id; ?>" class="on-default edit-row badge btn-primary" data-toggle="tooltip" data-placement="top" title="Edit Training Session"><i class="fa fa-pencil"></i></a>
