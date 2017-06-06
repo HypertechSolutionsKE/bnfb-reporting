@@ -71,11 +71,7 @@
 										<tbody>
 											<?php foreach($training_sessions as $row): ?>
 												<tr>
-<<<<<<< HEAD
 													<td><?php echo $row->training_period_from . ' to ' . $row->training_period_to; ?></td>
-=======
-													<td><a href="<?php echo base_url(); ?>be/training_sessions/edit/<?php echo  $row->training_session_id; ?>"><?php echo $row->training_period_from . ' to ' . $row->training_period_to; ?></a></td>
->>>>>>> 2ae7eef5d4b7b6831b3e6389c03f6e8d8632c0db
 													<td><?php echo $row->indicator_name; ?></td>
 													<td><?php echo $row->country_name; ?></td>
 													<td><?php echo $row->males_attended; ?></td>
