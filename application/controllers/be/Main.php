@@ -4,13 +4,17 @@ class Main extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();		
-		//$this->load->model('be/main_model');
+		$this->load->model('be/biweekly_model');
+		$this->load->model('be/quarterly_model');		
 	}
 
 	function index(){
 		if($this->session->userdata('bnfb_loginstate')) {
-			//$data['total_currencies'] = $this->main_model->get_total_currencies();
-			//$data['total_system_users'] = $this->main_model->get_total_system_users();
+			$data['num_biweekly_pending'] = $this->biweekly_model->get_num_pending_reports();
+			$data['biweekly_pending'] = $this->biweekly_model->get_pending_reports();
+
+			$data['num_quarterly_pending'] = $this->quarterly_model->get_num_pending_reports();
+			$data['quarterly_pending'] = $this->quarterly_model->get_pending_reports();
 			
 			$data['page_title'] = 'Dashboard | ';
 	        $data['cur'] = 'Dashboard';

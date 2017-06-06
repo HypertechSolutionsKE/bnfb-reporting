@@ -87,7 +87,7 @@ class Indicators extends CI_Controller {
 				$this->session->set_flashdata('success',$q['dt']);
 				redirect('be/indicators');
 			}else{					
-			$this->session->set_flashdata('success',$q['dt']);
+				$this->session->set_flashdata('success',$q['dt']);
 				redirect('be/indicators');
 			}
 		}else{

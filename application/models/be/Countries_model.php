@@ -1,5 +1,5 @@
 <?php
-class countries_model extends CI_Model {
+class Countries_model extends CI_Model {
 	
 	function get_countries_list(){
 		$this->db->from('countries');

@@ -67,6 +67,19 @@
 		}
 	});
 
+	// INDICATORS FORM
+	$("#frm_intermediate_results_add").validate({
+		errorPlacement: function( error, element ) {
+			var placement = element.closest('.input-group');
+			if (!placement.get(0)) {
+				placement = element;
+			}
+			if (error.text() !== '') {
+				placement.after(error);
+			}
+		}
+	});
+
 	// REGISTRATION FORM
 	$("#frm_system_users_add").validate({
 		errorPlacement: function( error, element ) {

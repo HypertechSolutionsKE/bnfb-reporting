@@ -2,3 +2,7 @@ RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php/$1 [L] 
+
+Header set Cache-Control: "no-cache, private, pre-check=0, post-check=0, max-age=0"
+Header set Expires: 0
+Header set Pragma: no-cache

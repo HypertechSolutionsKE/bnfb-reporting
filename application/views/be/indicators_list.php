@@ -15,7 +15,7 @@
 								<li><span>Indicators</span></li>
 							</ol>
 					
-							<a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
+							<a href="<?php echo base_url(); ?>be" class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
 						</div>
 					</header>
 
@@ -25,9 +25,9 @@
 							<section class="panel">
 								<header class="panel-heading">
 									<h2 class="panel-title">
-										<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-list"></i></span>
+										<span class="text-weight-normal va-middle mr-sm"><i class="fa fa-list"></i></span>
 										<span class="va-middle">Indicators List</span>
-										<span class="pull-right"><a href="<?php echo base_url(); ?>be/indicators/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New indicator"><i class="fa fa-plus-circle"></i> Add indicator</a></span>
+										<span class="pull-right"><a href="<?php echo base_url(); ?>be" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Dashboard"><i class="fa fa-home"></i> <span class="hidden-sm"></span></a></span><span class="pull-right"><a href="<?php echo base_url(); ?>be/indicators/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New indicator"><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Add indicator</a></span>
 									</h2>
 								</header>							
 								<div class="panel-body">
@@ -70,13 +70,13 @@
 										<tbody>
 											<?php foreach($indicators as $row): ?>
 												<tr>
-													<td><a href="<?php echo base_url(); ?>be/indicators/edit/<?php echo  $row->indicator_id; ?>"><?php echo $row->indicator_name; ?></a></td>
+													<td><?php echo $row->indicator_name; ?></td>
 													<td><?php echo $row->partner_name; ?></td>
 													<td><?php echo $row->target_males; ?></td>
 													<td><?php echo $row->target_females; ?></td>
 													<td><?php echo $row->created_on; ?></td>
 													<td class="center">
-														<a href="<?php echo base_url(); ?>be/indicators/edit/<?php echo  $row->indicator_id; ?>" class="on-default edit-row badge btn-primary" data-toggle="tooltip" data-placement="top" title="Edit indicator"><i class="fa fa-pencil"></i></a>
+														<a href="<?php echo base_url(); ?>be/indicators/edit/<?php echo  $row->indicator_id; ?>" class="on-default edit-row badge btn-success" data-toggle="tooltip" data-placement="top" title="Edit indicator"><i class="fa fa-pencil"></i></a>
 														<a onClick="javascript:return confirm('Do you really wish to delete this indicator?');" href="<?php echo base_url(); ?>be/indicators/delete/<?php echo  $row->indicator_id; ?>" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete indicator"><i class="fa fa-trash-o"></i></a>												
 													</td>
 												</tr>
@@ -101,6 +101,8 @@
 											<li><a href="<?php echo base_url(); ?>be/indicators"><b>Indicators</b></a></li>
 											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>											
 											<li><a href="<?php echo base_url(); ?>be/implementors">Implementors</a></li>
+											<li><a href="<?php echo base_url(); ?>be/intermediate_results">Intermediate Results</a></li>
+											
 											<li><a href="<?php echo base_url(); ?>be/countries">Countries</a></li>
 											<li><a href="<?php echo base_url(); ?>be/user_titles">User Titles</a></li>
 											<li><a href="<?php echo base_url(); ?>be/system_users">System Users</a></li>

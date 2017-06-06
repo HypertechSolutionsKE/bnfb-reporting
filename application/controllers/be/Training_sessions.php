@@ -15,7 +15,7 @@ class Training_sessions extends CI_Controller {
 			$data['training_sessions'] = $this->training_sessions_model->get_training_sessions_list();
 			
 			$data['page_title'] = 'Training Sessions List | ';
-        	$data['cur'] = 'Settings';
+        	$data['cur'] = 'Training Sessions';
 			$data['main_content'] = 'be/training_sessions_list';
 			$this->load->view('be/includes/template',$data);
         } 
@@ -29,7 +29,7 @@ class Training_sessions extends CI_Controller {
 			$data['countries'] = $this->countries_model->get_countries_list();
 
 			$data['page_title'] = 'Add Training Session | ';
-	        $data['cur'] = 'Settings';
+	        $data['cur'] = 'Training Sessions';
 			$data['main_content'] = 'be/training_sessions_add';
 			$this->load->view('be/includes/template',$data);
         } 
@@ -62,7 +62,7 @@ class Training_sessions extends CI_Controller {
 			$data['training_session'] = $this->training_sessions_model->get_training_session($training_session_id);
 
 			$data['page_title'] = 'Edit Training Session | ';
-	        $data['cur'] = 'Settings';
+	        $data['cur'] = 'Training Sessions';
 			$data['main_content'] = 'be/training_sessions_add';
 			$this->load->view('be/includes/template',$data);
         } 

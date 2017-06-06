@@ -15,7 +15,7 @@
 								<li><span>User Titles</span></li>
 							</ol>
 					
-							<a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
+							<a href="<?php echo base_url(); ?>be" class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
 						</div>
 					</header>
 
@@ -25,8 +25,9 @@
 							<section class="panel">
 								<header class="panel-heading">
 									<h2 class="panel-title">
-										<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-list"></i></span>
+										<span class="text-weight-normal va-middle mr-sm"><i class="fa fa-list"></i></span>
 										<span class="va-middle">User Titles List</span>
+										<span class="pull-right"><a href="<?php echo base_url(); ?>be" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Dashboard"><i class="fa fa-home"></i> <span class="hidden-sm"></span></a></span>
 										<span class="pull-right"><a href="<?php echo base_url(); ?>be/user_titles/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New User Title"><i class="fa fa-plus-circle"></i> Add User Title</a></span>
 									</h2>
 								</header>							
@@ -68,11 +69,11 @@
 										<tbody>
 											<?php foreach($user_titles as $row): ?>
 												<tr>
-													<td><a href="<?php echo base_url(); ?>be/user_titles/edit/<?php echo  $row->user_title_id; ?>"><?php echo $row->user_title_name; ?></a></td>
+													<td><?php echo $row->user_title_name; ?></td>
 													<td><?php echo $row->user_title_description; ?></td>
 													<td><?php echo $row->created_on; ?></td>
 													<td class="center">
-														<a href="<?php echo base_url(); ?>be/user_titles/edit/<?php echo  $row->user_title_id; ?>" class="on-default edit-row badge btn-primary" data-toggle="tooltip" data-placement="top" title="Edit User Title"><i class="fa fa-pencil"></i></a>
+														<a href="<?php echo base_url(); ?>be/user_titles/edit/<?php echo  $row->user_title_id; ?>" class="on-default edit-row badge btn-success" data-toggle="tooltip" data-placement="top" title="Edit User Title"><i class="fa fa-pencil"></i></a>
 														<a onClick="javascript:return confirm('Do you really wish to delete this User Title?');" href="<?php echo base_url(); ?>be/user_titles/delete/<?php echo  $row->user_title_id; ?>" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete User Title"><i class="fa fa-trash-o"></i></a>												
 													</td>
 												</tr>
@@ -97,6 +98,8 @@
 											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
 											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>											
 											<li><a href="<?php echo base_url(); ?>be/implementors">Implementors</a></li>
+											<li><a href="<?php echo base_url(); ?>be/intermediate_results">Intermediate Results</a></li>
+											
 											<li><a href="<?php echo base_url(); ?>be/countries">Countries</a></li>
 											<li><a href="<?php echo base_url(); ?>be/user_titles"><b>User Titles</b></a></li>
 											<li><a href="<?php echo base_url(); ?>be/system_users">System Users</a></li>

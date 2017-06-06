@@ -21,7 +21,7 @@
 
 							</ol>
 					
-							<a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
+							<a href="<?php echo base_url(); ?>be" class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
 						</div>
 					</header>
 
@@ -33,9 +33,10 @@
 									<?php foreach($training_session as $row): ?>
 										<header class="panel-heading">
 											<h2 class="panel-title">
-												<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-pencil"></i></span>
+												<span class="text-weight-normal va-middle mr-sm"><i class="fa fa-pencil"></i></span>
 												<span class="va-middle">Edit Training Session</span>
-												<span class="pull-right"><a href="<?php echo base_url(); ?>be/training_sessions" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go back to Training Sessions List"><i class="fa fa-arrow-circle-left"></i> Training Sessions List</a></span>
+												<span class="pull-right"><a href="<?php echo base_url(); ?>be" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Dashboard"><i class="fa fa-home"></i> <span class="hidden-sm"></span></a></span>
+												<span class="pull-right"><a href="<?php echo base_url(); ?>be/training_sessions" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Training Sessions List"><i class="fa fa-long-arrow-left"></i></a></span>
 											</h2>
 										</header>							
 										<div class="panel-body">
@@ -114,7 +115,7 @@
 												<footer class="panel-footer">
 													<div class="row">
 														<div class="pull-right">
-															<button class="btn btn-primary">Submit</button>
+															<button class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
 														</div>
 													</div>
 												</footer>
@@ -124,9 +125,10 @@
 								<?php else: ?>
 									<header class="panel-heading">
 										<h2 class="panel-title">
-											<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-plus-circle"></i></span>
+											<span class="text-weight-normal va-middle mr-sm"><i class="fa fa-plus-circle"></i></span>
 											<span class="va-middle">Add Training Session</span>
-											<span class="pull-right"><a href="<?php echo base_url(); ?>be/training_sessions" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go back to Training Sessions List"><i class="fa fa-arrow-circle-left"></i> Training Sessions List</a></span>
+											<span class="pull-right"><a href="<?php echo base_url(); ?>be" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Dashboard"><i class="fa fa-home"></i> <span class="hidden-sm"></span></a></span>
+											<span class="pull-right"><a href="<?php echo base_url(); ?>be/training_sessions" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Training Sessions List"><i class="fa fa-long-arrow-left"></i></a></span>
 										</h2>
 									</header>							
 									<div class="panel-body">
@@ -204,7 +206,7 @@
 											<footer class="panel-footer">
 												<div class="row">
 													<div class="pull-right">
-														<button class="btn btn-primary">Submit</button>
+														<button class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
 													</div>
 												</div>
 											</footer>

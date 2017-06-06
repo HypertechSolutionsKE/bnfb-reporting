@@ -13,8 +13,8 @@
 		<!-- Mobile Metas -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-		<!-- Web Fonts  -->
-		<link href="../../../fonts.googleapis.com/cssf1e9.css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+		<!-- Web Fonts  --
+		<link href="../../../fonts.googleapis.com/cssf1e9.css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">-->
 
 		<!-- Vendor CSS -->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/be/vendor/bootstrap/css/bootstrap.css" />
@@ -31,12 +31,27 @@
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/be/vendor/select2/css/select2.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/be/vendor/select2-bootstrap-theme/select2-bootstrap.min.css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/be/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
-
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/be/vendor/pnotify/pnotify.custom.css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/be/vendor/summernote/summernote.css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/be/vendor/codemirror/lib/codemirror.css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/be/vendor/codemirror/theme/monokai.css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/be/vendor/morris.js/morris.css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/be/vendor/chartist/chartist.min.css" />
 		<!-- Theme CSS -->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/be/stylesheets/theme.css" />
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/be/stylesheets/theme-custom.css">
+	    
+	    <script type="text/javascript">
+	    	var baseDir = '<?php echo base_url(); ?>';
+	    	var taskID = 0;
+	    	var challengeID = 0;
+	    	var eventID = 0;
+	    	var activityID = 0;
+
+	    	//var cur_city_id = '';
+	   	</script>
 
 		<!-- Head Libs -->
 		<script src="<?php echo base_url(); ?>assets/be/vendor/modernizr/modernizr.js"></script>		
@@ -61,10 +76,10 @@
 						<div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1 header-nav-main-square">
 							<nav>
 								<ul class="nav nav-pills" id="mainNav">
-									<li class="active">
+									<li class="<?php if ($cur == 'Dashboard'){echo 'active'; } ?>">
 										<a href="<?php echo base_url(); ?>be">Dashboard</a>
 									</li>
-									<li class="dropdown">
+									<li class="dropdown <?php if ($cur == 'Biweekly'){echo 'active'; } ?>">
 										<a href="#" class="dropdown-toggle">Bi-Weekly Reports</a>
 										<ul class="dropdown-menu">
 											<li><a href="<?php echo base_url(); ?>be/biweekly/create">Create New Report</a></li>
@@ -72,27 +87,29 @@
 											<li><a href="<?php echo base_url(); ?>be/biweekly/summary">Generate Report Summary</a></li>
 										</ul>
 									</li>
-									<li class="dropdown">
+									<li class="dropdown <?php if ($cur == 'Quarterly'){echo 'active'; } ?>">
 										<a href="#" class="dropdown-toggle">Quarterly Reports</a>
 										<ul class="dropdown-menu">
 											<li><a href="<?php echo base_url(); ?>be/quarterly/create">Create New Report</a></li>
 											<li><a href="<?php echo base_url(); ?>be/quarterly">Reports List</a></li>
-											<li><a href="<?php echo base_url(); ?>be/quarterly/summary">Generate Report Summary</a></li>
+											<!--<li><a href="<?php echo base_url(); ?>be/quarterly/summary">Generate Report Summary</a></li>-->
 										</ul>
 									</li>
-									<li class="">
+									<li class="<?php if ($cur == 'Training Sessions'){echo 'active'; } ?>">
 										<a href="<?php echo base_url(); ?>be/training_sessions">Training Sessions</a>
 									</li>
-									<li class="">
+									<li class="<?php if ($cur == 'Performance Dashboard'){echo 'active'; } ?>">
 										<a href="<?php echo base_url(); ?>be/performance_dashboard">Performance Dashboard</a>
 									</li>
-									<li class="dropdown">
+									<li class="dropdown <?php if ($cur == 'Settings'){echo 'active'; } ?>">
 										<a href="#" class="dropdown-toggle">Settings</a>
 										<ul class="dropdown-menu">
 											<li><a href="<?php echo base_url(); ?>be/milestones">Milestones</a></li>
 											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
 											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>											
 											<li><a href="<?php echo base_url(); ?>be/implementors">Implementors</a></li>
+											<li><a href="<?php echo base_url(); ?>be/intermediate_results">Intermediate Results</a></li>
+
 											<li><a href="<?php echo base_url(); ?>be/countries">Countries</a></li>
 											<li><a href="<?php echo base_url(); ?>be/user_titles">User Titles</a></li>
 											<li><a href="<?php echo base_url(); ?>be/system_users">System Users</a></li>
@@ -115,9 +132,17 @@
 							<figure class="profile-picture">
 								<img src="<?php echo base_url();?>assets/be/images/logged-user.jpg" alt="Joseph Doe" class="img-circle" data-lock-picture="<?php echo base_url();?>assets/be/images/logged-user.jpg" />
 							</figure>
-							<div class="profile-info" data-lock-name="Ngigi Nyoro" data-lock-email="johndoe@okler.com">
-								<span class="name">Ngigi Nyoro</span>
-								<span class="role">Administrator</span>
+							<div class="profile-info" data-lock-name="<?php echo $this->session->userdata('user_name'); ?>" data-lock-email="<?php echo $this->session->userdata('user_email'); ?>">
+								<span class="name"><?php echo $this->session->userdata('user_name'); ?></span>
+								<span class="role">
+									<?php 
+										if ($this->session->userdata('is_admin') == 1){
+											echo 'Administrator';
+										}else{
+											echo 'Limited User';
+										}
+									?>
+								</span>
 							</div>
 			
 							<i class="fa custom-caret"></i>
@@ -127,13 +152,13 @@
 							<ul class="list-unstyled">
 								<li class="divider"></li>
 								<li>
-									<a role="menuitem" tabindex="-1" href=""><i class="fa fa-user"></i> My Profile</a>
+									<a role="menuitem" tabindex="-1" href="#"><i class="fa fa-user"></i> My Profile</a>
 								</li>
 								<li>
 									<a role="menuitem" tabindex="-1" href="#" data-lock-screen="true"><i class="fa fa-lock"></i> Lock Screen</a>
 								</li>
 								<li>
-									<a role="menuitem" tabindex="-1" href=""><i class="fa fa-power-off"></i> Logout</a>
+									<a role="menuitem" tabindex="-1" href="<?php echo base_url();?>be/auth/logout"><i class="fa fa-power-off"></i> Logout</a>
 								</li>
 							</ul>
 						</div>

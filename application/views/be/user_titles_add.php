@@ -21,7 +21,7 @@
 
 							</ol>
 					
-							<a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
+							<a href="<?php echo base_url(); ?>be" class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
 						</div>
 					</header>
 
@@ -33,9 +33,10 @@
 									<?php foreach($user_title as $row): ?>
 										<header class="panel-heading">
 											<h2 class="panel-title">
-												<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-pencil"></i></span>
+												<span class="text-weight-normal va-middle mr-sm"><i class="fa fa-pencil"></i></span>
 												<span class="va-middle">Edit User Title</span>
-												<span class="pull-right"><a href="<?php echo base_url(); ?>be/user_titles" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go back to User Titles List"><i class="fa fa-arrow-circle-left"></i> User Titles List</a></span>
+												<span class="pull-right"><a href="<?php echo base_url(); ?>be" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Dashboard"><i class="fa fa-home"></i> <span class="hidden-sm"></span></a></span>
+												<span class="pull-right"><a href="<?php echo base_url(); ?>be/user_titles" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go to User Titles list"><i class="fa fa-long-arrow-left"></i></a></span>
 											</h2>
 										</header>							
 										<div class="panel-body">
@@ -77,7 +78,7 @@
 												<footer class="panel-footer">
 													<div class="row">
 														<div class="pull-right">
-															<button class="btn btn-primary">Submit</button>
+															<button class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
 														</div>
 													</div>
 												</footer>
@@ -87,9 +88,10 @@
 								<?php else: ?>
 									<header class="panel-heading">
 										<h2 class="panel-title">
-											<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-plus-circle"></i></span>
+											<span class="text-weight-normal va-middle mr-sm"><i class="fa fa-plus-circle"></i></span>
 											<span class="va-middle">Add User Title</span>
-											<span class="pull-right"><a href="<?php echo base_url(); ?>be/user_titles" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go back to User Titles List"><i class="fa fa-arrow-circle-left"></i> User Titles List</a></span>
+											<span class="pull-right"><a href="<?php echo base_url(); ?>be" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Dashboard"><i class="fa fa-home"></i> <span class="hidden-sm"></span></a></span>
+											<span class="pull-right"><a href="<?php echo base_url(); ?>be/user_titles" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go to User Titles list"><i class="fa fa-long-arrow-left"></i></a></span>
 										</h2>
 									</header>							
 									<div class="panel-body">
@@ -131,7 +133,7 @@
 											<footer class="panel-footer">
 												<div class="row">
 													<div class="pull-right">
-														<button class="btn btn-primary">Submit</button>
+														<button class="btn btn-success"><i class="fa fa-save"></i> Submit</button>
 													</div>
 												</div>
 											</footer>
@@ -155,6 +157,8 @@
 											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
 											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>			
 											<li><a href="<?php echo base_url(); ?>be/implementors">Implementors</a></li>
+											<li><a href="<?php echo base_url(); ?>be/intermediate_results">Intermediate Results</a></li>
+											
 											<li><a href="<?php echo base_url(); ?>be/countries">Countries</a></li>
 											<li><a href="<?php echo base_url(); ?>be/user_titles"><b>User Titles</b></a></li>
 											<li><a href="<?php echo base_url(); ?>be/system_users">System Users</a></li>
