@@ -3,8 +3,10 @@ Name: 			Theme Base
 Written by: 	Okler Themes - (http://www.okler.net)
 Theme Version: 	1.6.0
 */
-@import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700');
+/*@import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700');*/
 @import url('https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+
 html,
 body {
 	background: #ecedf0;
@@ -19,7 +21,7 @@ html {
 
 body {
 	color: #000;
-	font-family: "PT Sans","Open Sans", Arial, sans-serif;
+	font-family: "Lato","Open Sans", Arial, sans-serif;
 	line-height: 22px;
 	margin: 0;
 	font-size: 14px;
@@ -423,7 +425,7 @@ a:active {
 	}
 
 	.page-header {
-		margin: 0 -15px 20px;
+		margin: 0 -15px 10px;
 	}
 
 	.sidebar-left {
@@ -3779,7 +3781,7 @@ h4,
 
 h5,
 .h5 {
-	font-size: 1.4rem;
+	font-size: 1.6rem;
 }
 
 h6,
@@ -3861,7 +3863,7 @@ hr {
 	background-image: -moz-linear-gradient(left, transparent, rgba(0, 0, 0, 0.2), transparent);
 	background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, 0.2), transparent);
 	background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, 0.2), transparent);
-	margin: 22px 0 22px 0;
+	margin: 15px 0 15px 0;
 }
 
 hr.short {
@@ -3950,6 +3952,14 @@ body a, body a:focus, body a:hover, body a:active, body a:visited {
 
 .center {
 	text-align: center;
+}
+.img-center{
+display: block;
+  margin-left: auto;
+  margin-right: auto;	
+}
+.img-report-logo{
+	max-width: 220px;
 }
 
 .popover .btn {
@@ -4350,6 +4360,10 @@ html.dark .text-muted {
 	text-transform: capitalize;
 }
 
+.text-italicize {
+	font-style: italic;
+}
+
 .rounded {
 	border-radius: 5px;
 }
@@ -4737,6 +4751,10 @@ html.dark .text-muted {
 .bg-info {
 	background: #5bc0de;
 	color: #FFF;
+}
+
+.bg-info2 {
+	background: #DFF5FB	 !important;
 }
 
 .bg-dark {
@@ -5534,14 +5552,16 @@ div.validation-message ul label.error:before {
 .select2-search {
 	z-index: 10012;
 }
-
+.select2-container{
+	width: 100% !important;
+}
 .select2-container--bootstrap.select2-container--open {
 	z-index: 10013;
 }
 
 @media (max-width: 991px) {
 	.select2-container--bootstrap {
-		width: auto !important;
+		width: 100% !important;
 	}
 }
 
@@ -7301,7 +7321,7 @@ html.ie11 .scroll-to-top {
 	background: #f6f6f6;
 	border-radius: 5px 5px 0 0;
 	border-bottom: 1px solid #DADADA;
-	padding: 18px;
+	padding: 12px;
 	position: relative;
 }
 
@@ -7411,8 +7431,8 @@ html.ie11 .scroll-to-top {
 
 .panel-title {
 	color: #33353F;
-	font-size: 20px;
-	font-weight: 400;
+	font-size: 16px;
+	font-weight: 600;
 	line-height: 20px;
 	padding: 0;
 	text-transform: none;
@@ -13621,11 +13641,13 @@ ul.simple-bullet-list li.orange:before {
 }
 
 .widget-summary .widget-summary-col.widget-summary-col-icon {
-	width: 1%;
+	/*width: 1%;*/
 }
 
 .widget-summary .summary-icon {
-	margin-right: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 10px;
 	font-size: 4.2rem;
 	width: 90px;
 	height: 90px;
@@ -15183,11 +15205,11 @@ html:not(.sidebar-light) .datepicker.datepicker-dark table tbody tr td.day.new:h
 }
 
 .datepicker.datepicker-primary table thead tr:first-child th:first-child {
-	border-radius: 4px 0 0 0;
+	border-radius: 0px 0 0 0;
 }
 
 .datepicker.datepicker-primary table thead tr:first-child th:last-child {
-	border-radius: 0 4px 0 0;
+	border-radius: 0 0px 0 0;
 }
 
 .datepicker.datepicker-primary table thead tr:last-child {
@@ -15452,7 +15474,7 @@ html.dark .wizard-progress .wizard-steps li a {
 	position: relative;
 	display: block;
 	padding: 25px 8px 0;
-	font-size: 11px;
+	font-size: 13px;
 	color: #33333F;
 	font-weight: bold;
 	line-height: 1;
@@ -15629,6 +15651,7 @@ html.dark .wizard-progress .steps-progress {
 }
 .form-wizard .tab-content {
 	background: #FFF;
+	padding: 10px;
 	border: 0 none;
 	box-shadow: none;
 }
@@ -15638,6 +15661,7 @@ html.dark .wizard-progress .steps-progress {
 .form-wizard ul.pager .last a,
 .form-wizard ul.pager .finish a {
 	cursor: pointer;
+	font-weight: bold;
 }
 .form-wizard ul.pager .disabled a {
 	cursor: not-allowed;
@@ -16205,12 +16229,12 @@ html.dark .multiselect-container > li > a:hover, html.dark .multiselect-containe
 	margin-top: -2px;
 }
 .spinner-buttons.btn-group-vertical .btn:first-child {
-	border-radius: 0 4px 0 0 !important;
-	-webkit-border-radius: 0 4px 0 0 !important;
+	border-radius: 0 0px 0 0 !important;
+	-webkit-border-radius: 0 0px 0 0 !important;
 }
 .spinner-buttons.btn-group-vertical .btn:last-child {
-	border-radius: 0 0 4px !important;
-	-webkit-border-radius: 0 0 4px !important;
+	border-radius: 0 0 0px !important;
+	-webkit-border-radius: 0 0 0px !important;
 	margin-top: -1px;
 	height: 17px;
 }
@@ -17628,7 +17652,7 @@ html.dark .fc-unthemed .fc-today {
 
 .timeline .tm-body {
 	position: relative;
-	padding: 30px 0;
+	padding: 5px 0;
 }
 .timeline .tm-body:after {
 	background: #505050;
@@ -17747,14 +17771,14 @@ html.dark .fc-unthemed .fc-today {
 	padding-right: 0;
 }
 .timeline.timeline-simple .tm-body:after {
-	left: 30px;
+	left: 10px;
 }
 .timeline.timeline-simple .tm-body .tm-title {
 	border: 1px solid #e9e9e9;
 	margin: 0 10px;
 }
 .timeline.timeline-simple .tm-body .tm-items > li {
-	padding: 0 0 0 55px;
+	padding: 0 0 0 35px;
 }
 .timeline.timeline-simple .tm-body .tm-items > li:before {
 	display: block;
@@ -17764,7 +17788,7 @@ html.dark .fc-unthemed .fc-today {
 	border-radius: 50%;
 	box-shadow: 0 0 0 3px #FFF, 0 0 0 6px #CCC;
 	height: 7px;
-	left: 30px;
+	left: 10px;
 	top: 50%;
 	width: 8px;
 	margin-left: -4px;
@@ -18392,4 +18416,27 @@ html.dark .img-thumbnail,
 html.dark .thumbnail {
 	background-color: #21262d;
 	border-color: #282d36;
+}
+
+.control-label{
+	font-weight: bold;
+}
+
+#legend {
+    height: 50px;
+    background: #fefefe;
+}
+#legend span {
+    display: inline-block;
+    padding: 15px 30px;
+    position: relative;
+}
+#legend span:after {
+    padding-left: 4px;
+    content: '\00a0\00a0\00a0\00a0\00a0\00a0';
+text-decoration: line-through;
+}
+
+.borderless td, .borderless th {
+    border: none !important;
 }

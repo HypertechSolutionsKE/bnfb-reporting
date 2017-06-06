@@ -15,7 +15,7 @@
 								<li><span>System Users</span></li>
 							</ol>
 					
-							<a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
+							<a href="<?php echo base_url(); ?>be" class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
 						</div>
 					</header>
 
@@ -25,9 +25,10 @@
 							<section class="panel">
 								<header class="panel-heading">
 									<h2 class="panel-title">
-										<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-list"></i></span>
+										<span class="text-weight-normal va-middle mr-sm"><i class="fa fa-list"></i></span>
 										<span class="va-middle">System Users List</span>
-										<span class="pull-right"><a href="<?php echo base_url(); ?>be/system_users/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New System User"><i class="fa fa-plus-circle"></i> Add System User</a></span>
+										<span class="pull-right"><a href="<?php echo base_url(); ?>be" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Dashboard"><i class="fa fa-home"></i> <span class="hidden-sm"></span></a></span>
+										<span class="pull-right"><a href="<?php echo base_url(); ?>be/system_users/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New System User"><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Add System User</a></span>
 									</h2>
 								</header>							
 								<div class="panel-body">
@@ -74,7 +75,7 @@
 										<tbody>
 											<?php foreach($system_users as $row): ?>
 												<tr>
-													<td><a href="<?php echo base_url(); ?>be/system_users/edit/<?php echo  $row->system_user_id; ?>"><?php echo $row->first_name . ' ' . $row->last_name; ?></a></td>
+													<td><?php echo $row->first_name . ' ' . $row->last_name; ?></td>
 													<td><?php echo $row->email_address; ?></td>
 													<td><?php echo $row->gender; ?></td>
 													<td><?php echo $row->country_name; ?></td>
@@ -99,7 +100,7 @@
 													</td>
 													<td><?php echo $row->created_on; ?></td>						
 													<td class="center">
-														<a href="<?php echo base_url(); ?>be/system_users/edit/<?php echo  $row->system_user_id; ?>" class="on-default edit-row badge btn-primary" data-toggle="tooltip" data-placement="top" title="Edit System User"><i class="fa fa-pencil"></i></a>
+														<a href="<?php echo base_url(); ?>be/system_users/edit/<?php echo  $row->system_user_id; ?>" class="on-default edit-row badge btn-success" data-toggle="tooltip" data-placement="top" title="Edit System User"><i class="fa fa-pencil"></i></a>
 														<a onClick="javascript:return confirm('Do you really wish to delete this System User?');" href="<?php echo base_url(); ?>be/system_users/delete/<?php echo  $row->system_user_id; ?>" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete System User"><i class="fa fa-trash-o"></i></a>												
 													</td>
 												</tr>

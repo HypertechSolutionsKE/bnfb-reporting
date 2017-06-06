@@ -14,7 +14,7 @@
 								<li><span>Training Sessions</span></li>
 							</ol>
 					
-							<a class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
+							<a href="<?php echo base_url(); ?>be" class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
 						</div>
 					</header>
 
@@ -24,9 +24,10 @@
 							<section class="panel">
 								<header class="panel-heading">
 									<h2 class="panel-title">
-										<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-list"></i></span>
+										<span class="text-weight-normal va-middle mr-sm"><i class="fa fa-list"></i></span>
 										<span class="va-middle">Training Sessions List</span>
-										<span class="pull-right"><a href="<?php echo base_url(); ?>be/training_sessions/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New Training Session"><i class="fa fa-plus-circle"></i> Add Training Session</a></span>
+										<span class="pull-right"><a href="<?php echo base_url(); ?>be" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Dashboard"><i class="fa fa-home"></i> <span class="hidden-sm"></span></a></span>
+										<span class="pull-right"><a href="<?php echo base_url(); ?>be/training_sessions/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New Training Session"><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Add Training Session</a></span>
 									</h2>
 								</header>							
 								<div class="panel-body">
@@ -70,15 +71,14 @@
 										<tbody>
 											<?php foreach($training_sessions as $row): ?>
 												<tr>
-													<td><a href="<?php echo base_url(); ?>be/training_sessions/edit/<?php echo  $row->training_session_id; ?>"><?php echo $row->training_session_name; ?></a></td>
 													<td><?php echo $row->training_period_from . ' to ' . $row->training_period_to; ?></td>
-													<td><?php echo $row->indicator_id; ?></td>
-													<td><?php echo $row->country_id; ?></td>
-													<td><?php echo $row->number_males; ?></td>
-													<td><?php echo $row->number_females; ?></td>
+													<td><?php echo $row->indicator_name; ?></td>
+													<td><?php echo $row->country_name; ?></td>
+													<td><?php echo $row->males_attended; ?></td>
+													<td><?php echo $row->females_attended; ?></td>
 
 													<td class="center">
-														<a href="<?php echo base_url(); ?>be/training_sessions/edit/<?php echo  $row->training_session_id; ?>" class="on-default edit-row badge btn-primary" data-toggle="tooltip" data-placement="top" title="Edit Training Session"><i class="fa fa-pencil"></i></a>
+														<a href="<?php echo base_url(); ?>be/training_sessions/edit/<?php echo  $row->training_session_id; ?>" class="on-default edit-row badge btn-success" data-toggle="tooltip" data-placement="top" title="Edit Training Session"><i class="fa fa-pencil"></i></a>
 														<a onClick="javascript:return confirm('Do you really wish to delete this Training Session?');" href="<?php echo base_url(); ?>be/training_sessions/delete/<?php echo  $row->training_session_id; ?>" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Training Session"><i class="fa fa-trash-o"></i></a>												
 													</td>
 												</tr>

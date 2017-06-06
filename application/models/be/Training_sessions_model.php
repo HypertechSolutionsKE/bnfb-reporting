@@ -2,9 +2,15 @@
 class Training_sessions_model extends CI_Model {
 	
 	function get_training_sessions_list(){
-		$this->db->from('training_sessions');
-		$this->db->where( array('is_deleted'=>0));
-		return $this->db->get()->result();
+		$this->db->select('ts.*, i.indicator_id, i.indicator_name, c.country_id, c.country_name');
+		$this->db->from('training_sessions as ts');
+		$this->db->join('indicators as i', 'i.indicator_id = ts.indicator_id');
+		$this->db->join('countries as c', 'c.country_id = ts.country_id');
+
+		$this->db->where( array('ts.is_deleted'=>0));
+		return $this->db->get()->result();		
+
+
 	}
 	function save($data){
 		$insert = $this->db->insert('training_sessions', $data);

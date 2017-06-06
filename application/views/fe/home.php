@@ -76,11 +76,11 @@
  
 		<a href="#" class="scrollToTop"><i class="fa fa-angle-up"></i></a>
  
-		<script src="js/jquery-1.12.4.min.js"></script>
-		<script src="js/jquery.fitvids.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/smooth-scroll.min.js"></script>
-		<script src="js/owl.carousel.min.js"></script>
-		<script src="js/main.js"></script>
+		<script src="<?php echo base_url();?>assets/fe/js/jquery-1.12.4.min.js"></script>
+		<script src="<?php echo base_url();?>assets/fe/js/jquery.fitvids.js"></script>
+		<script src="<?php echo base_url();?>assets/fe/js/bootstrap.min.js"></script>
+		<script src="<?php echo base_url();?>assets/fe/js/smooth-scroll.min.js"></script>
+		<script src="<?php echo base_url();?>assets/fe/js/owl.carousel.min.js"></script>
+		<script src="<?php echo base_url();?>assets/fe/js/main.js"></script>
 	</body>
 </html>

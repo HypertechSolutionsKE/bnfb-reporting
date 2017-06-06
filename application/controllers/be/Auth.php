@@ -56,9 +56,10 @@ class Auth extends CI_Controller {
 		if($query['res'] == true){
 			$this->session->set_userdata('bnfb_loginstate', TRUE);
 			$this->session->set_userdata('user_id', $query['user_id']);
+			$this->session->set_userdata('is_admin', $query['is_admin']);			
 			$this->session->set_userdata('user_email', $query['user_email']);
 			$this->session->set_userdata('user_name', $query['user_name']);	
-			$this->session->set_userdata('profile_picture', $query['profile_picture']);					
+			$this->session->set_userdata('profile_picture', $query['profile_picture']);				
 			redirect('be');
 		}
 		else{

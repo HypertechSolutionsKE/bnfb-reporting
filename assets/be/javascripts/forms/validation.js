@@ -67,6 +67,19 @@
 		}
 	});
 
+	// INDICATORS FORM
+	$("#frm_intermediate_results_add").validate({
+		errorPlacement: function( error, element ) {
+			var placement = element.closest('.input-group');
+			if (!placement.get(0)) {
+				placement = element;
+			}
+			if (error.text() !== '') {
+				placement.after(error);
+			}
+		}
+	});
+
 	// REGISTRATION FORM
 	$("#frm_system_users_add").validate({
 		errorPlacement: function( error, element ) {
@@ -83,14 +96,39 @@
 				required: true,
 				equalTo: "#user_password"
 			},
-		},
-		messages: {
-			confirm_password: {
-				equalTo: "Please retype the correct password",
-			},
 		}
 	});
 
+	// TRAINING SESSIONS ADD FORM
+	$("#frm_training_sessions_add").validate({
+		errorPlacement: function( error, element ) {
+			var placement = element.closest('.input-group');
+			if (!placement.get(0)) {
+				placement = element;
+			}
+			if (error.text() !== '') {
+				placement.after(error);
+			}
+		},
+		rules: {
+			males_attended: {
+				required: true,
+				number: true
+			},
+			females_attended: {
+				required: true,
+				number: true
+			},
+		},
+		messages: {
+			training_period_from: {
+				required: "Period From is required",
+			},
+			training_period_to: {
+				required: "Period To is required &nbsp;&nbsp;&nbsp;&nbsp;",
+			}
+		}
+	});
 
 	// validation summary
 	var $summaryForm = $("#summary-form");

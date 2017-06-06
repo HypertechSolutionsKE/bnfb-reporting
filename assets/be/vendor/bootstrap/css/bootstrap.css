@@ -1409,7 +1409,7 @@ a.bg-danger:focus {
 }
 .page-header {
   padding-bottom: 9px;
-  margin: 40px 0 20px;
+  margin: 40px 0 10px;
   border-bottom: 1px solid #eee;
 }
 ul,
@@ -2551,18 +2551,18 @@ output {
   width: 100%;
   height: 34px;
   padding: 6px 12px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.42857143;
   color: #555;
-  background-color: #fff;
+  background-color: #FFFFEB;
   background-image: none;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  /*border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
   -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+          transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;*/
 }
 .form-control:focus {
   border-color: #66afe9;
@@ -2709,7 +2709,7 @@ fieldset[disabled] .checkbox label {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
-  border-radius: 3px;
+  /*border-radius: 3px;*/
 }
 select.input-sm {
   height: 30px;
@@ -2724,7 +2724,7 @@ select[multiple].input-sm {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
-  border-radius: 3px;
+  /*border-radius: 3px;*/
 }
 .form-group-sm select.form-control {
   height: 30px;
@@ -2746,7 +2746,7 @@ select[multiple].input-sm {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  /*border-radius: 6px;*/
 }
 select.input-lg {
   height: 46px;
@@ -2761,7 +2761,7 @@ select[multiple].input-lg {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  /*border-radius: 6px;*/
 }
 .form-group-lg select.form-control {
   height: 46px;
@@ -2869,6 +2869,9 @@ select[multiple].input-lg {
 }
 .has-warning .form-control-feedback {
   color: #8a6d3b;
+}
+p.has-error{
+  color: #a94442;
 }
 .has-error .help-block,
 .has-error .control-label,
@@ -3019,7 +3022,7 @@ select[multiple].input-lg {
           user-select: none;
   background-image: none;
   border: 1px solid transparent;
-  border-radius: 4px;
+  /*border-radius: 4px;*/
 }
 .btn:focus,
 .btn:active:focus,
@@ -3436,21 +3439,21 @@ fieldset[disabled] .btn-link:focus {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  /*border-radius: 6px;*/
 }
 .btn-sm,
 .btn-group-sm > .btn {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
-  border-radius: 3px;
+  /*border-radius: 3px;*/
 }
 .btn-xs,
 .btn-group-xs > .btn {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
-  border-radius: 3px;
+  /*border-radius: 3px;*/
 }
 .btn-block {
   display: block;
@@ -3840,7 +3843,7 @@ tbody.collapse.in {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  /*border-radius: 6px;*/
 }
 select.input-group-lg > .form-control,
 select.input-group-lg > .input-group-addon,
@@ -3863,7 +3866,7 @@ select[multiple].input-group-lg > .input-group-btn > .btn {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
-  border-radius: 3px;
+  /*border-radius: 3px;*/
 }
 select.input-group-sm > .form-control,
 select.input-group-sm > .input-group-addon,
@@ -3904,17 +3907,17 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   text-align: center;
   background-color: #eee;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  /*border-radius: 4px;*/
 }
 .input-group-addon.input-sm {
   padding: 5px 10px;
   font-size: 12px;
-  border-radius: 3px;
+  /*border-radius: 3px;*/
 }
 .input-group-addon.input-lg {
   padding: 10px 16px;
   font-size: 18px;
-  border-radius: 6px;
+  /*border-radius: 6px;*/
 }
 .input-group-addon input[type="radio"],
 .input-group-addon input[type="checkbox"] {
@@ -5025,7 +5028,7 @@ a.thumbnail.active {
   color: #333;
 }
 .alert {
-  padding: 15px;
+  padding: 10px;
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -5056,8 +5059,8 @@ a.thumbnail.active {
   color: inherit;
 }
 .alert-success {
-  color: #3c763d;
-  background-color: #dff0d8;
+  color: #ffffff;
+  background-color: #47a447;
   border-color: #d6e9c6;
 }
 .alert-success hr {
@@ -5843,10 +5846,10 @@ button.list-group-item-danger.active:focus {
   font-size: 21px;
   font-weight: bold;
   line-height: 1;
-  color: #000;
+  color: #fff;
   text-shadow: 0 1px 0 #fff;
   filter: alpha(opacity=20);
-  opacity: .2;
+  opacity: .6;
 }
 .close:hover,
 .close:focus {

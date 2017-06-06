@@ -39,17 +39,18 @@ class Login_model extends CI_model {
 			$this->db->update('system_users', $data);
 			
 			foreach ($query->result() as $row){
-				$user_id = $row->user_id;
+				$user_id = $row->system_user_id;
+				$is_admin = $row->is_admin;
 				$user_email = $row->email_address;
 				$user_name = $row->first_name . ' ' . $row->last_name;
 				$profile_picture = $row->profile_picture;
 			}			
-			$arr_return = array('user_id' => $user_id, 'user_email' => $user_email, 'user_name' => $user_name, 'profile_picture' => $profile_picture, 'res' => true);			
+			$arr_return = array('user_id' => $user_id, 'is_admin' => $is_admin, 'user_email' => $user_email, 'user_name' => $user_name, 'profile_picture' => $profile_picture, 'res' => true);			
 			return $arr_return;			
 			
 			return true;
 		}else{
-			$arr_return = array('user_id' => '', 'user_email' => '', 'user_name' => '', 'profile_picture' => '','res' => false);			
+			$arr_return = array('user_id' => '', 'is_admin' => '', 'user_email' => '', 'user_name' => '', 'profile_picture' => '','res' => false);			
 			return $arr_return;
 		}
 	}
