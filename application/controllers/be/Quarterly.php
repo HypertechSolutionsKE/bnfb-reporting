@@ -4,9 +4,15 @@ class Quarterly extends CI_Controller {
 	
 	function __construct(){
 		parent::__construct();		
-		$this->load->model('be/milestones_model');
-		$this->load->model('be/implementor_types_model');	
+		$this->load->model('be/implementor_types_model');
+		$this->load->model('be/implementors_model');
+		$this->load->model('be/project_purpose_model');
+		$this->load->model('be/project_objectives_model');
 		$this->load->model('be/intermediate_results_model');
+		$this->load->model('be/countries_model');
+		$this->load->model('be/thematic_areas_model');
+		$this->load->model('be/milestones_model');
+
 		$this->load->model('be/quarterly_model');
 
 	}
@@ -26,13 +32,21 @@ class Quarterly extends CI_Controller {
 	}
 	function create(){
 		if($this->session->userdata('bnfb_loginstate')) {
-			$data['milestones'] = $this->milestones_model->get_milestones_list();
-			$data['implementor_types'] = $this->implementor_types_model->get_implementor_types_list();			
+			$data['implementor_types'] = $this->implementor_types_model->get_implementor_types_list();	
+			$data['implementors'] = $this->implementors_model->get_implementors_list();	
+			$data['project_purpose'] = $this->project_purpose_model->get_project_purpose();	
+			$data['project_objectives'] = $this->project_objectives_model->get_project_objectives_list();
 			$data['intermediate_results'] = $this->intermediate_results_model->get_intermediate_results_list();
+			$data['countries'] = $this->countries_model->get_countries_list();
+			$data['thematic_areas'] = $this->thematic_areas_model->get_thematic_areas_list();
+			$data['milestones'] = $this->milestones_model->get_milestones_list();
+
 
 			if($this->session->userdata('quarterly_report_id')) {
 				$data['quarterly_report'] = $this->quarterly_model->get_quarterly_report($this->session->userdata('quarterly_report_id'));
 				$data['quarterly_objectives'] = $this->quarterly_model->get_quarterly_objectives($this->session->userdata('quarterly_report_id'));
+				$data['num_quarterly_objectives'] = $this->quarterly_model->get_quarterly_num_objectives($this->session->userdata('quarterly_report_id'));
+
 				$data['quarterly_intermediate_results'] = $this->quarterly_model->get_quarterly_intermediate_results($this->session->userdata('quarterly_report_id'));				
 				$data['quarterly_resources'] = $this->quarterly_model->get_quarterly_resources($this->session->userdata('quarterly_report_id'));
 				$data['quarterly_deliverables'] = $this->quarterly_model->get_quarterly_deliverables($this->session->userdata('quarterly_report_id'));
@@ -61,6 +75,8 @@ class Quarterly extends CI_Controller {
 		if($this->session->userdata('bnfb_loginstate')) {
 			$data['quarterly_report'] = $this->quarterly_model->get_quarterly_report($quarterly_report_id);
 			$data['quarterly_objectives'] = $this->quarterly_model->get_quarterly_objectives($quarterly_report_id);
+			$data['num_quarterly_objectives'] = $this->quarterly_model->get_quarterly_num_objectives($quarterly_report_id);
+
 			$data['quarterly_intermediate_results'] = $this->quarterly_model->get_quarterly_intermediate_results($quarterly_report_id);				
 			$data['quarterly_resources'] = $this->quarterly_model->get_quarterly_resources($quarterly_report_id);
 			$data['quarterly_deliverables'] = $this->quarterly_model->get_quarterly_deliverables($quarterly_report_id);
@@ -78,7 +94,7 @@ class Quarterly extends CI_Controller {
 	function save_summary(){
 		if($this->session->userdata('bnfb_loginstate')){
 			$data = array(
-				'quarterly_report_title' => $this->input->post('quarterly_report_title'),
+				'quarterly_implementor_id' => $this->input->post('quarterly_implementor_id'),
 				'quarterly_period_from' => $this->input->post('quarterly_period_from'),
 				'quarterly_period_to' => $this->input->post('quarterly_period_to'),
 				'quarterly_executive_summary' => $this->input->post('quarterly_executive_summary'),
@@ -106,7 +122,12 @@ class Quarterly extends CI_Controller {
 	function save_project_objective(){
 		if($this->session->userdata('bnfb_loginstate')){
 			$data = array(
-				'quarterly_objective_name' => $this->input->post('quarterly_project_objective'),
+				'quarterly_project_objective_id' => $this->input->post('quarterly_project_objective_id'),
+				'quarterly_intermediate_result_id' => $this->input->post('quarterly_intermediate_result_id'),
+				'quarterly_country_id' => $this->input->post('quarterly_country_id'),
+				'quarterly_thematic_area_id' => $this->input->post('quarterly_thematic_area_id'),
+				'quarterly_milestone_id' => $this->input->post('quarterly_milestone_id'),
+				'quarterly_deliverables' => $this->input->post('quarterly_deliverable'),
 				'quarterly_report_id' => $this->session->userdata('quarterly_report_id')
 			);			
 
@@ -153,7 +174,7 @@ class Quarterly extends CI_Controller {
 	function save_accomplishments(){
 		if($this->session->userdata('bnfb_loginstate')){
 			$data = array(
-				'quarterly_project_purpose' => $this->input->post('quarterly_project_purpose')
+				'quarterly_project_purpose_id' => $this->input->post('quarterly_project_purpose_id')
 			);			
 
 			if($this->session->userdata('quarterly_report_id')) {
@@ -178,7 +199,7 @@ class Quarterly extends CI_Controller {
 		if($this->session->userdata('bnfb_loginstate')){
 			$data = array(
 				'quarterly_report_id' => $this->session->userdata('quarterly_report_id'),
-				'implementor_type_id' => $this->input->post('quarterly_resource_implementor_type_id'),
+				'implementor_id' => $this->input->post('quarterly_resource_implementor_id'),
 				'quarterly_actual_expenditure' => $this->input->post('quarterly_resource_actual_expenditure'),
 				'quarterly_planned_expenditure' => $this->input->post('quarterly_resource_planned_expenditure'),
 				'quarterly_percentage_spent' => $this->input->post('quarterly_resource_percentage_spent'),
@@ -225,6 +246,8 @@ class Quarterly extends CI_Controller {
 		if($this->session->userdata('quarterly_report_id')) {
 			$data['quarterly_report'] = $this->quarterly_model->get_quarterly_report($this->session->userdata('quarterly_report_id'));
 			$data['quarterly_objectives'] = $this->quarterly_model->get_quarterly_objectives($this->session->userdata('quarterly_report_id'));
+			$data['num_quarterly_objectives'] = $this->quarterly_model->get_quarterly_num_objectives($this->session->userdata('quarterly_report_id'));
+
 			$data['quarterly_intermediate_results'] = $this->quarterly_model->get_quarterly_intermediate_results($this->session->userdata('quarterly_report_id'));				
 			$data['quarterly_resources'] = $this->quarterly_model->get_quarterly_resources($this->session->userdata('quarterly_report_id'));
 			$data['quarterly_deliverables'] = $this->quarterly_model->get_quarterly_deliverables($this->session->userdata('quarterly_report_id'));
@@ -292,10 +315,13 @@ class Quarterly extends CI_Controller {
 	function save_planned_deliverables(){
 		if($this->session->userdata('bnfb_loginstate')){
 			$data = array(
-				'quarterly_report_id' => $this->session->userdata('quarterly_report_id'),
-				'implementor_type_id' => $this->input->post('quarterly_deliverables_implementor_type_id'),
-				'quarterly_deliverables_cause' => $this->input->post('quarterly_deliverables_cause'),
-				'quarterly_deliverables' => $this->input->post('quarterly_deliverables'),
+				'quarterly_deliverable_project_objective_id' => $this->input->post('quarterly_deliverable_project_objective_id'),
+				'quarterly_deliverable_intermediate_result_id' => $this->input->post('quarterly_deliverable_intermediate_result_id'),
+				'quarterly_deliverable_country_id' => $this->input->post('quarterly_deliverable_country_id'),
+				'quarterly_deliverable_thematic_area_id' => $this->input->post('quarterly_deliverable_thematic_area_id'),
+				'quarterly_deliverable_milestone_id' => $this->input->post('quarterly_deliverable_milestone_id'),
+				'quarterly_deliverable_deliverables' => $this->input->post('quarterly_deliverable_deliverable'),
+				'quarterly_report_id' => $this->session->userdata('quarterly_report_id')
 			);			
 
 			$q = $this->quarterly_model->save_planned_deliverables($data);
@@ -454,7 +480,7 @@ class Quarterly extends CI_Controller {
 	//UPDATE QUARTERLY RESOURCE
 	function update_project_resource($quarterly_resource_id){
 		$data = array(
-			'implementor_type_id' => $this->input->post('quarterly_resource_implementor_type_id2'),
+			'implementor_id' => $this->input->post('quarterly_resource_implementor_id2'),
 			'quarterly_actual_expenditure' => $this->input->post('quarterly_resource_actual_expenditure2'),
 			'quarterly_planned_expenditure' => $this->input->post('quarterly_resource_planned_expenditure2'),
 			'quarterly_percentage_spent' => $this->input->post('quarterly_resource_percentage_spent2'),
@@ -531,7 +557,7 @@ class Quarterly extends CI_Controller {
 
 	function update_planned_deliverables($quarterly_deliverables_id){
 			$data = array(
-				'implementor_type_id' => $this->input->post('quarterly_deliverables_implementor_type_id2'),
+				'implementor_id' => $this->input->post('quarterly_deliverables_implementor_id2'),
 				'quarterly_deliverables_cause' => $this->input->post('quarterly_deliverables_cause2'),
 				'quarterly_deliverables' => $this->input->post('quarterly_deliverables2'),
 			);			
@@ -577,7 +603,7 @@ class Quarterly extends CI_Controller {
 
 	function save(){
 		$save_data = array(
-			'quarterly_report_title' => $this->input->post('report_title'),
+			'quarterly_implementor_id' => $this->input->post('quarterly_implementor_id'),
 			'quarterly_period_from' => $this->input->post('period_from'),
 			'quarterly_period_to' => $this->input->post('period_to'),
 			'quarterly_report_summary' => $this->input->post('report_summary'),

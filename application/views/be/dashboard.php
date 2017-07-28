@@ -33,8 +33,8 @@
 											</td>
 											<td><span class="text-success">Biweekly Report</span></td>
 											<td>
-												<a href="<?php echo base_url(); ?>be/biweekly/complete/<?php echo $row->biweekly_report_id; ?>" class="btn btn-xs btn-success" data-toggle="tooltip" data-placement="top" title="Complete Report"><i class="fa fa-external-link"></i></a>
-												<a onClick="javascript:return confirm('Do you really wish to delete this pending Biweekly Report?');" href="<?php echo base_url(); ?>be/biweekly/delete_pending/<?php echo $row->biweekly_report_id; ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Report"><i class="fa fa-trash-o"></i></a>								
+												<a href="<?php echo base_url(); ?>be/biweekly/complete/<?php echo $row->biweekly_report_id; ?>" class="btn btn-xs btn-success" data-toggle="tooltip" data-placement="top" title="Resume Report Entry"><i class="fa fa-repeat"></i>&nbsp;Resume</a>
+												<a onClick="javascript:return confirm('Do you really wish to delete this pending Biweekly Report?');" href="<?php echo base_url(); ?>be/biweekly/delete_pending/<?php echo $row->biweekly_report_id; ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Report"><i class="fa fa-trash-o"></i>&nbsp;Delete</a>		
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -42,12 +42,12 @@
 										<tr>
 											<td>
 												<i class="fa fa-caret-right" aria-hidden="true"></i>
-												<span class="text-dark text-weight-normal"><?php echo $row->quarterly_report_title; ?>
+												<span class="text-dark text-weight-normal"><?php echo $row->implementor_name; ?>
 											</td>
 											<td><span class="text-primary">Quarterly Report</span></td>
 											<td>
-												<a href="<?php echo base_url(); ?>be/quarterly/complete/<?php echo $row->quarterly_report_id; ?>" class="btn btn-xs btn-success" data-toggle="tooltip" data-placement="top" title="Complete Report"><i class="fa fa-external-link"></i></a>
-												<a onClick="javascript:return confirm('Do you really wish to delete this pending Quarterly Report?');" href="<?php echo base_url(); ?>be/quarterly/delete_pending/<?php echo $row->quarterly_report_id; ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Report"><i class="fa fa-trash-o"></i></a>												
+												<a href="<?php echo base_url(); ?>be/quarterly/complete/<?php echo $row->quarterly_report_id; ?>" class="btn btn-xs btn-success" data-toggle="tooltip" data-placement="top" title="Resume Report Entry"><i class="fa fa-repeat"></i>&nbsp;Resume</a>
+												<a onClick="javascript:return confirm('Do you really wish to delete this pending Quarterly Report?');" href="<?php echo base_url(); ?>be/quarterly/delete_pending/<?php echo $row->quarterly_report_id; ?>" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Report"><i class="fa fa-trash-o"></i>&nbsp;Delete</a>												
 											</td>
 										</tr>
 									<?php endforeach; ?>
@@ -136,9 +136,9 @@
 															</div>
 															</a>
 															<div class="summary text-center">
-																<h3 class="title"><a href="<?php echo base_url(); ?>be/biweekly/summary" class="text-danger">Report Summary</a></h3>
+																<h3 class="title"><a href="<?php echo base_url(); ?>be/biweekly/summary" class="text-danger">Consolidated Report</a></h3>
 																<div class="info mt-md">
-																	View Biweekly Summary Report, filtered by Reporting Period.		
+																	View Biweekly Consolidated Report, filtered by Reporting Period.		
 																</div>
 															</div>
 															<div class="summary-footer">

@@ -30,11 +30,11 @@
 
 		<header class="header" id="header">
 			<div class="container">
-				<nav class="navbar navbar-default navbar-fixed-top">
+				<nav class="navbar navbar-default">
 					<div class="container">
 						<div class="navbar-header">
 							<a class="navbar-brand" href="<?php echo base_url();?>">
-								<img src="<?php echo base_url();?>assets/fe/img/cip-logo.jpg" class="">
+								<img src="<?php echo base_url();?>assets/be/images/bnfb-logo.png" class="">
 							</a>
 						</div>
  					</div>

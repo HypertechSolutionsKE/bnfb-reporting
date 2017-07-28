@@ -2,7 +2,7 @@
 		</section>
 
 		<!-- Vendor -->
-		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery/jquery.js"></script>
+		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery2/1.10.1/jquery.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery-cookie/jquery-cookie.js"></script>
 		<!--<script src="<?php echo base_url(); ?>assets/be/vendor/style-switcher/style.switcher.js"></script>-->
@@ -41,7 +41,6 @@
 		<script src="<?php echo base_url(); ?>assets/be/vendor/jqvmap/maps/continents/jquery.vmap.south-america.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/vendor/select2/js/select2.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
-		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
 
@@ -61,8 +60,6 @@
 		<script src="<?php echo base_url(); ?>assets/be/vendor/bootstrap-maxlength/bootstrap-maxlength.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/vendor/ios7-switch/ios7-switch.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/vendor/bootstrap-confirmation/bootstrap-confirmation.js"></script>
-
-    	<script src="<?php echo base_url();?>assets/be/vendor/oLoader/js/jquery.oLoader.min.js"></script>
 
 		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery-validation/jquery.validate.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/vendor/jquery-validation/additional-methods.js"></script>
@@ -86,17 +83,12 @@
 		<script src="<?php echo base_url(); ?>assets/be/javascripts/tables/examples.datatables.tabletools.js"></script>		
 		<script src="<?php echo base_url(); ?>assets/be/javascripts/forms/validation.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/javascripts/forms/examples.wizard.js"></script>
-		<script src="<?php echo base_url(); ?>assets/be/javascripts/forms/script.js"></script>
 		<script src="<?php echo base_url(); ?>assets/be/javascripts/ui-elements/examples.charts.js"></script>
-		<script src="<?php echo base_url(); ?>assets/be/javascripts/ui-elements/examples.modals.js"></script>		
+		<script src="<?php echo base_url(); ?>assets/be/javascripts/ui-elements/examples.modals.js"></script>	
 
-		<script type="text/javascript">
-    		//$(document).ready(function() {
+		<script src="<?php echo base_url(); ?>assets/be/javascripts/forms/script.js"></script>
 
-			//CKEDITOR.replace("quarterly_executive_summary",{
-        		//height: 400
-    		//});
-    		//});
-		</script>
+    	<script src="<?php echo base_url();?>assets/be/vendor/oLoader/js/jquery.oLoader.min.js"></script>
+
 	</body>
 </html>

@@ -56,7 +56,7 @@
 								                     	<?php echo $this->session->flashdata('error'); ?>
 								        			</div>               
 								                <?php endif; ?>											
-									<table class="table table-bordered table-striped mb-none" id="datatable-tabletools" data-swf-path="<?php echo base_url(); ?>assets/be/vendor/jquery-datatables/extras/TableTools/swf/copy_csv_xls_pdf.swf">
+									<table class="table table-bordered mb-none" id="datatable-tabletools" data-swf-path="<?php echo base_url(); ?>assets/be/vendor/jquery-datatables/extras/TableTools/swf/copy_csv_xls_pdf.swf">
 										<thead>
 											<tr>
 												<th>Report Title</th>
@@ -69,14 +69,20 @@
 										</thead>
 										<tbody>
 											<?php foreach($biweekly_reports as $row): ?>
-												<tr>
+												<?php if ($row->system_user_id == $this->session->userdata('user_id')): ?>
+													<tr class="tr-success">
+												<?php else: ?>
+													<tr>
+												<?php endif; ?>
+
 													<td><b><?php echo $row->biweekly_report_title; ?></b></td>
 													<td><?php echo $row->biweekly_period_from . ' - ' . $row->biweekly_period_to; ?></td>
 													<td><?php echo $row->first_name . ' ' . $row->last_name; ?></td>
 													<td><?php echo date('M j Y g:i A', strtotime($row->created_on)); ?></td>
 													<td class="center">
 														<a href="<?php echo base_url(); ?>be/biweekly/view/<?php echo  $row->biweekly_report_id; ?>" class="on-default edit-row badge btn-info" data-toggle="tooltip" data-placement="top" title="View Biweekly Report"><i class="fa fa-eye"></i></a>
-														<?php if ($row->system_user_id == $this->session->userdata('user_id') || $this->session->userdata('is_admin') == 1): ?>
+														<?php if ($this->session->userdata('is_admin') == 1): ?>
+															<!--$row->system_user_id == $this->session->userdata('user_id') || -->
 															<a href="<?php echo base_url(); ?>be/biweekly/edit/<?php echo  $row->biweekly_report_id; ?>" class="on-default edit-row badge btn-success" data-toggle="tooltip" data-placement="top" title="Edit Biweekly Report"><i class="fa fa-pencil"></i></a>
 															<a onClick="javascript:return confirm('Do you really wish to delete this Biweekly Report?');" href="<?php echo base_url(); ?>be/biweekly/delete/<?php echo  $row->biweekly_report_id; ?>" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Biweekly Report"><i class="fa fa-trash-o"></i></a>
 														<?php endif; ?>											

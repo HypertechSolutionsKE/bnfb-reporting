@@ -60,9 +60,9 @@
 										<thead>
 											<tr>
 												<th>Name</th>
-												<th>Partner</th>
-												<th>Target No. of Males</th>
-												<th>Target No. of Females</th>
+												<th>Objective</th>
+												<th>Disaggregation Levels</th>
+												<th>Target</th>
 												<th>Date Created</th>
 												<th class="text-center">Action</th>
 											</tr>
@@ -71,9 +71,15 @@
 											<?php foreach($indicators as $row): ?>
 												<tr>
 													<td><?php echo $row->indicator_name; ?></td>
-													<td><?php echo $row->partner_name; ?></td>
-													<td><?php echo $row->target_males; ?></td>
-													<td><?php echo $row->target_females; ?></td>
+													<td><?php echo $row->project_objective_name; ?></td>
+													<td>
+														<?php foreach ($indicator_disaggregation_levels as $row2): ?>
+															<?php if ($row->indicator_id == $row2->indicator_id): ?>
+																<?php echo $row2->disaggregation_level_name . ', '; ?>
+															<?php endif; ?>
+														<?php endforeach; ?>
+													</td>
+													<td><?php echo $row->target; ?></td>
 													<td><?php echo $row->created_on; ?></td>
 													<td class="center">
 														<a href="<?php echo base_url(); ?>be/indicators/edit/<?php echo  $row->indicator_id; ?>" class="on-default edit-row badge btn-success" data-toggle="tooltip" data-placement="top" title="Edit indicator"><i class="fa fa-pencil"></i></a>
@@ -97,6 +103,9 @@
 								<div class="panel-body">
 									<div class="sidebar-widget widget-tasks">
 										<ul class="list-unstyled m-none">
+											<li><a href="<?php echo base_url(); ?>be/project_purpose">Project Purpose</a></li>
+											<li><a href="<?php echo base_url(); ?>be/project_objectives">Project Objectives</a></li>
+										
 											<li><a href="<?php echo base_url(); ?>be/milestones">Milestones</a></li>
 											<li><a href="<?php echo base_url(); ?>be/indicators"><b>Indicators</b></a></li>
 											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>											

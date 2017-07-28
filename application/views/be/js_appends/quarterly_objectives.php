@@ -9,7 +9,7 @@
 																		<?php if (isset($quarterly_objectives)): ?>
 																			<?php foreach ($quarterly_objectives as $row): ?>
 																				<tr>
-																					<td><i class="fa fa-check-square-o" aria-hidden="true"></i> <?php echo character_limiter($row->quarterly_objective_name,23); ?></td>
+																					<td><i class="fa fa-check-square-o" aria-hidden="true"></i> <?php echo character_limiter($row->project_objective_name,50); ?></td>
 																					<td>
 																						<div class="btn-group">
 																							<button type="button" class="mb-xs mt-xs mr-xs btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>

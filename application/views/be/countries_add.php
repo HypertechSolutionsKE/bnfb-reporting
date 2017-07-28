@@ -2,7 +2,7 @@
 			<div class="inner-wrapper">
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Countries</h2>
+						<h2>Countries/Regions</h2>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
@@ -12,7 +12,7 @@
 									</a>
 								</li>
 								<li><span>Settings</span></li>
-								<li><span><a href="<?php echo base_url(); ?>be/countries">Countries</a></span></li>
+								<li><span><a href="<?php echo base_url(); ?>be/countries">Countries/Regions</a></span></li>
 								<?php if (isset($country)): ?>
 									<li><span>Edit</span></li>
 								<?php else: ?>
@@ -34,9 +34,9 @@
 										<header class="panel-heading">
 											<h2 class="panel-title">
 												<span class="text-weight-normal va-middle mr-sm"><i class="fa fa-pencil"></i></span>
-												<span class="va-middle">Edit Country</span>
+												<span class="va-middle">Edit Country/Region</span>
 												<span class="pull-right"><a href="<?php echo base_url(); ?>be" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Dashboard"><i class="fa fa-home"></i> <span class="hidden-sm"></span></a></span>
-												<span class="pull-right"><a href="<?php echo base_url(); ?>be/countries" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Countries list"><i class="fa fa-long-arrow-left"></i></a></span>											
+												<span class="pull-right"><a href="<?php echo base_url(); ?>be/countries" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Countries/Regions list"><i class="fa fa-long-arrow-left"></i></a></span>											
 											</h2>
 										</header>							
 										<div class="panel-body">
@@ -71,10 +71,10 @@
 													<label class="control-label">Name <span class="required">*</span></label>
 													<input type="text" name="country_name" id="country_name" class="form-control" placeholder="Country Name" value="<?php echo $row->country_name; ?>" required/>
 												</div>
-												<div class="form-group col-md-4">
+												<!--<div class="form-group col-md-4">
 													<label class="control-label">Code <span class="required">*</span></label>
 													<input type="text" name="country_code" id="country_code" class="form-control" placeholder="Country Code" value="<?php echo $row->country_code; ?>" required/>
-												</div>
+												</div>-->
 												<div class="clearfix"></div>
 												<footer class="panel-footer">
 													<div class="row">
@@ -90,9 +90,9 @@
 									<header class="panel-heading">
 										<h2 class="panel-title">
 											<span class="text-weight-normal va-middle mr-sm"><i class="fa fa-plus-circle"></i></span>
-											<span class="va-middle">Add Country</span>
+											<span class="va-middle">Add Country/Region</span>
 											<span class="pull-right"><a href="<?php echo base_url(); ?>be" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Dashboard"><i class="fa fa-home"></i> <span class="hidden-sm"></span></a></span>
-											<span class="pull-right"><a href="<?php echo base_url(); ?>be/countries" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Countries list"><i class="fa fa-long-arrow-left"></i></a></span>
+											<span class="pull-right"><a href="<?php echo base_url(); ?>be/countries" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Countries/Regions list"><i class="fa fa-long-arrow-left"></i></a></span>
 										</h2>
 									</header>							
 									<div class="panel-body">
@@ -127,10 +127,10 @@
 												<label class="control-label">Name <span class="required">*</span></label>
 												<input type="text" name="country_name" id="country_name" class="form-control" placeholder="Country Name" required/>
 											</div>
-											<div class="form-group col-md-4">
+											<!--<div class="form-group col-md-4">
 												<label class="control-label">Code <span class="required">*</span></label>
 												<input type="text" name="country_code" id="country_code" class="form-control" placeholder="Country Code" required/>
-											</div>
+											</div>-->
 											<div class="clearfix"></div>
 											<footer class="panel-footer">
 												<div class="row">
@@ -155,13 +155,16 @@
 								<div class="panel-body">
 									<div class="sidebar-widget widget-tasks">
 										<ul class="list-unstyled m-none">
+											<li><a href="<?php echo base_url(); ?>be/project_purpose">Project Purpose</a></li>
+											<li><a href="<?php echo base_url(); ?>be/project_objectives">Project Objectives</a></li>
+										
 											<li><a href="<?php echo base_url(); ?>be/milestones">Milestones</a></li>
 											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
 											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>			
 											<li><a href="<?php echo base_url(); ?>be/implementors">Implementors</a></li>
 											<li><a href="<?php echo base_url(); ?>be/intermediate_results">Intermediate Results</a></li>
 											
-											<li><a href="<?php echo base_url(); ?>be/countries"><b>Countries</b></a></li>
+											<li><a href="<?php echo base_url(); ?>be/countries"><b>Countries/Regions</b></a></li>
 											<li><a href="<?php echo base_url(); ?>be/user_titles">User Titles</a></li>
 											<li><a href="<?php echo base_url(); ?>be/system_users">System Users</a></li>
 

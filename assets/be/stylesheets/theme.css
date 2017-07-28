@@ -24,7 +24,7 @@ body {
 	font-family: "Lato","Open Sans", Arial, sans-serif;
 	line-height: 22px;
 	margin: 0;
-	font-size: 14px;
+	font-size: 13px;
 	text-rendering: optimizeLegibility;
 }
 
@@ -1625,7 +1625,7 @@ html.header-dark .header .input-search .input-group-btn .btn-default {
 	.header.header-nav-menu .header-nav-main nav > ul > li > a {
 		display: inline-block;
 		border-radius: 4px;
-		font-size: 14px;
+		font-size: 13px;
 		font-style: normal;
 		font-weight: 700;
 		line-height: 20px;
@@ -2307,7 +2307,7 @@ html.header-dark .header .input-search .input-group-btn .btn-default {
 	.header.header-nav-menu.header-nav-top-line nav > ul > li > a, .header.header-nav-menu.header-nav-top-line nav > ul > li:hover > a {
 		background: transparent !important;
 		color: #444;
-		padding: 18px 13px 19px;
+		padding: 18px 9px 19px;
 		margin: 0;
 	}
 
@@ -4160,12 +4160,13 @@ ul.nav-list.primary > li a {
 	display: inline-block;
 	color: #000;
 	font-size: 1em;
+	line-height: 0.1;
 	font-weight: 600;
 }
 
 .changelog .release-date {
 	color: #999;
-	font-size: 0.9em;
+	font-size: 0.8em;
 }
 
 .changelog .label {
@@ -4963,40 +4964,40 @@ html.dark .form-bordered .form-group {
 }
 
 .form-group-vertical .input-group:first-child .input-group-addon, .form-group-vertical .input-group:first-of-type .input-group-addon {
-	border-radius: 4px 0 0 0;
+	border-radius: 0px 0 0 0;
 }
 
 .form-group-vertical .input-group:first-child .form-control, .form-group-vertical .input-group:first-of-type .form-control {
-	border-radius: 0 4px 0 0;
+	border-radius: 0 0px 0 0;
 }
 
 .form-group-vertical .input-group:last-child .input-group-addon, .form-group-vertical .input-group:last-of-type .input-group-addon {
-	border-radius: 0 0 0 4px;
+	border-radius: 0 0 0 0px;
 }
 
 .form-group-vertical .input-group:last-child .form-control, .form-group-vertical .input-group:last-of-type .form-control {
-	border-radius: 0 0 4px 0;
+	border-radius: 0 0 0px 0;
 }
 
 .form-group-vertical .input-group.input-group-icon:first-child .input-group-addon, .form-group-vertical .input-group.input-group-icon:first-of-type .input-group-addon {
-	border-radius: 4px 4px 0 0;
+	border-radius: 0px 0px 0 0;
 }
 
 .form-group-vertical .input-group.input-group-icon:first-child .form-control, .form-group-vertical .input-group.input-group-icon:first-of-type .form-control {
-	border-radius: 4px 4px 0 0;
+	border-radius: 0px 0px 0 0;
 }
 
 .form-group-vertical .input-group.input-group-icon:last-child .input-group-addon, .form-group-vertical .input-group.input-group-icon:last-of-type .input-group-addon {
-	border-radius: 0 0 4px 4px;
+	border-radius: 0 0 0px 0px;
 }
 
 .form-group-vertical .input-group.input-group-icon:last-child .form-control, .form-group-vertical .input-group.input-group-icon:last-of-type .form-control {
-	border-radius: 0 0 4px 4px;
+	border-radius: 0 0 0px 0px;
 }
 
 /* Form - Input Override */
 .input-lg {
-	border-radius: 4px;
+	border-radius: 0px;
 }
 
 /* Form - Input Icon */
@@ -5015,7 +5016,7 @@ html.dark .form-bordered .form-group {
 .input-group-icon input.form-control:first-child, .input-group-icon input.form-control:last-child,
 .input-search input.form-control:first-child,
 .input-search input.form-control:last-child {
-	border-radius: 4px;
+	border-radius: 0px;
 }
 
 .input-group-icon .input-group-btn,
@@ -17329,7 +17330,7 @@ html.dark .invoice table.table > tbody tr > td {
 /* Sign Screens - Wrappers */
 .body-sign {
 	display: table;
-	height: 100vh;
+	height: 50vh;
 	margin: 0 auto;
 	max-width: 500px;
 	padding: 0 15px;
@@ -17342,6 +17343,7 @@ html.dark .invoice table.table > tbody tr > td {
 }
 .body-sign .panel-sign {
 	background: transparent;
+	padding-top: 60px !important;
 }
 .body-sign .panel-sign .panel-title-sign .title {
 	background-color: #CCC;
@@ -18439,4 +18441,23 @@ text-decoration: line-through;
 
 .borderless td, .borderless th {
     border: none !important;
+}
+
+.tr-success{
+	background-color: rgba(144, 222, 144, 0.24) !important;
+}
+
+@media print {
+    .myDivToPrint {
+        background-color: white;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        margin: 0;
+        padding: 15px;
+        font-size: 14px;
+        line-height: 18px;
+    }
 }

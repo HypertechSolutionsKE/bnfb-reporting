@@ -9,7 +9,7 @@
 																				<h3 class="h3 mt-none text-dark text-weight-bold text-center">Building Nutritious Food Baskets Project</h3>
 																			</div>
 																			<div class="col-sm-12 mt-md mb-lg">
-																				<img class="img-center img-report-logo" src="<?php echo base_url(); ?>assets/be/images/cip-logo.jpg" alt=""/>					
+																				<img class="img-center img-report-logo" src="<?php echo base_url(); ?>assets/be/images/bnfb-logo.png" alt=""/>					
 																			</div>
 																			<div class="col-sm-12 mt-md mb-md">
 																				<h4 class="h4 m-none text-dark text-weight-bold text-center"><?php echo $row->quarterly_report_title; ?></h4>
@@ -45,20 +45,18 @@
 																								<th class="text-weight-semibold">Deliverables/outputs during the reporting period</th>
 																							</tr>
 																						</thead>
-																						<tbody>
+																						<tbody>										
 																							<tr>
-																								<td rowspan="<?php echo $row->num_objectives + 1; ?>"><?php echo $row->quarterly_project_purpose; ?></td>
+																								<td rowspan="<?php echo $num_quarterly_objectives; ?>"><?php echo $row->project_purpose; ?></td>
+																								
 																								<?php foreach ($quarterly_objectives as $row2): ?>
-																										<td  rowspan="<?php echo $row2->num_intermediate_results; ?>"><?php echo $row2->quarterly_objective_name; ?></td>
-																										<?php foreach ($quarterly_intermediate_results as $row3): ?>
-																											<?php if ($row2->quarterly_objective_id == $row3->quarterly_objective_id): ?>
-																												<td><?php echo $row3->intermediate_result_name; ?></td>
-																												<td><?php echo $row3->deliverables; ?></td>
-																												</tr><tr>			
-																											<?php endif; ?>
+																										<td><?php echo $row2->project_objective_name; ?></td>
+																										<td><?php echo $row2->intermediate_result_name; ?></td>	
+																										<td><?php echo $row2->quarterly_deliverables; ?></td>
+																										</tr><tr>		
 																										<?php endforeach; ?>
-																										</tr><tr>
-																								<?php endforeach; ?>
+																										
+																								
 																							</tr>
 																						</tbody>
 																					</table>
@@ -80,7 +78,7 @@
 																						<tbody>
 																							<?php foreach ($quarterly_resources as $row2): ?>
 																								<tr>						
-																									<td><?php echo $row2->implementor_type_name; ?></td>
+																									<td><?php echo $row2->implementor_name; ?></td>
 																									<td><?php echo number_format($row2->quarterly_actual_expenditure); ?></td>	
 																									<td><?php echo number_format($row2->quarterly_planned_expenditure); ?></td>	
 																									<td><?php echo number_format($row2->quarterly_percentage_spent); ?></td>	
@@ -97,23 +95,21 @@
 																					<table class="table table-bordered">
 																						<thead>
 																							<tr class="h5 text-dark">
-																								<th class="text-weight-semibold">Partner</th>
-																								<th class="text-weight-semibold">Major deliverables/outputs planned for the next three months</th>
+																								<th class="text-weight-semibold">Objective</th>
+																								<th class="text-weight-semibold">Thematic Area</th>
+																								<th class="text-weight-semibold">Milestone</th>
+
+																								<th class="text-weight-semibold">Activities</th>
 																							</tr>
 																						</thead>
 																						<tbody>
 																							<?php foreach ($quarterly_deliverables as $row2): ?>
 																								<tr>						
-																									<td>
-																										<?php
-																											if ($row2->quarterly_deliverables_cause != ''){
-																												echo $row2->implementor_type_name . " (" . $row2->quarterly_deliverables_cause . ")";
-																											}else{
-																												echo $row2->implementor_type_name;
-																											}
-																										?>
-																									</td>
-																									<td><?php echo $row2->quarterly_deliverables; ?></td>	
+																									<td><?php echo $row2->project_objective_name; ?></td>
+																									<td><?php echo $row2->thematic_area_name; ?></td>
+																									<td><?php echo $row2->milestone_name; ?></td>
+
+																									<td><?php echo $row2->quarterly_deliverable_deliverables; ?></td>	
 																								</tr>
 																							<?php endforeach; ?>
 																						</tbody>

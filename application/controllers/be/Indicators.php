@@ -5,11 +5,15 @@ class Indicators extends CI_Controller {
 	function __construct(){
 		parent::__construct();		
 		$this->load->model('be/indicators_model');
+		$this->load->model('be/project_objectives_model');
+		$this->load->model('be/disaggregation_levels_model');
+
 	}
 
 	function index(){
 		if($this->session->userdata('bnfb_loginstate')) {
 			$data['indicators'] = $this->indicators_model->get_indicators_list();
+			$data['indicator_disaggregation_levels'] = $this->indicators_model->get_indicator_disaggregation_levels();
 			
 			$data['page_title'] = 'Indicators List | ';
         	$data['cur'] = 'Settings';
@@ -22,6 +26,9 @@ class Indicators extends CI_Controller {
 	}
 	function add(){
 		if($this->session->userdata('bnfb_loginstate')) {
+			$data['project_objectives'] = $this->project_objectives_model->get_project_objectives_list();
+			$data['disaggregation_levels'] = $this->disaggregation_levels_model->get_disaggregation_levels_list();
+
 			$data['page_title'] = 'Add Indicator | ';
 	        $data['cur'] = 'Settings';
 			$data['main_content'] = 'be/indicators_add';
@@ -33,10 +40,14 @@ class Indicators extends CI_Controller {
 	}
 	function save(){
 		$data = array(
+			'project_objective_id' => $this->input->post('project_objective_id'),			
 			'indicator_name' => $this->input->post('indicator_name'),
-			'partner_name' => $this->input->post('partner_name'),
-			'target_males' => $this->input->post('target_males'),
-			'target_females' => $this->input->post('target_females')
+			'indicator_definition' => $this->input->post('indicator_definition'),
+			'target' => $this->input->post('target'),
+			'baseline_value' => $this->input->post('baseline_value'),
+			'source_of_data' => $this->input->post('source_of_data'),
+			'data_collection_frequency' => $this->input->post('data_collection_frequency'),
+			'responsibility' => $this->input->post('responsibility')
 		);	
 		$q = $this->indicators_model->save($data);
 		if ($q['res'] == true){
@@ -65,10 +76,14 @@ class Indicators extends CI_Controller {
 	}
 	function update($indicator_id){
 		$data = array(
+			'project_objective_id' => $this->input->post('project_objective_id'),			
 			'indicator_name' => $this->input->post('indicator_name'),
-			'partner_name' => $this->input->post('partner_name'),
-			'target_males' => $this->input->post('target_males'),
-			'target_females' => $this->input->post('target_females')
+			'indicator_definition' => $this->input->post('indicator_definition'),
+			'target' => $this->input->post('target'),
+			'baseline_value' => $this->input->post('baseline_value'),
+			'source_of_data' => $this->input->post('source_of_data'),
+			'data_collection_frequency' => $this->input->post('data_collection_frequency'),
+			'responsibility' => $this->input->post('responsibility')
 		);	
 		$q = $this->indicators_model->update($data,$indicator_id);
 		if ($q['res'] == true){

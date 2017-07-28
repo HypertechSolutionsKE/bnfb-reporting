@@ -41,7 +41,7 @@
 		<section class="body-sign">
 			<div class="center-sign">
 				<a href="<?php echo base_url(); ?>be" class="logo pull-left">
-					<img src="<?php echo base_url(); ?>assets/be/images/cip-logo.jpg" height="65" alt="BFNB" />
+					<img src="<?php echo base_url(); ?>assets/be/images/bnfb-logo.png" height="120" alt="BFNB" />
 				</a>
 
 				<div class="panel panel-sign">

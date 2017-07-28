@@ -94,6 +94,9 @@
 								<div class="panel-body">
 									<div class="sidebar-widget widget-tasks">
 										<ul class="list-unstyled m-none">
+											<li><a href="<?php echo base_url(); ?>be/project_purpose">Project Purpose</a></li>
+											<li><a href="<?php echo base_url(); ?>be/project_objectives">Project Objectives</a></li>
+								
 											<li><a href="<?php echo base_url(); ?>be/milestones"><b>Milestones</b></a></li>
 											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
 											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>											

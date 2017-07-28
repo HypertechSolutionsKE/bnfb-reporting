@@ -67,6 +67,39 @@
 		}
 	});
 
+	//CHANGE AGENTS TRAINED ADD FORM
+	$("#frm_change_agents_trained_add").validate({
+		errorPlacement: function( error, element ) {
+			var placement = element.closest('.input-group');
+			if (!placement.get(0)) {
+				placement = element;
+			}
+			if (error.text() !== '') {
+				placement.after(error);
+			}
+		},
+		rules: {
+		},
+		messages: {
+		}
+	});
+	//POLICY DOCUMENTS ADD FORM
+	$("#frm_policy_documents_add").validate({
+		errorPlacement: function( error, element ) {
+			var placement = element.closest('.input-group');
+			if (!placement.get(0)) {
+				placement = element;
+			}
+			if (error.text() !== '') {
+				placement.after(error);
+			}
+		},
+		rules: {
+		},
+		messages: {
+		}
+	});
+
 	// INDICATORS FORM
 	$("#frm_intermediate_results_add").validate({
 		errorPlacement: function( error, element ) {
@@ -99,8 +132,26 @@
 		}
 	});
 
+	// PROJECT PURPOSE FORM
+	$("#frm_project_purpose").validate({
+		errorPlacement: function( error, element ) {
+			var placement = element.closest('.input-group');
+			if (!placement.get(0)) {
+				placement = element;
+			}
+			if (error.text() !== '') {
+				placement.after(error);
+			}
+		},
+		rules: {
+			project_purpose: {
+				required: true
+			},
+		}
+	});
+
 	// TRAINING SESSIONS ADD FORM
-	$("#frm_training_sessions_add").validate({
+	/*$("#frm_training_sessions_add").validate({
 		errorPlacement: function( error, element ) {
 			var placement = element.closest('.input-group');
 			if (!placement.get(0)) {
@@ -128,7 +179,7 @@
 				required: "Period To is required &nbsp;&nbsp;&nbsp;&nbsp;",
 			}
 		}
-	});
+	});*/
 
 	// validation summary
 	var $summaryForm = $("#summary-form");

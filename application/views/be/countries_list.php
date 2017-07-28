@@ -2,7 +2,7 @@
 			<div class="inner-wrapper">
 				<section role="main" class="content-body">
 					<header class="page-header">
-						<h2>Countries</h2>
+						<h2>Countries/Regions</h2>
 					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
@@ -12,7 +12,7 @@
 									</a>
 								</li>
 								<li><span>Settings</span></li>
-								<li><span>Countries</span></li>
+								<li><span>Countries/Regions</span></li>
 							</ol>
 					
 							<a href="<?php echo base_url(); ?>be" class="sidebar-right-toggle"><i class="fa fa-chevron-left"></i></a>
@@ -26,9 +26,9 @@
 								<header class="panel-heading">
 									<h2 class="panel-title">
 										<span class="text-weight-normal va-middle mr-sm"><i class="fa fa-list"></i></span>
-										<span class="va-middle">Countries List</span>
+										<span class="va-middle">Countries/Regions List</span>
 										<span class="pull-right"><a href="<?php echo base_url(); ?>be" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="Go to Dashboard"><i class="fa fa-home"></i> <span class="hidden-sm"></span></a></span>
-										<span class="pull-right"><a href="<?php echo base_url(); ?>be/countries/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New Country"><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Add Country</a></span>
+										<span class="pull-right"><a href="<?php echo base_url(); ?>be/countries/add" class="btn btn-success btn-sm" data-toggle="tooltip" data-placement="top" title="Add New Country/Region"><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;Add Country/Region</a></span>
 									</h2>
 								</header>							
 								<div class="panel-body">
@@ -61,7 +61,6 @@
 										<thead>
 											<tr>
 												<th>Name</th>
-												<th>Code</th>
 												<th>Date Created</th>
 												<th class="text-center">Action</th>
 											</tr>
@@ -70,7 +69,6 @@
 											<?php foreach($countries as $row): ?>
 												<tr>
 													<td><?php echo $row->country_name; ?></td>
-													<td><?php echo $row->country_code; ?></td>
 													<td><?php echo $row->created_on; ?></td>
 													<td class="center">
 														<a href="<?php echo base_url(); ?>be/countries/edit/<?php echo  $row->country_id; ?>" class="on-default edit-row badge btn-success" data-toggle="tooltip" data-placement="top" title="Edit Country"><i class="fa fa-pencil"></i></a>
@@ -94,13 +92,16 @@
 								<div class="panel-body">
 									<div class="sidebar-widget widget-tasks">
 										<ul class="list-unstyled m-none">
+											<li><a href="<?php echo base_url(); ?>be/project_purpose">Project Purpose</a></li>
+											<li><a href="<?php echo base_url(); ?>be/project_objectives">Project Objectives</a></li>
+										
 											<li><a href="<?php echo base_url(); ?>be/milestones">Milestones</a></li>
 											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
 											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>											
 											<li><a href="<?php echo base_url(); ?>be/implementors">Implementors</a></li>
 											<li><a href="<?php echo base_url(); ?>be/intermediate_results">Intermediate Results</a></li>
 											
-											<li><a href="<?php echo base_url(); ?>be/countries"><b>Countries</b></a></li>
+											<li><a href="<?php echo base_url(); ?>be/countries"><b>Countries/Regions</b></a></li>
 											<li><a href="<?php echo base_url(); ?>be/user_titles">User Titles</a></li>
 											<li><a href="<?php echo base_url(); ?>be/system_users">System Users</a></li>
 
