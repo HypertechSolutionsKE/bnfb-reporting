@@ -62,7 +62,7 @@
 												<a href="#w2-confirm" data-toggle="tab" class="text-center">
 													
 														<span class="badge">3</span>
-														Resources
+														Resources &amp; Finance
 													
 												</a>
 											</li>
@@ -78,7 +78,7 @@
 												<a href="#w2-management" data-toggle="tab" class="text-center">
 													
 														<span class="badge">5</span>
-														Management Issues
+														Management Issues &amp;  Challenges
 													
 												</a>
 											</li>
@@ -148,10 +148,21 @@
 												<div class="clearfix"></div>									
 												<?php if (isset($quarterly_report)): ?>
 													<?php foreach ($quarterly_report as $row): ?>
-														<div class="form-group col-md-12">
+														<!--<div class="form-group col-md-12">
 															<label class="control-label">Report Title <span class="required">*</span></label>
 															<input type="text" name="quarterly_report_title" id="quarterly_report_title" class="form-control" value="<?php echo $row->quarterly_report_title; ?>" required/>
-														</div>
+														</div>-->
+
+														<div class="form-group col-md-12">		
+															<label class="control-label">Partner/Implementor</label>
+						                                    <select data-plugin-selectTwo class="form-control" id="quarterly_implementor_id" required name="quarterly_implementor_id">
+						                                      	<option value="">-- Select Partner --</option> 
+						                                       	<?php foreach($implementors as $row2): ?>
+						                                         	<option value="<?php echo $row2->implementor_id; ?>"  <?php if($row->quarterly_implementor_id == $row2->implementor_id){echo 'selected';} ?> ><?php echo $row2->implementor_name; ?></option>
+						                                        <?php endforeach; ?>             
+						                                    </select>
+						                                </div> 
+
 														<div class="clearfix"></div>
 														<div class="form-group col-sm-3">
 															<label class="control-label">Period: From <span class="required">*</span></label>													
@@ -159,7 +170,7 @@
 																<span class="input-group-addon">
 																	<i class="fa fa-calendar"></i>
 																</span>
-																<input type="text" name="quarterly_period_from" id="quarterly_period_from" class="form-control" value="<?php echo $row->quarterly_period_from; ?>" required>
+																<input type="text" name="quarterly_period_from" id="quarterly_period_from" class="form-control" value="<?php echo $row->quarterly_period_from; ?>" data-plugin-datepicker required>
 															</div>													
 														</div>
 														<div class="form-group col-sm-3">
@@ -169,7 +180,7 @@
 																	<span class="input-group-addon">
 																		<i class="fa fa-calendar"></i>
 																	</span>
-																	<input type="text" name="quarterly_period_to" id="quarterly_period_to" class="form-control" value="<?php echo $row->quarterly_period_to; ?>" required>
+																	<input type="text" name="quarterly_period_to" id="quarterly_period_to" class="form-control" value="<?php echo $row->quarterly_period_to; ?>" data-plugin-datepicker required>
 																</div>
 															</div>
 														</div>
@@ -183,10 +194,22 @@
 														<div class="clearfix"></div>
 													<?php endforeach; ?>
 												<?php else: ?>
-													<div class="form-group col-md-12">
+													<!--<div class="form-group col-md-12">
 														<label class="control-label">Report Title <span class="required">*</span></label>
 														<input type="text" name="quarterly_report_title" id="quarterly_report_title" class="form-control" required/>
-													</div>
+													</div>-->
+
+													<div class="form-group col-md-12">		
+														<label class="control-label">Partner/Implementor</label>
+					                                    <select data-plugin-selectTwo class="form-control" id="quarterly_implementor_id" required name="quarterly_implementor_id">
+					                                      	<option value="">-- Select Partner --</option> 
+					                                       	<?php foreach($implementors as $row2): ?>
+					                                         	<option value="<?php echo $row2->implementor_id; ?>" ><?php echo $row2->implementor_name; ?></option>
+					                                        <?php endforeach; ?>             
+					                                    </select>
+					                                </div> 
+
+
 													<div class="clearfix"></div>
 													<div class="form-group col-sm-3">
 														<label class="control-label">Period: From <span class="required">*</span></label>													
@@ -194,7 +217,7 @@
 															<span class="input-group-addon">
 																<i class="fa fa-calendar"></i>
 															</span>
-															<input type="text" name="quarterly_period_from" id="quarterly_period_from" class="form-control" required>
+															<input type="text" name="quarterly_period_from" id="quarterly_period_from" class="form-control" data-plugin-datepicker required>
 														</div>													
 													</div>
 													<div class="form-group col-sm-3">
@@ -204,7 +227,7 @@
 																<span class="input-group-addon">
 																	<i class="fa fa-calendar"></i>
 																</span>
-																<input type="text" name="quarterly_period_to" id="quarterly_period_to" class="form-control" required>
+																<input type="text" name="quarterly_period_to" id="quarterly_period_to" class="form-control" data-plugin-datepicker required>
 															</div>
 														</div>
 													</div>
@@ -228,50 +251,106 @@
 												<div class="clearfix"></div>
 												<?php if (isset($quarterly_report)): ?>
 													<?php foreach ($quarterly_report as $row): ?>
-														<div class="form-group col-md-12">
+														<!--<div class="form-group col-md-12">
 															<label class="control-label">Project Purpose <span class="required">*</span></label>
 															<input type="text" name="quarterly_project_purpose" id="quarterly_project_purpose" class="form-control" value="<?php echo $row->quarterly_project_purpose; ?>" required/>
-														</div>
+														</div>-->
+														<div class="form-group col-md-12">		
+															<label class="control-label">Project Purpose</label>
+						                                    <select data-plugin-selectTwo class="form-control" id="quarterly_project_purpose_id" required name="quarterly_iproject_purpose_id">
+						                                      	<option value="">-- Select Project Purpose --</option> 
+						                                       	<?php foreach($project_purpose as $row2): ?>
+						                                         	<option value="<?php echo $row2->project_purpose_id; ?>" <?php if($row->quarterly_project_purpose_id == $row2->project_purpose_id){echo 'selected';} ?> ><?php echo $row2->project_purpose; ?></option>
+						                                        <?php endforeach; ?>             
+						                                    </select>
+						                                </div> 
+
 													<?php endforeach; ?>
 												<?php else: ?>
-													<div class="form-group col-md-12">
+													<!--<div class="form-group col-md-12">
 														<label class="control-label">Project Purpose <span class="required">*</span></label>
 														<input type="text" name="quarterly_project_purpose" id="quarterly_project_purpose" class="form-control" required/>
 
-													</div>
+													</div>-->
+														<div class="form-group col-md-12">		
+															<label class="control-label">Project Purpose</label>
+						                                    <select data-plugin-selectTwo class="form-control" id="quarterly_project_purpose_id" required name="quarterly_iproject_purpose_id">
+						                                      	<option value="">-- Select Project Purpose --</option> 
+						                                       	<?php foreach($project_purpose as $row2): ?>
+						                                         	<option value="<?php echo $row2->project_purpose_id; ?>" ><?php echo $row2->project_purpose; ?></option>
+						                                        <?php endforeach; ?>             
+						                                    </select>
+						                                </div> 
+
+
 												<?php endif; ?>
 												<div class="clearfix"></div>
 												<hr>
-												<div class="col-md-8">
+												<div class="col-md-6">
 													<section class="panel panel-featured panel-featured-primary">
 														<header class="panel-heading">
 															<h2 class="panel-title">Project Objectives</h2>
 														</header>
 														<div class="panel-body">
-															<div class="form-group col-md-12">			
-																<label class="control-label">Objective Name</label>
-																<input type="text" name="quarterly_project_objective" id="quarterly_project_objective" class="form-control quarterly_project_objective"/>
-															</div>
+														<div class="form-group col-md-12">		
+															<label class="control-label">Objective</label>
+						                                    <select data-plugin-selectTwo class="form-control populate quarterly_project_objective_id" id="quarterly_project_objective_id" name="quarterly_project_objective_id">
+						                                      	<option value="">-- Select Project Objective --</option> 
+						                                       	<?php foreach($project_objectives as $row2): ?>
+						                                         	<option value="<?php echo $row2->project_objective_id; ?>"><?php echo $row2->project_objective_name; ?></option>
+						                                        <?php endforeach; ?>             
+						                                    </select>
+						                                </div> 
+
 															<div class="">
 																
 																<div style="padding-left: 15px">
 																	
 																	<div class="form-group col-md-12">		
 																		<label class="control-label">Intermediate Result</label>
-					                                                	<select data-plugin-selectTwo class="form-control populate quarterly_intermediate_result_id" id="quarterly_intermediate_result_id" name="quarterly_intermediate_result_id[]">
+					                                                	<select data-plugin-selectTwo class="form-control populate quarterly_intermediate_result_id" id="quarterly_intermediate_result_id" name="quarterly_intermediate_result_id">
 					                                                    	<option value="">-- Select Intermediate Result --</option> 
 					                                                    	<?php foreach($intermediate_results as $row2): ?>
 					                                                        	<option value="<?php echo $row2->intermediate_result_id; ?>" ><?php echo $row2->intermediate_result_name; ?></option>
 					                                                    	<?php endforeach; ?>             
 					                                                	</select>
-					                                                </div> 
+					                                                </div>
+																	<div class="form-group col-md-12">		
+																		<label class="control-label">Country/Region</label>
+					                                                	<select data-plugin-selectTwo class="form-control populate quarterly_country_id" id="quarterly_country_id" name="quarterly_country_id">
+					                                                    	<option value="">-- Select Country/Region --</option> 
+					                                                    	<?php foreach($countries as $row2): ?>
+					                                                        	<option value="<?php echo $row2->country_id; ?>" ><?php echo $row2->country_name; ?></option>
+					                                                    	<?php endforeach; ?>             
+					                                                	</select>
+					                                                </div>
+																	<div class="form-group col-md-12">		
+																		<label class="control-label">Thematic Area</label>
+					                                                	<select data-plugin-selectTwo class="form-control populate quarterly_thematic_area_id" id="quarterly_thematic_area_id" name="quarterly_thematic_area_id">
+					                                                    	<option value="">-- Select Thematic Area --</option> 
+					                                                    	<?php foreach($thematic_areas as $row2): ?>
+					                                                        	<option value="<?php echo $row2->thematic_area_id; ?>" ><?php echo $row2->thematic_area_name; ?></option>
+					                                                    	<?php endforeach; ?>             
+					                                                	</select>
+					                                                </div>
+																	<div class="form-group col-md-12">		
+																		<label class="control-label">Milestone</label>
+					                                                	<select data-plugin-selectTwo class="form-control populate quarterly_milestone_id" id="quarterly_milestone_id" name="quarterly_milestone_id">
+					                                                    	<option value="">-- Select Milestone --</option> 
+					                                                    	<?php foreach($milestones as $row2): ?>
+					                                                        	<option value="<?php echo $row2->milestone_id; ?>" ><?php echo $row2->milestone_name; ?></option>
+					                                                    	<?php endforeach; ?>             
+					                                                	</select>
+					                                                </div>
+
+
 																	<div class="form-group col-md-12">	
 																		<label class="control-label">Deliverables/Outputs during the reporting period</label>
 																		<div class="">
-																			<textarea class="ckeditor form-control quarterly_deliverable" name="quarterly_deliverable[]" id="quarterly_deliverable"></textarea>
+																			<textarea class="ckeditor form-control quarterly_deliverable" name="quarterly_deliverable" id="quarterly_deliverable"></textarea>
 																		</div>
 																	</div>
-																	<div class="clearfix"></div>
+																	<!--<div class="clearfix"></div>
 																	<div class="form-group col-md-12">
 																		<button type="button" id="btn_quarterly_add_intermediate_result" class="btn btn-info btn-sm btn_quarterly_add_intermediate_result">
 				                                            			<i class="fa fa-plus-circle"></i> Add Intermediate Result
@@ -284,7 +363,7 @@
 																	</div>
 
 
-																	<hr>
+																	<hr>-->
 																	<div class="clearfix"></div>
 
 																	<div class="form-group col-md-12">
@@ -299,7 +378,7 @@
 														</div>
 													</section>
 												</div>
-												<div class="col-md-4">
+												<div class="col-md-6">
 													<section class="panel panel-featured panel-featured-primary">
 														<header class="panel-heading">
 															<h2 class="panel-title">Saved Objectives</h2>
@@ -317,7 +396,7 @@
 																		<?php if (isset($quarterly_objectives)): ?>
 																			<?php foreach ($quarterly_objectives as $row): ?>
 																				<tr>
-																					<td><i class="fa fa-check-square-o" aria-hidden="true"></i> <?php echo character_limiter($row->quarterly_objective_name,23); ?></td>
+																					<td><i class="fa fa-check-square-o" aria-hidden="true"></i> <?php echo character_limiter($row->project_objective_name,50); ?></td>
 																					<td>
 																						<div class="btn-group">
 																							<button type="button" class="mb-xs mt-xs mr-xs btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
@@ -354,10 +433,10 @@
 														<div class="panel-body">
 															<div class="form-group col-md-12">		
 																<label class="control-label">Partner</label>
-					                                            <select data-plugin-selectTwo class="form-control populate" id="quarterly_resource_implementor_type_id" name="quarterly_resource_implementor_type_id">
+					                                            <select data-plugin-selectTwo class="form-control populate" id="quarterly_resource_implementor_id" name="quarterly_resource_implementor_id">
 					                                               	<option value="">-- Select Partner --</option> 
-					                                               	<?php foreach($implementor_types as $row2): ?>
-					                                                   	<option value="<?php echo $row2->implementor_type_id; ?>" ><?php echo $row2->implementor_type_name; ?></option>
+					                                               	<?php foreach($implementors as $row2): ?>
+					                                                   	<option value="<?php echo $row2->implementor_id; ?>" ><?php echo $row2->implementor_name; ?></option>
 					                                               	<?php endforeach; ?>             
 					                                            </select>
 					                                		</div>
@@ -419,7 +498,7 @@
 																		<?php if (isset($quarterly_resources)): ?>
 																			<?php foreach ($quarterly_resources as $row): ?>
 																				<tr>
-																					<td><i class="fa fa-check-square-o" aria-hidden="true"></i> <?php echo $row->implementor_type_name; ?></td>
+																					<td><i class="fa fa-check-square-o" aria-hidden="true"></i> <?php echo $row->implementor_name; ?></td>
 																					<td><?php echo number_format($row->quarterly_actual_expenditure); ?></td>
 																					<td><?php echo number_format($row->quarterly_planned_expenditure); ?></td>
 																					<td><?php echo number_format($row->quarterly_percentage_spent); ?>%</td>
@@ -450,9 +529,103 @@
 													50%
 													</div>
 												</div>
-												<div class="clearfix"></div>						
+												<div class="clearfix"></div>
+
 
 												<div class="col-md-6">
+													<section class="panel panel-featured panel-featured-primary">
+														<header class="panel-heading">
+															<h2 class="panel-title">Planned Deliverables</h2>
+														</header>
+														<div class="panel-body">
+														<div class="form-group col-md-12">		
+															<label class="control-label">Objective</label>
+						                                    <select data-plugin-selectTwo class="form-control populate quarterly_deliverable_project_objective_id" id="quarterly_deliverable_project_objective_id" name="quarterly_deliverable_project_objective_id">
+						                                      	<option value="">-- Select Project Objective --</option> 
+						                                       	<?php foreach($project_objectives as $row2): ?>
+						                                         	<option value="<?php echo $row2->project_objective_id; ?>"><?php echo $row2->project_objective_name; ?></option>
+						                                        <?php endforeach; ?>             
+						                                    </select>
+						                                </div> 
+
+															<div class="">
+																
+																<div style="padding-left: 15px">
+																	
+																	<div class="form-group col-md-12">		
+																		<label class="control-label">Intermediate Result</label>
+					                                                	<select data-plugin-selectTwo class="form-control populate quarterly_deliverable_intermediate_result_id" id="quarterly_deliverable_intermediate_result_id" name="quarterly_deliverable_intermediate_result_id">
+					                                                    	<option value="">-- Select Intermediate Result --</option> 
+					                                                    	<?php foreach($intermediate_results as $row2): ?>
+					                                                        	<option value="<?php echo $row2->intermediate_result_id; ?>" ><?php echo $row2->intermediate_result_name; ?></option>
+					                                                    	<?php endforeach; ?>             
+					                                                	</select>
+					                                                </div>
+																	<div class="form-group col-md-12">		
+																		<label class="control-label">Country/Region</label>
+					                                                	<select data-plugin-selectTwo class="form-control populate quarterly_deliverable_country_id" id="quarterly_deliverable_country_id" name="quarterly_deliverable_country_id">
+					                                                    	<option value="">-- Select Country/Region --</option> 
+					                                                    	<?php foreach($countries as $row2): ?>
+					                                                        	<option value="<?php echo $row2->country_id; ?>" ><?php echo $row2->country_name; ?></option>
+					                                                    	<?php endforeach; ?>             
+					                                                	</select>
+					                                                </div>
+																	<div class="form-group col-md-12">		
+																		<label class="control-label">Thematic Area</label>
+					                                                	<select data-plugin-selectTwo class="form-control populate quarterly_deliverable_thematic_area_id" id="quarterly_deliverable_thematic_area_id" name="quarterly_deliverable_thematic_area_id">
+					                                                    	<option value="">-- Select Thematic Area --</option> 
+					                                                    	<?php foreach($thematic_areas as $row2): ?>
+					                                                        	<option value="<?php echo $row2->thematic_area_id; ?>" ><?php echo $row2->thematic_area_name; ?></option>
+					                                                    	<?php endforeach; ?>             
+					                                                	</select>
+					                                                </div>
+																	<div class="form-group col-md-12">		
+																		<label class="control-label">Milestone</label>
+					                                                	<select data-plugin-selectTwo class="form-control populate quarterly_deliverable_milestone_id" id="quarterly_deliverable_milestone_id" name="quarterly_deliverable_milestone_id">
+					                                                    	<option value="">-- Select Milestone --</option> 
+					                                                    	<?php foreach($milestones as $row2): ?>
+					                                                        	<option value="<?php echo $row2->milestone_id; ?>" ><?php echo $row2->milestone_name; ?></option>
+					                                                    	<?php endforeach; ?>             
+					                                                	</select>
+					                                                </div>
+
+
+																	<div class="form-group col-md-12">	
+																		<label class="control-label">Deliverables/Outputs during the reporting period</label>
+																		<div class="">
+																			<textarea class="ckeditor form-control quarterly_deliverable_deliverable" name="quarterly_deliverable_deliverable" id="quarterly_deliverable_deliverable"></textarea>
+																		</div>
+																	</div>
+																	<!--<div class="clearfix"></div>
+																	<div class="form-group col-md-12">
+																		<button type="button" id="btn_quarterly_add_intermediate_result" class="btn btn-info btn-sm btn_quarterly_add_intermediate_result">
+				                                            			<i class="fa fa-plus-circle"></i> Add Intermediate Result
+				                                        				</button>
+				                                        			</div>
+				                                        			<div class="clearfix"></div>
+																	
+																	<div id="quarterly_intermediate_results_load">
+																			
+																	</div>
+
+
+																	<hr>-->
+																	<div class="clearfix"></div>
+
+																	<div class="form-group col-md-12">
+																		<button type="button" id="btn_quarterly_save_deliverables" class="btn btn-success btn-sm pull-right">
+				                                            			<i class="fa fa-save"></i> <b>Save Deliverable</b><i id="quarterly_deliverable_objective_spinner" class="fa fa-spinner fa-spin" style="margin-left: 5px; display: none"></i>
+				                                        				</button>
+				                                        			</div>
+				                                        			<div class="clearfix"></div>
+			                                        			</div>
+															
+															</div>
+														</div>
+													</section>
+												</div>
+
+												<!--<div class="col-md-6">
 													<section id="quarterly_planned_deliverables" class="panel panel-featured panel-featured-primary">
 														<header class="panel-heading">
 															<h2 class="panel-title">Planned Deliverables</h2>
@@ -460,18 +633,14 @@
 														<div class="panel-body">
 															<div class="form-group col-md-12">		
 																<label class="control-label">Partner</label>
-					                                            <select data-plugin-selectTwo class="form-control populate" id="quarterly_deliverables_implementor_type_id" name="quarterly_deliverables_implementor_type_id">
+					                                            <select data-plugin-selectTwo class="form-control populate" id="quarterly_deliverables_implementor_id" name="quarterly_deliverables_implementor_id">
 					                                               	<option value="">-- Select Partner --</option> 
-					                                               	<?php foreach($implementor_types as $row2): ?>
-					                                                   	<option value="<?php echo $row2->implementor_type_id; ?>" ><?php echo $row2->implementor_type_name; ?></option>
+					                                               	<?php foreach($implementors as $row2): ?>
+					                                                   	<option value="<?php echo $row2->implementor_id; ?>" ><?php echo $row2->implementor_name; ?></option>
 					                                               	<?php endforeach; ?>             
 					                                            </select>
 					                                		</div>
 					                                		<div class="clearfix"></div>
-															<div class="form-group col-sm-12">			
-																<label class="control-label">Cause</label>
-																<input type="text" name="quarterly_deliverables_cause" id="quarterly_deliverables_cause" class="form-control"/>
-															</div>										
 					                                		<div class="clearfix"></div>
 															<div class="form-group col-md-12">	
 																<label class="control-label">Major deliverables/outputs planned for the next three months</label>
@@ -488,7 +657,7 @@
 		                                        			<div class="clearfix"></div>
 														</div>
 													</section>
-												</div>
+												</div>-->
 												<div class="col-md-6">
 													<section class="panel panel-featured panel-featured-primary">
 														<header class="panel-heading">
@@ -499,8 +668,7 @@
 																<table class="table table-striped mb-none">
 																	<thead>
 																		<tr>
-																			<th>Partner</th>
-																			<th>Cause</th>
+																			<th>Objective</th>
 																			<th>Action</th>
 																		</tr>
 																	</thead>
@@ -508,8 +676,36 @@
 																		<?php if (isset($quarterly_deliverables)): ?>
 																			<?php foreach ($quarterly_deliverables as $row): ?>
 																				<tr>
-																					<td><i class="fa fa-check-square-o" aria-hidden="true"></i> <?php echo $row->implementor_type_name; ?></td>
-																					<td><?php echo $row->quarterly_deliverables_cause; ?></td>
+																					<td><i class="fa fa-check-square-o" aria-hidden="true"></i> <?php echo character_limiter($row->project_objective_name,50); ?></td>
+																					<td>
+																						<div class="btn-group">
+																							<button type="button" class="mb-xs mt-xs mr-xs btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+																							<ul class="dropdown-menu" role="menu">
+																								<li><a href="#"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li>
+																								<li><a href="#"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li>
+																							</ul>
+																						</div>
+																					</td>
+																				</tr>
+																			<?php endforeach; ?>
+																		<?php endif; ?>
+																	</tbody>
+																</table>
+
+
+
+																<!--<table class="table table-striped mb-none">
+																	<thead>
+																		<tr>
+																			<th>Partner</th>
+																			<th>Action</th>
+																		</tr>
+																	</thead>
+																	<tbody>
+																		<?php if (isset($quarterly_deliverables)): ?>
+																			<?php foreach ($quarterly_deliverables as $row): ?>
+																				<tr>
+																					<td><i class="fa fa-check-square-o" aria-hidden="true"></i> <?php echo $row->implementor_name; ?></td>
 																					<td>
 																						<div class="btn-group">
 																							<button type="button" class="mb-xs mt-xs mr-xs btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
@@ -523,7 +719,7 @@
 																			<?php endforeach; ?>
 																		<?php endif; ?>
 																	</tbody>
-																</table>
+																</table>-->
 															</div>
 														</div>
 													</section>
@@ -687,7 +883,7 @@
 																				<h3 class="h3 mt-none text-dark text-weight-bold text-center">Building Nutritious Food Baskets Project</h3>
 																			</div>
 																			<div class="col-sm-12 mt-md mb-lg">
-																				<img class="img-center img-report-logo" src="<?php echo base_url(); ?>assets/be/images/cip-logo.jpg" alt=""/>					
+																				<img class="img-center img-report-logo" src="<?php echo base_url(); ?>assets/be/images/bnfb-logo.png" alt=""/>					
 																			</div>
 																			<div class="col-sm-12 mt-md mb-md">
 																				<h4 class="h4 m-none text-dark text-weight-bold text-center"><?php echo $row->quarterly_report_title; ?></h4>
@@ -725,18 +921,15 @@
 																						</thead>
 																						<tbody>
 																							<tr>
-																								<td rowspan="<?php echo $row->num_objectives + 1; ?>"><?php echo $row->quarterly_project_purpose; ?></td>
+																								<td rowspan="<?php echo $num_quarterly_objectives; ?>"><?php echo $row->project_purpose; ?></td>
+
 																								<?php foreach ($quarterly_objectives as $row2): ?>
-																										<td  rowspan="<?php echo $row2->num_intermediate_results; ?>"><?php echo $row2->quarterly_objective_name; ?></td>
-																										<?php foreach ($quarterly_intermediate_results as $row3): ?>
-																											<?php if ($row2->quarterly_objective_id == $row3->quarterly_objective_id): ?>
-																												<td><?php echo $row3->intermediate_result_name; ?></td>
-																												<td><?php echo $row3->deliverables; ?></td>
-																												</tr><tr>			
-																											<?php endif; ?>
-																										<?php endforeach; ?>
-																										</tr><tr>
-																								<?php endforeach; ?>
+																									<td><?php echo $row2->project_objective_name; ?></td>
+																									<td><?php echo $row2->intermediate_result_name; ?></td>	
+																									<td><?php echo $row2->quarterly_deliverables; ?></td>
+																									</tr><tr>		
+																								<?php endforeach; ?>	
+																								
 																							</tr>
 																						</tbody>
 																					</table>
@@ -758,7 +951,7 @@
 																						<tbody>
 																							<?php foreach ($quarterly_resources as $row2): ?>
 																								<tr>						
-																									<td><?php echo $row2->implementor_type_name; ?></td>
+																									<td><?php echo $row2->implementor_name; ?></td>
 																									<td><?php echo number_format($row2->quarterly_actual_expenditure); ?></td>	
 																									<td><?php echo number_format($row2->quarterly_planned_expenditure); ?></td>	
 																									<td><?php echo number_format($row2->quarterly_percentage_spent); ?></td>	
@@ -775,23 +968,21 @@
 																					<table class="table table-bordered">
 																						<thead>
 																							<tr class="h5 text-dark">
-																								<th class="text-weight-semibold">Partner</th>
-																								<th class="text-weight-semibold">Major deliverables/outputs planned for the next three months</th>
+																								<th class="text-weight-semibold">Objective</th>
+																								<th class="text-weight-semibold">Thematic Area</th>
+																								<th class="text-weight-semibold">Milestone</th>
+
+																								<th class="text-weight-semibold">Activities</th>
 																							</tr>
 																						</thead>
 																						<tbody>
 																							<?php foreach ($quarterly_deliverables as $row2): ?>
 																								<tr>						
-																									<td>
-																										<?php
-																											if ($row2->quarterly_deliverables_cause != ''){
-																												echo $row2->implementor_type_name . " (" . $row2->quarterly_deliverables_cause . ")";
-																											}else{
-																												echo $row2->implementor_type_name;
-																											}
-																										?>
-																									</td>
-																									<td><?php echo $row2->quarterly_deliverables; ?></td>	
+																									<td><?php echo $row2->project_objective_name; ?></td>
+																									<td><?php echo $row2->thematic_area_name; ?></td>
+																									<td><?php echo $row2->milestone_name; ?></td>
+
+																									<td><?php echo $row2->quarterly_deliverable_deliverables; ?></td>	
 																								</tr>
 																							<?php endforeach; ?>
 																						</tbody>
@@ -929,10 +1120,10 @@
 					<input type="hidden" name="quarterly_resource_id2" id="quarterly_resource_id2" />
 					<div class="form-group col-md-12">		
 						<label class="control-label">Partner</label>
-	                     <select data-plugin-selectTwo class="form-control populate" id="quarterly_resource_implementor_type_id2" name="quarterly_resource_implementor_type_id2">
+	                     <select data-plugin-selectTwo class="form-control populate" id="quarterly_resource_implementor_id2" name="quarterly_resource_implementor_id2">
 	                       	<option value="">-- Select Partner --</option> 
-	                     	<?php foreach($implementor_types as $row2): ?>
-	                          	<option value="<?php echo $row2->implementor_type_id; ?>" ><?php echo $row2->implementor_type_name; ?></option>
+	                     	<?php foreach($implementors as $row2): ?>
+	                          	<option value="<?php echo $row2->implementor_id; ?>" ><?php echo $row2->implementor_name; ?></option>
 	                        <?php endforeach; ?>             
 	     				</select>
 					</div>
@@ -990,18 +1181,18 @@
 					<input type="hidden" name="quarterly_deliverables_id2" id="quarterly_deliverables_id2" />
 					<div class="form-group col-md-12">		
 						<label class="control-label">Partner</label>
-					    <select data-plugin-selectTwo class="form-control populate" id="quarterly_deliverables_implementor_type_id2" name="quarterly_deliverables_implementor_type_id2">
+					    <select data-plugin-selectTwo class="form-control populate" id="quarterly_deliverables_implementor_id2" name="quarterly_deliverables_implementor_id2">
 					       	<option value="">-- Select Partner --</option> 
-					       	<?php foreach($implementor_types as $row2): ?>
-					        	<option value="<?php echo $row2->implementor_type_id; ?>" ><?php echo $row2->implementor_type_name; ?></option>
+					       	<?php foreach($implementors as $row2): ?>
+					        	<option value="<?php echo $row2->implementor_id; ?>" ><?php echo $row2->implementor_name; ?></option>
 					       	<?php endforeach; ?>             
 						</select>
 					</div>
-					<div class="clearfix"></div>
+					<!--<div class="clearfix"></div>
 					<div class="form-group col-sm-12">			
 						<label class="control-label">Cause</label>
 						<input type="text" name="quarterly_deliverables_cause2" id="quarterly_deliverables_cause2" class="form-control"/>
-					</div>										
+					</div>-->										
 					<div class="clearfix"></div>
 					<div class="form-group col-md-12">	
 						<label class="control-label">Major deliverables/outputs planned for the next three months</label>

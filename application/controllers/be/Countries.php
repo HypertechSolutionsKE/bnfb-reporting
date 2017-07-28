@@ -33,8 +33,7 @@ class countries extends CI_Controller {
 	}
 	function save(){
 		$data = array(
-			'country_name' => $this->input->post('country_name'),
-			'country_code' => $this->input->post('country_code')
+			'country_name' => $this->input->post('country_name')
 		);	
 		$q = $this->countries_model->save($data);
 		if ($q['res'] == true){
@@ -61,8 +60,7 @@ class countries extends CI_Controller {
 	}
 	function update($country_id){
 		$data = array(
-			'country_name' => $this->input->post('country_name'),
-			'country_code' => $this->input->post('country_code')
+			'country_name' => $this->input->post('country_name')
 		);	
 		$q = $this->countries_model->update($data,$country_id);
 		if ($q['res'] == true){

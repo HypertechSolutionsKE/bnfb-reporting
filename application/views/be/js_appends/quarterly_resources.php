@@ -13,7 +13,7 @@
 																		<?php if (isset($quarterly_resources)): ?>
 																			<?php foreach ($quarterly_resources as $row): ?>
 																				<tr>
-																					<td><i class="fa fa-check-square-o" aria-hidden="true"></i> <?php echo $row->implementor_type_name; ?></td>
+																					<td><i class="fa fa-check-square-o" aria-hidden="true"></i> <?php echo $row->implementor_name; ?></td>
 																					<td><?php echo number_format($row->quarterly_actual_expenditure); ?></td>
 																					<td><?php echo number_format($row->quarterly_planned_expenditure); ?></td>
 																					<td><?php echo number_format($row->quarterly_percentage_spent); ?>%</td>

@@ -129,23 +129,54 @@
 							 						<button type="button" class="close" data-dismiss="alert">×</button>
 							                     	<?php echo $this->session->flashdata('error'); ?>
 							        			</div>               
-							                <?php endif; ?>						         
+							                <?php endif; ?>	
 
+											<div class="form-group col-md-12">
+												<label class="control-label">Objective <span class="required">*</span></label>
+                                                <select data-plugin-selectTwo class="form-control populate" id="project_objective_id" name="project_objective_id" required>
+                                                    <option value="">Select Objective</option> 
+                                                    <?php foreach($project_objectives as $row): ?>
+                                                        <option value="<?php echo $row->project_objective_id; ?>" ><?php echo $row->project_objective_name; ?></option>
+                                                    <?php endforeach; ?>                       
+                                                </select> 
+											</div>
 											<div class="form-group col-md-12">
 												<label class="control-label">Indicator Name <span class="required">*</span></label>
 												<input type="text" name="indicator_name" id="indicator_name" class="form-control" placeholder="Indicator Name" required/>
 											</div>
 											<div class="form-group col-md-12">
-												<label class="control-label">Partner <span class="required">*</span></label>
-												<input type="text" name="partner_name" id="partner_name" class="form-control" placeholder="Partner" required/>
+												<label class="control-label">Indicator Definition</label>
+												<textarea name="indicator_definition" id="indicator_definition" rows="4" class="form-control" placeholder="Indicator Definition"></textarea>
 											</div>
-											<div class="form-group col-md-4">
-												<label class="control-label">Target Number for Males <span class="required">*</span></label>
-												<input type="text" name="target_males" id="target_males" class="form-control" placeholder="Target Number for Males" required/>
+											<div class="form-group col-md-12">
+												<label class="control-label">Disaggregation Levels </label>
+												<select class="form-control col-md-9" multiple="multiple" data-plugin-multiselect data-plugin-options='{ "maxHeight": 200, "enableCaseInsensitiveFiltering": true }' id="disaggregation_level_id" name="disaggregation_level_id[]">
+                                                    <?php foreach($disaggregation_levels as $row): ?>
+                                                        <option value="<?php echo $row->disaggregation_level_id; ?>" ><?php echo $row->disaggregation_level_name; ?></option>
+                                                    <?php endforeach; ?>                       
+												</select>
 											</div>
-											<div class="form-group col-md-4">
-												<label class="control-label">Target Number for Females <span class="required">*</span></label>
-												<input type="text" name="target_females" id="target_females" class="form-control" placeholder="Target Number for Females" required/>
+											<div class="form-group col-md-12">
+												<label class="control-label">Target <span class="required">*</span></label>
+												<input type="text" name="target" id="target" class="form-control" placeholder="Target" required/>
+											</div>
+
+											<div class="form-group col-md-12">
+												<label class="control-label">Baseline Value</label>
+												<textarea name="baseline_value" id="baseline_value" rows="4" class="form-control" placeholder="Baseline Value"></textarea>
+											</div>
+
+											<div class="form-group col-md-12">
+												<label class="control-label">Means of Verification/Source of Data</label>
+												<input type="text" name="source_of_data" id="source_of_data" class="form-control" placeholder="Means of Verification/Source of Data"/>
+											</div>
+											<div class="form-group col-md-12">
+												<label class="control-label">Frequency of Data Collection</label>
+												<input type="text" name="data_collection_frequency" id="data_collection_frequency" class="form-control" placeholder="Frequency of Data Collection" />
+											</div>
+											<div class="form-group col-md-12">
+												<label class="control-label">Responsibility</label>
+												<input type="text" name="responsibility" id="responsibility" class="form-control" placeholder="Responsibility" />
 											</div>
 											<div class="clearfix"></div>
 
@@ -172,6 +203,9 @@
 								<div class="panel-body">
 									<div class="sidebar-widget widget-tasks">
 										<ul class="list-unstyled m-none">
+											<li><a href="<?php echo base_url(); ?>be/project_purpose">Project Purpose</a></li>
+											<li><a href="<?php echo base_url(); ?>be/project_objectives">Project Objectives</a></li>
+										
 											<li><a href="<?php echo base_url(); ?>be/milestones">Milestones</a></li>
 											<li><a href="<?php echo base_url(); ?>be/indicators"><b>Indicators</b></a></li>
 											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>											

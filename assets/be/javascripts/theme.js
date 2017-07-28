@@ -870,9 +870,9 @@ window.theme = {};
 
 										'<div class="row">',
 											'<div class="col-xs-6">',
-												'<p class="mt-xs mb-none">',
+												/*'<p class="mt-xs mb-none">',
 													'<a href="be/auth/logout">Not Your Account?</a>',
-												'</p>',
+												'</p>',*/
 											'</div>',
 											'<div class="col-xs-6 text-right">',
 												'<button type="submit" class="btn btn-primary">Unlock</button>',

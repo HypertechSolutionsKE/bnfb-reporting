@@ -145,7 +145,7 @@
 														</div>
 														<div class="clearfix"></div>
 
-														<div class="form-group col-md-12">
+														<!--<div class="form-group col-md-12">
 															<label class="control-label">Report Summary</label>
 															<div class="">
 															<textarea class="ckeditor form-control" name="biweekly_report_summary" id="biweekly_report_summary"><?php echo $row->biweekly_report_summary; ?></textarea>
@@ -158,7 +158,7 @@
 															<div class="">
 																<textarea class="ckeditor form-control" name="biweekly_report_remark" id="biweekly_report_remark"><?php echo $row->biweekly_report_remark; ?></textarea>
 															</div>
-														</div>
+														</div>-->
 														<div class="clearfix"></div>
 													<?php endforeach; ?>
 												<?php else: ?>
@@ -189,7 +189,7 @@
 													</div>
 													<div class="clearfix"></div>
 
-													<div class="form-group col-md-12">
+													<!--<div class="form-group col-md-12">
 														<label class="control-label">Report Summary</label>
 														<div class="">
 														<textarea class="ckeditor form-control" name="biweekly_report_summary" id="biweekly_report_summary"></textarea>
@@ -202,7 +202,7 @@
 														<div class="">
 															<textarea class="ckeditor form-control" name="biweekly_report_remark" id="biweekly_report_remark"></textarea>
 														</div>
-													</div>
+													</div>-->
 													<div class="clearfix"></div>
 												<?php endif; ?>											
 											</div>
@@ -272,8 +272,8 @@
 																						<div class="btn-group">
 																							<button type="button" class="mb-xs mt-xs mr-xs btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
 																							<ul class="dropdown-menu" role="menu">
-																								<li><a href="#"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li>
-																								<li><a href="#"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li>
+																								<li><a class="modal-with-form modal-with-zoom-anim biweekly_edit_tasks" href="#modalEditTasks" data-id ="<?php echo $row->biweekly_task_id; ?>"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li>
+																								<li><a class="biweekly_delete_task" href="javascript:void(0);" data-id ="<?php echo $row->biweekly_task_id; ?>"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li>
 																							</ul>
 																						</div>
 																					</td>
@@ -354,8 +354,8 @@
 																						<div class="btn-group">
 																							<button type="button" class="mb-xs mt-xs mr-xs btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
 																							<ul class="dropdown-menu" role="menu">
-																								<li><a href="#"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li>
-																								<li><a href="#"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li>
+																								<li><a class="modal-with-form modal-with-zoom-anim biweekly_edit_challenges" href="#modalEditChallenges" data-id ="<?php echo $row->biweekly_challenge_id; ?>"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li>
+																								<li><a class="biweekly_delete_challenge" href="javascript:void(0);" data-id ="<?php echo $row->biweekly_challenge_id; ?>"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li>
 																							</ul>
 																						</div>
 																					</td>
@@ -436,8 +436,8 @@
 																						<div class="btn-group">
 																							<button type="button" class="mb-xs mt-xs mr-xs btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
 																							<ul class="dropdown-menu" role="menu">
-																								<li><a href="#"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li>
-																								<li><a href="#"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li>
+																								<li><a class="modal-with-form modal-with-zoom-anim biweekly_edit_events" href="#modalEditEvents" data-id ="<?php echo $row->biweekly_event_id; ?>"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li>
+																								<li><a class="biweekly_delete_event" href="javascript:void(0);" data-id ="<?php echo $row->biweekly_event_id; ?>"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li>
 																							</ul>
 																						</div>
 																					</td>
@@ -517,8 +517,8 @@
 																						<div class="btn-group">
 																							<button type="button" class="mb-xs mt-xs mr-xs btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
 																							<ul class="dropdown-menu" role="menu">
-																								<li><a href="#"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li>
-																								<li><a href="#"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li>
+																								<li><a class="modal-with-form modal-with-zoom-anim biweekly_edit_activities" href="#modalEditActivities" data-id ="<?php echo $row->biweekly_activity_id; ?>"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit</a></li>
+																								<li><a class="biweekly_delete_activity" href="javascript:void(0);" data-id ="<?php echo $row->biweekly_activity_id; ?>"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</a></li>
 																							</ul>
 																						</div>
 																					</td>
@@ -554,7 +554,7 @@
 																				<h3 class="h3 mt-none text-dark text-weight-bold text-center">Building Nutritious Food Baskets Project</h3>
 																			</div>
 																			<div class="col-sm-12 mt-md mb-lg">
-																				<img class="img-center img-report-logo" src="<?php echo base_url(); ?>assets/be/images/cip-logo.jpg" alt=""/>					
+																				<img class="img-center img-report-logo" src="<?php echo base_url(); ?>assets/be/images/bnfb-logo.png" alt=""/>					
 																			</div>
 																			<div class="col-sm-12 mt-md mb-md">
 																				<h4 class="h4 m-none text-dark text-weight-bold text-center"><?php echo $row->biweekly_report_title; ?></h4>
@@ -574,15 +574,15 @@
 																		<div class="row">
 																			<div class="col-md-12">
 																				<div class="bill-to">
-																					<h4 class="h4 mb-md text-dark text-weight-bold">1. Report Summary</h4>
+																					<!--<h4 class="h4 mb-md text-dark text-weight-bold">1. Report Summary</h4>
 																					<div class="clearfix"></div>
 																					<?php echo $row->biweekly_report_summary; ?>
 																					<hr>
 																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">2. Report Remark</h4>
 																					<div class="clearfix"></div>
 																					<?php echo $row->biweekly_report_remark; ?>
-																					<hr>
-																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">3. Accomplishments from the Reporting Period (<?php echo $row->biweekly_period_from . ' - ' . $row->biweekly_period_to; ?>)</h4>
+																					<hr>-->
+																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">1. Accomplishments from the Reporting Period (<?php echo $row->biweekly_period_from . ' - ' . $row->biweekly_period_to; ?>)</h4>
 																					<div class="clearfix"></div>
 																					<table class="table table-bordered">
 																						<thead>
@@ -602,7 +602,7 @@
 																					</table>
 																					<div class="clearfix"></div>
 																					<hr>
-																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">4. What are the major challenges you are facing?</h4>
+																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">2. What are the major challenges you are facing?</h4>
 																					<div class="clearfix"></div>
 																					<table class="table table-bordered">
 																						<thead>
@@ -622,7 +622,7 @@
 																					</table>
 																					<div class="clearfix"></div>
 																					<hr>
-																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">5. Any major events planned for the next two months?</h4>
+																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">3. Any major events planned for the next two months?</h4>
 																					<div class="clearfix"></div>
 																					<table class="table table-bordered">
 																						<thead>
@@ -642,7 +642,7 @@
 																					</table>
 																					<div class="clearfix"></div>
 																					<hr>
-																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">6. What are the major five things your team will undertake in the next two months?</h4>
+																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">4. What are the major five things your team will undertake in the next two months?</h4>
 																					<div class="clearfix"></div>
 																					<table class="table table-bordered">
 																						<thead>
@@ -701,32 +701,206 @@
 								</div>
 							</section>
 						</div>
-
-						<!--<div class="col-md-6 col-lg-3 col-xl-6">
-							<section class="panel">
-								<header class="panel-heading">
-									<h2 class="panel-title">
-										<span class="label label-primary label-sm text-weight-normal va-middle mr-sm"><i class="fa fa-gear"></i></span>
-										<span class="va-middle">Settings</span>
-									</h2>
-								</header>
-								<div class="panel-body">
-									<div class="sidebar-widget widget-tasks">
-										<ul class="list-unstyled m-none">
-											<li><a href="<?php echo base_url(); ?>be/milestones">Milestones</a></li>
-											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
-											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>			
-
-										</ul>
-									</div>
-								</div>
-							</section>
-						</div>-->
-
-
-
-
-
 					</div>
 				</section>
 			</div>								
+
+
+
+
+
+
+<!--  
+
+==== MODAL FORMS ====
+
+-->
+
+<!-- Edit Tasks -->	
+	<div id="modalEditTasks" class="modal-block modal-block-primary mfp-hide">
+		<section class="panel">
+			<header class="panel-heading">
+				<h2 class="panel-title"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit Accomplished Tasks</h2>
+			</header>
+			<div class="panel-body">
+				<form id="frm_modal_edit_tasks" class="mb-lg" novalidate="novalidate">
+               		<div class="alert alert-danger block-inner" style="display: none;" id="div_biweekly_tasks_error"></div>
+               		<div class="alert alert-success block-inner" style="display: none;" id="div_biweekly_tasks_success"></div>
+
+					<input type="hidden" name="biweekly_task_id2" id="biweekly_task_id2" />
+					<div class="form-group">
+						<label class="control-label">Milestone <span class="required">*</span></label>
+				    	<select data-plugin-selectTwo class="form-control" id="biweekly_tasks_milestone_id2" name="biweekly_tasks_milestone_id2">
+				   			<option value="">Select Milestone</option> 
+				         	<?php foreach($milestones as $row): ?>
+				            	<option value="<?php echo $row->milestone_id; ?>" ><?php echo $row->milestone_name; ?></option>
+				          	<?php endforeach; ?>                       
+				      	</select> 
+					</div>
+					<div class="clearfix"></div>
+					<div class="form-group">
+						<label class="control-label">Enter activities</label>
+						<div class="">
+							<textarea class="ckeditor form-control" name="biweekly_tasks2" id="biweekly_tasks2"></textarea>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<hr>
+					<div class="clearfix"></div>
+					<div class="form-group col-md-12">
+		         		<button class="btn btn-sm btn-danger modal-dismiss pull-right">Cancel</button>					
+						<button type="button" id="btn_biweekly_save_tasks2" class="btn btn-success btn-sm">
+		            		 <b>Update Accomplished Tasks</b><i id="biweekly_tasks_spinner2" class="fa fa-spinner fa-spin" style="margin-left: 5px; display: none"></i>
+		              	</button>
+		         	</div>
+		            <div class="clearfix"></div>
+					<!--<hr>
+					<div class="clearfix"></div>
+					<div class="form-group col-md-12">
+		         		<button class="btn btn-sm btn-danger modal-dismiss pull-right">Cancel</button>
+						<button type="button" id="btn_quarterly_save_resource2" class="btn btn-success btn-sm">
+		              		<b>Update Resource</b>
+		              		<i id="quarterly_resource_spinner2" class="fa fa-spinner fa-spin" style="margin-left: 5px; display: none"></i>
+		              	</button>
+		          	</div>
+		      		<div class="clearfix"></div>-->
+		      	</form>
+			</div>
+		</section>
+	</div>
+
+
+
+<!-- Edit Challenges -->	
+	<div id="modalEditChallenges" class="modal-block modal-block-primary mfp-hide">
+		<section class="panel">
+			<header class="panel-heading">
+				<h2 class="panel-title"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit Major Challenges</h2>
+			</header>
+			<div class="panel-body">
+				<form id="frm_modal_edit_challenges" class="mb-lg" novalidate="novalidate">
+               		<div class="alert alert-danger block-inner" style="display: none;" id="div_biweekly_challenges_error"></div>
+               		<div class="alert alert-success block-inner" style="display: none;" id="div_biweekly_challenges_success"></div>
+
+					<input type="hidden" name="biweekly_challenge_id2" id="biweekly_challenge_id2" />
+					<div class="form-group">
+						<label class="control-label">Milestone <span class="required">*</span></label>
+				        <select data-plugin-selectTwo class="form-control" id="biweekly_challenges_milestone_id2" name="biweekly_challenges_milestone_id2">
+				        	<option value="">Select Milestone</option> 
+				            <?php foreach($milestones as $row): ?>
+				            	<option value="<?php echo $row->milestone_id; ?>" ><?php echo $row->milestone_name; ?></option>
+				            <?php endforeach; ?>                       
+				     	</select> 
+					</div>
+					<div class="clearfix"></div>
+					<div class="form-group">
+						<label class="control-label">Enter challenges</label>
+						<div class="">
+							<textarea class="ckeditor form-control" name="biweekly_challenges2" id="biweekly_challenges2"></textarea>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<hr>
+					<div class="clearfix"></div>
+					<div class="form-group col-md-12">
+		         		<button class="btn btn-sm btn-danger modal-dismiss pull-right">Cancel</button>					
+						<button type="button" id="btn_biweekly_save_challenges2" class="btn btn-success btn-sm">
+		            		 <b>Update Major Challenges</b><i id="biweekly_challenges_spinner2" class="fa fa-spinner fa-spin" style="margin-left: 5px; display: none"></i>
+		              	</button>
+		         	</div>
+		            <div class="clearfix"></div>
+		      	</form>
+			</div>
+		</section>
+	</div>
+
+	<!-- Edit Events -->	
+	<div id="modalEditEvents" class="modal-block modal-block-primary mfp-hide">
+		<section class="panel">
+			<header class="panel-heading">
+				<h2 class="panel-title"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit Major Events</h2>
+			</header>
+			<div class="panel-body">
+				<form id="frm_modal_edit_events" class="mb-lg" novalidate="novalidate">
+               		<div class="alert alert-danger block-inner" style="display: none;" id="div_biweekly_events_error"></div>
+               		<div class="alert alert-success block-inner" style="display: none;" id="div_biweekly_events_success"></div>
+
+					<input type="hidden" name="biweekly_event_id2" id="biweekly_event_id2" />
+					<div class="form-group">
+						<label class="control-label">Milestone <span class="required">*</span></label>
+				        <select data-plugin-selectTwo class="form-control" id="biweekly_events_milestone_id2" name="biweekly_events_milestone_id2">
+				        	<option value="">Select Milestone</option> 
+				            <?php foreach($milestones as $row): ?>
+				            	<option value="<?php echo $row->milestone_id; ?>" ><?php echo $row->milestone_name; ?></option>
+				            <?php endforeach; ?>                       
+				     	</select> 
+					</div>
+					<div class="clearfix"></div>
+					<div class="form-group">
+						<label class="control-label">Enter events</label>
+						<div class="">
+							<textarea class="ckeditor form-control" name="biweekly_events2" id="biweekly_events2"></textarea>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<hr>
+					<div class="clearfix"></div>
+					<div class="form-group col-md-12">
+		         		<button class="btn btn-sm btn-danger modal-dismiss pull-right">Cancel</button>					
+						<button type="button" id="btn_biweekly_save_events2" class="btn btn-success btn-sm">
+		            		 <b>Update Major Events</b><i id="biweekly_events_spinner2" class="fa fa-spinner fa-spin" style="margin-left: 5px; display: none"></i>
+		              	</button>
+		         	</div>
+		            <div class="clearfix"></div>
+		      	</form>
+			</div>
+		</section>
+	</div>
+
+	<!-- Edit aActivities -->	
+	<div id="modalEditActivities" class="modal-block modal-block-primary mfp-hide">
+		<section class="panel">
+			<header class="panel-heading">
+				<h2 class="panel-title"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Edit Major activities</h2>
+			</header>
+			<div class="panel-body">
+				<form id="frm_modal_edit_activities" class="mb-lg" novalidate="novalidate">
+               		<div class="alert alert-danger block-inner" style="display: none;" id="div_biweekly_activities_error"></div>
+               		<div class="alert alert-success block-inner" style="display: none;" id="div_biweekly_activities_success"></div>
+
+					<input type="hidden" name="biweekly_activity_id2" id="biweekly_activity_id2" />
+					<div class="form-group">
+						<label class="control-label">Milestone <span class="required">*</span></label>
+				        <select data-plugin-selectTwo class="form-control" id="biweekly_activities_milestone_id2" name="biweekly_activities_milestone_id2">
+				        	<option value="">Select Milestone</option> 
+				            <?php foreach($milestones as $row): ?>
+				            	<option value="<?php echo $row->milestone_id; ?>" ><?php echo $row->milestone_name; ?></option>
+				            <?php endforeach; ?>                       
+				     	</select> 
+					</div>
+					<div class="clearfix"></div>
+					<div class="form-group">
+						<label class="control-label">Enter activities</label>
+						<div class="">
+							<textarea class="ckeditor form-control" name="biweekly_activities2" id="biweekly_activities2"></textarea>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<hr>
+					<div class="clearfix"></div>
+					<div class="form-group col-md-12">
+		         		<button class="btn btn-sm btn-danger modal-dismiss pull-right">Cancel</button>					
+						<button type="button" id="btn_biweekly_save_activities2" class="btn btn-success btn-sm">
+		            		 <b>Update Activities</b><i id="biweekly_activities_spinner2" class="fa fa-spinner fa-spin" style="margin-left: 5px; display: none"></i>
+		              	</button>
+		         	</div>
+		            <div class="clearfix"></div>
+		      	</form>
+			</div>
+		</section>
+	</div>
+
+
+
+
+

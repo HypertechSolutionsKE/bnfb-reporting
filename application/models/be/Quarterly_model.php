@@ -4,12 +4,18 @@ class Quarterly_model extends CI_Model {
 	function get_reports_list(){
 		$this->db->from('quarterly_reports');
 		$this->db->join('system_users', 'quarterly_reports.system_user_id = system_users.system_user_id', 'left outer');
+		$this->db->join('implementors', 'quarterly_reports.quarterly_implementor_id = implementors.implementor_id', 'left outer');
+		$this->db->join('project_purpose', 'quarterly_reports.quarterly_project_purpose_id = project_purpose.project_purpose_id', 'left outer');
+
 		$this->db->where( array('quarterly_reports.is_deleted'=>0));
 		$this->db->where( array('quarterly_reports.is_submitted'=>1));		
 		return $this->db->get()->result();
 	}
 	function get_num_pending_reports(){
 		$this->db->from('quarterly_reports');
+		$this->db->join('implementors', 'quarterly_reports.quarterly_implementor_id = implementors.implementor_id', 'left outer');
+		$this->db->join('project_purpose', 'quarterly_reports.quarterly_project_purpose_id = project_purpose.project_purpose_id', 'left outer');
+
 		$this->db->where( array('quarterly_reports.is_deleted'=>0));
 		$this->db->where( array('quarterly_reports.is_submitted'=>0));
 		$this->db->where( array('quarterly_reports.system_user_id'=>$this->session->userdata('user_id')));		
@@ -17,6 +23,9 @@ class Quarterly_model extends CI_Model {
 	}
 	function get_pending_reports(){
 		$this->db->from('quarterly_reports');
+		$this->db->join('implementors', 'quarterly_reports.quarterly_implementor_id = implementors.implementor_id', 'left outer');
+		$this->db->join('project_purpose', 'quarterly_reports.quarterly_project_purpose_id = project_purpose.project_purpose_id', 'left outer');
+
 		$this->db->where( array('quarterly_reports.is_deleted'=>0));
 		$this->db->where( array('quarterly_reports.is_submitted'=>0));
 		$this->db->where( array('quarterly_reports.system_user_id'=>$this->session->userdata('user_id')));		
@@ -181,17 +190,19 @@ class Quarterly_model extends CI_Model {
 
 	}
 	function save_project_objective($data){
-		$err = '';
+
+		$insert = $this->db->insert('quarterly_objectives', $data);		
+		/*$err = '';
 		$err2 = '';
 
 		$insert = $this->db->insert('quarterly_objectives', $data);
-		$insert_id = $this->db->insert_id();
+		$insert_id = $this->db->insert_id();*/
 
 		if ($insert){
-			$q = $this->save_intermediate_results($insert_id);
-			$arr_return = array('res' => true,'dt' => 'Report Objective saved successfully.');
+			//$q = $this->save_intermediate_results($insert_id);
+			$arr_return = array('res' => true,'dt' => 'Objective saved successfully.');
 		}else{
-			$arr_return = array('res' => false,'dt' => 'Could not save Report Objective successfully. Please try again.');
+			$arr_return = array('res' => false,'dt' => 'Could not save Objective successfully. Please try again.');
 		}
 		return $arr_return;
 
@@ -217,33 +228,49 @@ class Quarterly_model extends CI_Model {
 
 
 	function get_quarterly_report($quarterly_report_id){
-		$this->db->select('quarterly_reports.*, system_users.*, COUNT(quarterly_intermediate_results.quarterly_intermediate_result_id) as num_objectives')
+		$this->db->select('quarterly_reports.*, system_users.*, project_purpose.*, COUNT(quarterly_intermediate_results.quarterly_intermediate_result_id) as num_objectives')
          ->from('quarterly_reports');
 		$this->db->join('quarterly_intermediate_results', 'quarterly_reports.quarterly_report_id = quarterly_intermediate_results.quarterly_report_id', 'left outer');
-		$this->db->join('system_users', 'quarterly_reports.system_user_id = system_users.system_user_id', 'left outer');		
+		$this->db->join('system_users', 'quarterly_reports.system_user_id = system_users.system_user_id', 'left outer');
+		$this->db->join('implementors', 'quarterly_reports.quarterly_implementor_id = implementors.implementor_id', 'left outer');
+		$this->db->join('project_purpose', 'quarterly_reports.quarterly_project_purpose_id = project_purpose.project_purpose_id', 'left outer');
+
+
 		$this->db->where( array('quarterly_reports.quarterly_report_id'=>$quarterly_report_id));
 		$this->db->where( array('quarterly_intermediate_results.is_deleted'=>0));		
 		return $this->db->get()->result();
 	}
 	// OBJECTIVES
 	function get_quarterly_objectives($quarterly_report_id){
-		$this->db->select('quarterly_objectives.*, COUNT(quarterly_intermediate_results.quarterly_intermediate_result_id) as num_intermediate_results')
-         ->from('quarterly_objectives');
-		$this->db->join('quarterly_intermediate_results', 'quarterly_objectives.quarterly_objective_id = quarterly_intermediate_results.quarterly_objective_id', 'left outer');
-		$this->db->group_by('quarterly_objectives.quarterly_objective_id'); 
+		/*$this->db->select('quarterly_objectives.*, COUNT(quarterly_intermediate_results.quarterly_intermediate_result_id) as num_intermediate_results')
+         ->from('quarterly_objectives');*/
+		$this->db->from('quarterly_objectives');
+
+		$this->db->join('project_objectives', 'project_objectives.project_objective_id = quarterly_objectives.quarterly_project_objective_id', 'left outer');
+		$this->db->join('intermediate_results', 'quarterly_objectives.quarterly_intermediate_result_id = intermediate_results.intermediate_result_id', 'left outer');
+		$this->db->join('countries', 'countries.country_id = quarterly_objectives.quarterly_country_id', 'left outer');
+		$this->db->join('thematic_areas', 'thematic_areas.thematic_area_id = quarterly_objectives.quarterly_thematic_area_id', 'left outer');
+		$this->db->join('milestones', 'milestones.milestone_id = quarterly_objectives.quarterly_milestone_id', 'left outer');
+
+		//$this->db->group_by('quarterly_objectives.quarterly_objective_id'); 
 		$this->db->where( array('quarterly_objectives.quarterly_report_id'=>$quarterly_report_id));
 		$this->db->where( array('quarterly_objectives.is_deleted'=>0));	
-		$this->db->where( array('quarterly_intermediate_results.is_deleted'=>0));
+		//$this->db->where( array('quarterly_intermediate_results.is_deleted'=>0));
 		return $this->db->get()->result();
 	}
 	function get_quarterly_num_objectives($quarterly_report_id){
-		$this->db->select('quarterly_objectives.*, COUNT(quarterly_intermediate_results.quarterly_intermediate_result_id) as num_intermediate_results')
-         ->from('quarterly_objectives');
-		$this->db->join('quarterly_intermediate_results', 'quarterly_objectives.quarterly_objective_id = quarterly_intermediate_results.quarterly_objective_id', 'left outer');
-		$this->db->group_by('quarterly_objectives.quarterly_objective_id'); 		
+		$this->db->from('quarterly_objectives');
+
+		$this->db->join('project_objectives', 'project_objectives.project_objective_id = quarterly_objectives.quarterly_project_objective_id', 'left outer');
+		$this->db->join('intermediate_results', 'quarterly_objectives.quarterly_intermediate_result_id = intermediate_results.intermediate_result_id', 'left outer');
+		$this->db->join('countries', 'countries.country_id = quarterly_objectives.quarterly_country_id', 'left outer');
+		$this->db->join('thematic_areas', 'thematic_areas.thematic_area_id = quarterly_objectives.quarterly_thematic_area_id', 'left outer');
+		$this->db->join('milestones', 'milestones.milestone_id = quarterly_objectives.quarterly_milestone_id', 'left outer');
+
+		//$this->db->group_by('quarterly_objectives.quarterly_objective_id'); 
 		$this->db->where( array('quarterly_objectives.quarterly_report_id'=>$quarterly_report_id));
 		$this->db->where( array('quarterly_objectives.is_deleted'=>0));	
-		$this->db->where( array('quarterly_intermediate_results.is_deleted'=>0));
+		//$this->db->where( array('quarterly_intermediate_results.is_deleted'=>0));
 		return $this->db->count_all_results();
 	}
 	//INTERMEDIATE RESULTS
@@ -265,31 +292,47 @@ class Quarterly_model extends CI_Model {
 	// RESOURCES
 	function get_quarterly_resources($quarterly_report_id){
 		$this->db->from('quarterly_resources');
-		$this->db->join('implementor_types', 'implementor_types.implementor_type_id=quarterly_resources.implementor_type_id');
+		$this->db->join('implementors', 'implementors.implementor_id=quarterly_resources.implementor_id');
 		$this->db->where( array('quarterly_report_id'=>$quarterly_report_id));
 		$this->db->where( array('quarterly_resources.is_deleted'=>0));		
 		return $this->db->get()->result();		
 	}
 	function get_quarterly_num_resources($quarterly_report_id){
 		$this->db->from('quarterly_resources');
-		$this->db->join('implementor_types', 'implementor_types.implementor_type_id=quarterly_resources.implementor_type_id');
+		$this->db->join('implementors', 'implementors.implementor_id=quarterly_resources.implementor_id');
 		$this->db->where( array('quarterly_report_id'=>$quarterly_report_id));
 		$this->db->where( array('quarterly_resources.is_deleted'=>0));		
 		return $this->db->count_all_results();
 	}
 	//PLANNED DELIVERABLES
 	function get_quarterly_deliverables($quarterly_report_id){
-		$this->db->from('quarterly_deliverables');
-		$this->db->join('implementor_types', 'implementor_types.implementor_type_id=quarterly_deliverables.implementor_type_id');
+		/*$this->db->from('quarterly_deliverables');
 		$this->db->where( array('quarterly_report_id'=>$quarterly_report_id));
-		$this->db->where( array('quarterly_deliverables.is_deleted'=>0));		
+		$this->db->where( array('quarterly_deliverables.is_deleted'=>0));*/
+
+		$this->db->from('quarterly_deliverables');
+
+		$this->db->join('project_objectives', 'project_objectives.project_objective_id = quarterly_deliverables.quarterly_deliverable_project_objective_id', 'left outer');
+		$this->db->join('intermediate_results', 'quarterly_deliverables.quarterly_deliverable_intermediate_result_id = intermediate_results.intermediate_result_id', 'left outer');
+		$this->db->join('countries', 'countries.country_id = quarterly_deliverables.quarterly_deliverable_country_id', 'left outer');
+		$this->db->join('thematic_areas', 'thematic_areas.thematic_area_id = quarterly_deliverables.quarterly_deliverable_thematic_area_id', 'left outer');
+		$this->db->join('milestones', 'milestones.milestone_id = quarterly_deliverables.quarterly_deliverable_milestone_id', 'left outer');
+
+		$this->db->where( array('quarterly_deliverables.quarterly_report_id'=>$quarterly_report_id));
+		$this->db->where( array('quarterly_deliverables.is_deleted'=>0));	
+
+
+
 		return $this->db->get()->result();		
 	}
 	function get_quarterly_num_deliverables($quarterly_report_id){
 		$this->db->from('quarterly_deliverables');
-		$this->db->join('implementor_types', 'implementor_types.implementor_type_id=quarterly_deliverables.implementor_type_id');
-		$this->db->where( array('quarterly_report_id'=>$quarterly_report_id));
-		$this->db->where( array('quarterly_deliverables.is_deleted'=>0));		
+
+		$this->db->join('project_objectives', 'project_objectives.project_objective_id = quarterly_deliverables.quarterly_deliverable_project_objective_id', 'left outer');
+		$this->db->join('intermediate_results', 'quarterly_deliverables.quarterly_deliverable_intermediate_result_id = intermediate_results.intermediate_result_id', 'left outer');
+		$this->db->join('countries', 'countries.country_id = quarterly_deliverables.quarterly_deliverable_country_id', 'left outer');
+		$this->db->join('thematic_areas', 'thematic_areas.thematic_area_id = quarterly_deliverables.quarterly_deliverable_thematic_area_id', 'left outer');
+		$this->db->join('milestones', 'milestones.milestone_id = quarterly_deliverables.quarterly_deliverable_milestone_id', 'left outer');
 		return $this->db->count_all_results();
 	}
 	//MANAGEMENT ISSUES

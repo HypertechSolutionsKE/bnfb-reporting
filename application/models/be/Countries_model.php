@@ -9,9 +9,9 @@ class Countries_model extends CI_Model {
 	function save($data){
 		$insert = $this->db->insert('countries', $data);
 		if ($insert){
-			$arr_return = array('res' => true,'dt' => 'Country added successfully.');
+			$arr_return = array('res' => true,'dt' => 'Country/Region added successfully.');
 		}else{
-			$arr_return = array('res' => false,'dt' => 'Could not add Country successfully. Please try again.');
+			$arr_return = array('res' => false,'dt' => 'Could not add Country/Region successfully. Please try again.');
 		}
 		return $arr_return;
 	}
@@ -43,9 +43,9 @@ class Countries_model extends CI_Model {
 		$this->db->where(array('country_id'=>$country_id));
 		$update = $this->db->update('countries', $data);
 		if ($update){
-			$arr_return = array('res' => true,'dt' => 'Country updated successfully.');
+			$arr_return = array('res' => true,'dt' => 'Country/Region updated successfully.');
 		}else{
-			$arr_return = array('res' => false,'dt' => 'Could not update Country successfully. Please try again.');
+			$arr_return = array('res' => false,'dt' => 'Could not update Country/Region successfully. Please try again.');
 		}
 		return $arr_return;
 	}
@@ -57,9 +57,9 @@ class Countries_model extends CI_Model {
 		$delupdate = $this->db->update('countries', $data);
 		
 		if ($delupdate){
-			$arr_return = array('res' => true,'dt'=>'Country deleted successfully');
+			$arr_return = array('res' => true,'dt'=>'Country/Region deleted successfully');
 		}else{
-			$arr_return = array('res' => false,'dt' => 'Error deleting Country');
+			$arr_return = array('res' => false,'dt' => 'Error deleting Country/Region');
 		}
 		return $arr_return;
 	}

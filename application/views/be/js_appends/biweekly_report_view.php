@@ -9,7 +9,7 @@
 																				<h3 class="h3 mt-none text-dark text-weight-bold text-center">Building Nutritious Food Baskets Project</h3>
 																			</div>
 																			<div class="col-sm-12 mt-md mb-lg">
-																				<img class="img-center img-report-logo" src="<?php echo base_url(); ?>assets/be/images/cip-logo.jpg" alt=""/>					
+																				<img class="img-center img-report-logo" src="<?php echo base_url(); ?>assets/be/images/bnfb-logo.png" alt=""/>					
 																			</div>
 																			<div class="col-sm-12 mt-md mb-md">
 																				<h4 class="h4 m-none text-dark text-weight-bold text-center"><?php echo $row->biweekly_report_title; ?></h4>
@@ -29,15 +29,15 @@
 																		<div class="row">
 																			<div class="col-md-12">
 																				<div class="bill-to">
-																					<h4 class="h4 mb-md text-dark text-weight-bold">1. Report Summary</h4>
+																					<!--<h4 class="h4 mb-md text-dark text-weight-bold">1. Report Summary</h4>
 																					<div class="clearfix"></div>
 																					<?php echo $row->biweekly_report_summary; ?>
 																					<hr>
 																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">2. Report Remark</h4>
 																					<div class="clearfix"></div>
 																					<?php echo $row->biweekly_report_remark; ?>
-																					<hr>
-																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">3. Accomplishments from the Reporting Period (<?php echo $row->biweekly_period_from . ' - ' . $row->biweekly_period_to; ?>)</h4>
+																					<hr>-->
+																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">1. Accomplishments from the Reporting Period (<?php echo $row->biweekly_period_from . ' - ' . $row->biweekly_period_to; ?>)</h4>
 																					<div class="clearfix"></div>
 																					<table class="table table-bordered">
 																						<thead>
@@ -57,7 +57,7 @@
 																					</table>
 																					<div class="clearfix"></div>
 																					<hr>
-																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">4. What are the major challenges you are facing?</h4>
+																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">2. What are the major challenges you are facing?</h4>
 																					<div class="clearfix"></div>
 																					<table class="table table-bordered">
 																						<thead>
@@ -77,7 +77,7 @@
 																					</table>
 																					<div class="clearfix"></div>
 																					<hr>
-																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">5. Any major events planned for the next two months?</h4>
+																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">3. Any major events planned for the next two months?</h4>
 																					<div class="clearfix"></div>
 																					<table class="table table-bordered">
 																						<thead>
@@ -97,7 +97,7 @@
 																					</table>
 																					<div class="clearfix"></div>
 																					<hr>
-																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">6. What are the major five things your team will undertake in the next two months?</h4>
+																					<h4 class="h4 mt-lg mb-md text-dark text-weight-bold">4. What are the major five things your team will undertake in the next two months?</h4>
 																					<div class="clearfix"></div>
 																					<table class="table table-bordered">
 																						<thead>

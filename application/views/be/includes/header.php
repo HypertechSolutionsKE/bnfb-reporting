@@ -65,7 +65,7 @@
 			<header class="header header-nav-menu header-nav-top-line">
 				<div class="logo-container">
 					<a href="<?php echo base_url(); ?>be" class="logo">
-						<img src="<?php echo base_url(); ?>assets/be/images/cip-logo.jpg" width="75" height="35" alt="BNFB" />
+						<img src="<?php echo base_url(); ?>assets/be/images/bnfb-logo.png" height="35" alt="BNFB" />
 					</a>
 					<button class="btn header-btn-collapse-nav hidden-md hidden-lg" data-toggle="collapse" data-target=".header-nav">
 						<i class="fa fa-bars"></i>
@@ -80,23 +80,40 @@
 										<a href="<?php echo base_url(); ?>be">Dashboard</a>
 									</li>
 									<li class="dropdown <?php if ($cur == 'Biweekly'){echo 'active'; } ?>">
-										<a href="#" class="dropdown-toggle">Bi-Weekly Reports</a>
+										<a href="#" class="dropdown-toggle">Bi-Weekly</a>
 										<ul class="dropdown-menu">
 											<li><a href="<?php echo base_url(); ?>be/biweekly/create">Create New Report</a></li>
 											<li><a href="<?php echo base_url(); ?>be/biweekly">Reports List</a></li>
-											<li><a href="<?php echo base_url(); ?>be/biweekly/summary">Generate Report Summary</a></li>
+											<li><a href="<?php echo base_url(); ?>be/biweekly/consolidated">Generate Consolidated Report</a></li>
 										</ul>
 									</li>
 									<li class="dropdown <?php if ($cur == 'Quarterly'){echo 'active'; } ?>">
-										<a href="#" class="dropdown-toggle">Quarterly Reports</a>
+										<a href="#" class="dropdown-toggle">Quarterly</a>
 										<ul class="dropdown-menu">
 											<li><a href="<?php echo base_url(); ?>be/quarterly/create">Create New Report</a></li>
 											<li><a href="<?php echo base_url(); ?>be/quarterly">Reports List</a></li>
 											<!--<li><a href="<?php echo base_url(); ?>be/quarterly/summary">Generate Report Summary</a></li>-->
 										</ul>
 									</li>
-									<li class="<?php if ($cur == 'Training Sessions'){echo 'active'; } ?>">
-										<a href="<?php echo base_url(); ?>be/training_sessions">Training Sessions</a>
+									<li class="dropdown <?php if ($cur == 'Bi-Annual'){echo 'active'; } ?>">
+										<a href="#" class="dropdown-toggle">Bi-Annual</a>
+										<ul class="dropdown-menu">
+											<li><a href="<?php echo base_url(); ?>be/biannual/create">Create New Report</a></li>
+											<li><a href="<?php echo base_url(); ?>be/biannual">Reports List</a></li>
+											<!--<li><a href="<?php echo base_url(); ?>be/quarterly/summary">Generate Report Summary</a></li>-->
+										</ul>
+									</li>
+									<li class="dropdown <?php if ($cur == 'Annual'){echo 'active'; } ?>">
+										<a href="#" class="dropdown-toggle">Annual</a>
+										<ul class="dropdown-menu">
+											<li><a href="<?php echo base_url(); ?>be/annual/create">Create New Report</a></li>
+											<li><a href="<?php echo base_url(); ?>be/annual">Reports List</a></li>
+											<!--<li><a href="<?php echo base_url(); ?>be/quarterly/summary">Generate Report Summary</a></li>-->
+										</ul>
+									</li>
+
+									<li class="<?php if ($cur == 'Outcomes'){echo 'active'; } ?>">
+										<a href="<?php echo base_url(); ?>be/outcomes">Outputs/Outcomes</a>
 									</li>
 									<li class="<?php if ($cur == 'Performance Dashboard'){echo 'active'; } ?>">
 										<a href="<?php echo base_url(); ?>be/performance_dashboard">Performance Dashboard</a>
@@ -104,15 +121,23 @@
 									<li class="dropdown <?php if ($cur == 'Settings'){echo 'active'; } ?>">
 										<a href="#" class="dropdown-toggle">Settings</a>
 										<ul class="dropdown-menu">
-											<li><a href="<?php echo base_url(); ?>be/milestones">Milestones</a></li>
-											<li><a href="<?php echo base_url(); ?>be/indicators">Indicators</a></li>
-											<li><a href="<?php echo base_url(); ?>be/implementor_types">Implementor Types</a></li>											
-											<li><a href="<?php echo base_url(); ?>be/implementors">Implementors</a></li>
-											<li><a href="<?php echo base_url(); ?>be/intermediate_results">Intermediate Results</a></li>
+											<li><a href="<?php echo base_url(); ?>be/project_purpose"><i class="fa fa-caret-right"></i> Project Purpose</a></li>
+											<li><a href="<?php echo base_url(); ?>be/project_objectives"><i class="fa fa-caret-right"></i> Project Objectives</a></li>
+											<li><a href="<?php echo base_url(); ?>be/implementor_types"><i class="fa fa-caret-right"></i> Implementor Types</a></li>					
+											<li><a href="<?php echo base_url(); ?>be/implementors"><i class="fa fa-caret-right"></i> Implementors</a></li>
 
-											<li><a href="<?php echo base_url(); ?>be/countries">Countries</a></li>
-											<li><a href="<?php echo base_url(); ?>be/user_titles">User Titles</a></li>
-											<li><a href="<?php echo base_url(); ?>be/system_users">System Users</a></li>
+											<li><a href="<?php echo base_url(); ?>be/indicators"><i class="fa fa-caret-right"></i> Indicators</a></li>
+											<li><a href="<?php echo base_url(); ?>be/milestones"><i class="fa fa-caret-right"></i> Milestones</a></li>
+											<li><a href="<?php echo base_url(); ?>be/thematic_areas"><i class="fa fa-caret-right"></i> Thematic Areas</a></li>
+											<li><a href="<?php echo base_url(); ?>be/intermediate_results"><i class="fa fa-caret-right"></i> Intermediate Results</a></li>
+											<li><a href="<?php echo base_url(); ?>be/trainings"><i class="fa fa-caret-right"></i> Trainings</a></li>					
+											<li><a href="<?php echo base_url(); ?>be/disaggregation_levels"><i class="fa fa-caret-right"></i> Disaggregation Levels</a></li>
+											<li><a href="<?php echo base_url(); ?>be/countries"><i class="fa fa-caret-right"></i> Countries/Regions</a></li>
+											<li><a href="<?php echo base_url(); ?>be/districts"><i class="fa fa-caret-right"></i> Districts/Provinces</a></li>
+											<li><a href="<?php echo base_url(); ?>be/crops"><i class="fa fa-caret-right"></i> Crops</a></li>
+
+											<li><a href="<?php echo base_url(); ?>be/user_titles"><i class="fa fa-caret-right"></i> User Titles</a></li>
+											<li><a href="<?php echo base_url(); ?>be/system_users"><i class="fa fa-caret-right"></i> System Users</a></li>
 										</ul>
 									</li>
 
@@ -130,7 +155,7 @@
 					<div id="userbox" class="userbox">
 						<a href="#" data-toggle="dropdown">
 							<figure class="profile-picture">
-								<img src="<?php echo base_url();?>assets/be/images/logged-user.jpg" alt="Joseph Doe" class="img-circle" data-lock-picture="<?php echo base_url();?>assets/be/images/logged-user.jpg" />
+								<img src="<?php echo base_url();?>assets/be/images/default-user.png" alt="" class="img-circle" data-lock-picture="<?php echo base_url();?>assets/be/images/default-user.png" />
 							</figure>
 							<div class="profile-info" data-lock-name="<?php echo $this->session->userdata('user_name'); ?>" data-lock-email="<?php echo $this->session->userdata('user_email'); ?>">
 								<span class="name"><?php echo $this->session->userdata('user_name'); ?></span>

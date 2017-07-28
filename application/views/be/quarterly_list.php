@@ -59,7 +59,7 @@
 									<table class="table table-bordered table-striped mb-none" id="datatable-tabletools" data-swf-path="<?php echo base_url(); ?>assets/be/vendor/jquery-datatables/extras/TableTools/swf/copy_csv_xls_pdf.swf">
 										<thead>
 											<tr>
-												<th>Report Title</th>
+												<th>Partner</th>
 												<th>Report Period</th>
 												<th>Report Owner</th>
 												<th>Submission Date</th>
@@ -68,14 +68,18 @@
 										</thead>
 										<tbody>
 											<?php foreach($quarterly_reports as $row): ?>
-												<tr>
-													<td><b><?php echo $row->quarterly_report_title; ?></b></td>
+												<?php if ($row->system_user_id == $this->session->userdata('user_id')): ?>
+													<tr class="tr-success">
+												<?php else: ?>
+													<tr>
+												<?php endif; ?>
+													<td><b><?php echo $row->implementor_name; ?></b></td>
 													<td><?php echo $row->quarterly_period_from . ' - ' . $row->quarterly_period_to; ?></td>
 													<td><?php echo $row->first_name . ' ' . $row->last_name; ?></td>
 													<td><?php echo date('M j Y g:i A', strtotime($row->created_on)); ?></td>
 													<td class="center">
 														<a href="<?php echo base_url(); ?>be/quarterly/view/<?php echo  $row->quarterly_report_id; ?>" class="on-default edit-row badge btn-info" data-toggle="tooltip" data-placement="top" title="View Quarterly Report"><i class="fa fa-eye"></i></a>
-														<?php if ($row->system_user_id == $this->session->userdata('user_id') || $this->session->userdata('is_admin') == 1): ?>
+														<?php if ($this->session->userdata('is_admin') == 1): ?>
 															<a href="<?php echo base_url(); ?>be/quarterly/edit/<?php echo  $row->quarterly_report_id; ?>" class="on-default edit-row badge btn-success" data-toggle="tooltip" data-placement="top" title="Edit Quarterly Report"><i class="fa fa-pencil"></i></a>
 															<a onClick="javascript:return confirm('Do you really wish to delete this Quarterly Report?');" href="<?php echo base_url(); ?>be/quarterly/delete/<?php echo  $row->quarterly_report_id; ?>" class="on-default remove-row badge btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Quarterly Report"><i class="fa fa-trash-o"></i></a>
 														<?php endif; ?>											
